@@ -73,11 +73,11 @@
             "id": "packageName",
             "type": "pickString",
             "description": "Select a package to build",
-            "default": "atproto-lib",
+            "default": "atprotolib-rs",
             "options": [
 				{
-					"label": "atproto-lib",
-					"value": "atproto-lib"
+					"label": "atprotolib-rs",
+					"value": "atprotolib-rs"
 				}
             ]
         },
