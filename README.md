@@ -1,4 +1,4 @@
-# `atprotolib-rs` [![Build status](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml) [![MIT license](https://badgen.net/static/License/MIT/blue)](./LICENSE)
+# `atprotolib-rs` [![GitHub build status](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml) [![Forgejo build status](https://git.smalls.online/smalls/atprotolib-rs/badges/workflows/build.yml/badge.svg?branch=main)](https://git.smalls.online/smalls/atprotolib-rs/actions?workflow=build.yml) [![MIT license](https://badgen.net/static/License/MIT/blue)](./LICENSE)
 
 > [!WARNING]
 > This is a work in progress and is not yet ready for use.
