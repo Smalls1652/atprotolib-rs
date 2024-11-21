@@ -1,0 +1,13 @@
+[package]
+name = "atprotolib-rs"
+version = "0.1.0"
+edition = "2021"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license-file.workspace = true
+
+[dependencies]
+chrono = { version = "0.4.38", features = ["serde"] }
+serde = { version = "1.0.215", features = ["derive"] }
+serde_json = "1.0.133"
