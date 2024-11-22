@@ -25,6 +25,6 @@ pub struct DescribeRepoResponse {
     pub did_doc: serde_json::Value,
     #[serde(rename = "collections")]
     pub collections: Vec<String>,
-    #[serde(rename = "handleIsCorrect")]
+    #[serde(rename = "handleIsCorrect", default)]
     pub handle_is_correct: bool
 }

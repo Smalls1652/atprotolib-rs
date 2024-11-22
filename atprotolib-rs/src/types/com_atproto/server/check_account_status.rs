@@ -10,11 +10,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct CheckAccountStatusResponse {
     /// Whether the account is activated.
-    #[serde(rename = "activated")]
+    #[serde(rename = "activated", default)]
     pub activated: bool,
 
     /// Whether the account's DID is valid.
-    #[serde(rename = "validDid")]
+    #[serde(rename = "validDid", default)]
     pub valid_did: bool,
 
     #[serde(rename = "repoCommit")]

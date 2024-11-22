@@ -54,7 +54,7 @@ pub struct Notification {
     pub reason_subject: Option<String>,
     #[serde(rename = "record")]
     pub record: serde_json::Value,
-    #[serde(rename = "isRead")]
+    #[serde(rename = "isRead", default)]
     pub is_read: bool,
     #[serde(rename = "indexedAt")]
     pub indexed_at: DateTime<Utc>,

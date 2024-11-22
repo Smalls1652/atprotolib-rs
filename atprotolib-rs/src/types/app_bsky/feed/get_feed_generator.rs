@@ -19,8 +19,8 @@ use super::defs::GeneratorView;
 pub struct GetFeedGeneratorResponse {
     #[serde(rename = "view")]
     pub view: GeneratorView,
-    #[serde(rename = "isOnline")]
+    #[serde(rename = "isOnline", default)]
     pub is_online: bool,
-    #[serde(rename = "isValid")]
+    #[serde(rename = "isValid", default)]
     pub is_valid: bool,
 }

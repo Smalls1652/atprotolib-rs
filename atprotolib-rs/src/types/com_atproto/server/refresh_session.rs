@@ -21,7 +21,7 @@ pub struct RefreshSessionRequest {
     #[serde(rename = "did")]
     pub did: String,
 
-    #[serde(rename = "active")]
+    #[serde(rename = "active", default)]
     pub active: bool,
 
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]

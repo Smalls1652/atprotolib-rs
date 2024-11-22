@@ -28,7 +28,7 @@ pub struct Label {
     pub cid: Option<String>,
     #[serde(rename = "val")]
     pub val: String,
-    #[serde(rename = "neg")]
+    #[serde(rename = "neg", default)]
     pub neg: bool,
     #[serde(rename = "cts")]
     pub cts: String,
@@ -89,7 +89,7 @@ pub struct LabelValueDefinition {
     pub blurs: String,
     #[serde(rename = "defaultSetting", skip_serializing_if = "Option::is_none")]
     pub default_setting: Option<String>,
-    #[serde(rename = "adultOnly")]
+    #[serde(rename = "adultOnly", default)]
     pub adult_only: bool,
     #[serde(rename = "locales")]
     pub locales: Vec<LabelValueDefinitionStrings>

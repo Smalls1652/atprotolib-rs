@@ -31,7 +31,7 @@ pub struct GetAccountInfoResponse {
     #[serde(rename = "indexedAt")]
     pub indexed_at: DateTime<Utc>,
 
-    #[serde(rename = "invitesDisabled")]
+    #[serde(rename = "invitesDisabled", default)]
     pub invites_disabled: bool,
 
     #[serde(rename = "emailConfirmedAt", skip_serializing_if = "Option::is_none")]

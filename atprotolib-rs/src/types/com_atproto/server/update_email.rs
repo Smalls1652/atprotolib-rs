@@ -12,7 +12,7 @@ pub struct UpdateEmailRequest {
     #[serde(rename = "email")]
     pub email: String,
 
-    #[serde(rename = "emailAuthFactor")]
+    #[serde(rename = "emailAuthFactor", default)]
     pub email_auth_factor: bool,
 
     /// Requires a token from `com.atproto.sever.requestEmailUpdate` if the

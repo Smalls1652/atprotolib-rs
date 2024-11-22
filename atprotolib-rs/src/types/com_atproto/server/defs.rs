@@ -21,7 +21,7 @@ pub struct InviteCode {
     pub code: String,
     #[serde(rename = "available")]
     pub available: i32,
-    #[serde(rename = "disabled")]
+    #[serde(rename = "disabled", default)]
     pub disabled: bool,
     #[serde(rename = "forAccount")]
     pub for_account: String,

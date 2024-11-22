@@ -60,7 +60,7 @@ pub struct GetSubjectStatusBlobResponse {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetSubjectStatusResponseStatus {
-    #[serde(rename = "applied")]
+    #[serde(rename = "applied", default)]
     pub applied: bool,
 
     #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]

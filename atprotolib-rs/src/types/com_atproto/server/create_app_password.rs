@@ -16,7 +16,7 @@ pub struct CreateAppPasswordRequest {
 
     /// If an app password has 'privileged' access to possibly sensitive account
     /// state. Meant for use with trusted clients.
-    #[serde(rename = "privileged")]
+    #[serde(rename = "privileged", default)]
     pub privileged: bool
 }
 
@@ -36,6 +36,6 @@ pub struct CreateAppPasswordResponse {
     #[serde(rename = "createdAt")]
     pub created_at: DateTime<Utc>,
 
-    #[serde(rename = "privileged")]
+    #[serde(rename = "privileged", default)]
     pub privileged: bool
 }

@@ -23,6 +23,6 @@ pub struct ListAppPasswordsResponseAppPassword {
     #[serde(rename = "createdAt")]
     pub created_at: DateTime<Utc>,
 
-    #[serde(rename = "privileged")]
+    #[serde(rename = "privileged", default)]
     pub privileged: bool
 }

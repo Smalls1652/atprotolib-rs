@@ -17,7 +17,7 @@ use serde::{Deserialize, Serialize};
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetUploadLimitsResponse {
-    #[serde(rename = "canUpload")]
+    #[serde(rename = "canUpload", default)]
     pub can_upload: bool,
     #[serde(rename = "remainingDailyVideos")]
     pub remaining_daily_videos: i32,

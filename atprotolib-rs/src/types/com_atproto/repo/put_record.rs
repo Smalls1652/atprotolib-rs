@@ -27,7 +27,7 @@ pub struct PutRecordRequest {
     pub collection: String,
     #[serde(rename = "rkey")]
     pub rkey: String,
-    #[serde(rename = "validate")]
+    #[serde(rename = "validate", default)]
     pub validate: bool,
     #[serde(rename = "record")]
     pub record: serde_json::Value,

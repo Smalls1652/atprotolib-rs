@@ -26,7 +26,7 @@ pub struct CreateRecordRequest {
     pub collection: String,
     #[serde(rename = "rkey", skip_serializing_if = "Option::is_none")]
     pub rkey: Option<String>,
-    #[serde(rename = "validate")]
+    #[serde(rename = "validate", default)]
     pub validate: bool,
     #[serde(rename = "record")]
     pub record: serde_json::Value,

@@ -158,7 +158,7 @@ pub struct ProfileAssociated {
     pub feedgens: i32,
     #[serde(rename = "starterPacks")]
     pub starter_packs: i32,
-    #[serde(rename = "labeler")]
+    #[serde(rename = "labeler", default)]
     pub labeler: bool,
     #[serde(rename = "chat", skip_serializing_if = "Option::is_none")]
     pub chat: Option<ProfileAssociatedChat>
@@ -195,11 +195,11 @@ pub struct ProfileAssociatedChat {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.actor.defs#viewerState")]
 pub struct ViewerState {
-    #[serde(rename = "muted")]
+    #[serde(rename = "muted", default)]
     pub muted: bool,
     #[serde(rename = "mutedByList", skip_serializing_if = "Option::is_none")]
     pub muted_by_list: Option<ListViewBasic>,
-    #[serde(rename = "blockedBy")]
+    #[serde(rename = "blockedBy", default)]
     pub blocked_by: bool,
     #[serde(rename = "blocking")]
     pub blocking: String,
@@ -269,7 +269,7 @@ pub enum PreferencesEnum {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.actor.defs#adultContentPref")]
 pub struct AdultContentPref {
-    #[serde(rename = "enabled")]
+    #[serde(rename = "enabled", default)]
     pub enabled: bool
 }
 
@@ -312,7 +312,7 @@ pub struct SavedFeed {
     pub type_: String,
     #[serde(rename = "value")]
     pub value: String,
-    #[serde(rename = "pinned")]
+    #[serde(rename = "pinned", default)]
     pub pinned: bool
 }
 
@@ -381,15 +381,15 @@ pub struct PersonalDetailsPref {
 pub struct FeedViewPref {
     #[serde(rename = "feed")]
     pub feed: String,
-    #[serde(rename = "hideReplies")]
+    #[serde(rename = "hideReplies", default)]
     pub hide_replies: bool,
-    #[serde(rename = "hideRepliesByUnfollowed")]
+    #[serde(rename = "hideRepliesByUnfollowed", default)]
     pub hide_replies_by_unfollowed: bool,
     #[serde(rename = "hideRepliesByLikeCount")]
     pub hide_replies_by_like_count: i32,
-    #[serde(rename = "hideReposts")]
+    #[serde(rename = "hideReposts", default)]
     pub hide_reposts: bool,
-    #[serde(rename = "hideQuotePosts")]
+    #[serde(rename = "hideQuotePosts", default)]
     pub hide_quote_posts: bool
 }
 
@@ -406,7 +406,7 @@ pub struct FeedViewPref {
 pub struct ThreadViewPref {
     #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
     pub sort: Option<String>,
-    #[serde(rename = "prioritizeFollowedUsers")]
+    #[serde(rename = "prioritizeFollowedUsers", default)]
     pub prioritize_followed_users: bool
 }
 
@@ -555,7 +555,7 @@ pub struct BskyAppProgressGuide {
 pub struct Nux {
     #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "completed")]
+    #[serde(rename = "completed", default)]
     pub completed: bool,
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,

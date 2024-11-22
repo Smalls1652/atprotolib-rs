@@ -39,7 +39,7 @@ pub struct Repo {
     pub head: String,
     #[serde(rename = "rev")]
     pub rev: String,
-    #[serde(rename = "active")]
+    #[serde(rename = "active", default)]
     pub active: bool,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>

@@ -9,10 +9,10 @@ use serde::{Deserialize, Serialize};
 /// [`com.atproto.server.describeServer#responses`](https://docs.bsky.app/docs/api/com-atproto-server-describe-server#responses)
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DescribeServerResponse {
-    #[serde(rename = "inviteCodeRequired")]
+    #[serde(rename = "inviteCodeRequired", default)]
     pub invite_code_required: bool,
 
-    #[serde(rename = "phoneVerificationRequired")]
+    #[serde(rename = "phoneVerificationRequired", default)]
     pub phone_verification_required: bool,
 
     #[serde(rename = "availableUserDomains")]

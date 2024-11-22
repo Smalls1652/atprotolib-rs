@@ -14,7 +14,7 @@ use crate::types::com_atproto::server::InviteCode;
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.admin.defs#statusAttr")]
 pub struct StatusAttr {
-    #[serde(rename = "applied")]
+    #[serde(rename = "applied", default)]
     pub applied: bool,
     #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
     pub reference: Option<String>,
@@ -55,7 +55,7 @@ pub struct AccountView {
     pub invited_by: Option<InviteCode>,
     #[serde(rename = "invites", skip_serializing_if = "Option::is_none")]
     pub invites: Option<Vec<InviteCode>>,
-    #[serde(rename = "invitesDisabled")]
+    #[serde(rename = "invitesDisabled", default)]
     pub invites_disabled: bool,
     #[serde(rename = "emailConfirmedAt", skip_serializing_if = "Option::is_none")]
     pub email_confirmed_at: Option<DateTime<Utc>>,

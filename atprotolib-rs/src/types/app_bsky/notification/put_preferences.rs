@@ -13,6 +13,6 @@ use serde::{Deserialize, Serialize};
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PutPreferencesRequest {
-    #[serde(rename = "priority")]
+    #[serde(rename = "priority", default)]
     pub priority: bool
 }

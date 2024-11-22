@@ -90,7 +90,7 @@ pub struct RecordEmbedViewRecord {
 pub struct RecordEmbedViewNotFound {
     #[serde(rename = "uri")]
     pub uri: String,
-    #[serde(rename = "notFound")]
+    #[serde(rename = "notFound", default)]
     pub not_found: bool,
 }
 
@@ -108,7 +108,7 @@ pub struct RecordEmbedViewNotFound {
 pub struct RecordEmbedViewBlocked {
     #[serde(rename = "uri")]
     pub uri: String,
-    #[serde(rename = "blocked")]
+    #[serde(rename = "blocked", default)]
     pub blocked: bool,
     #[serde(rename = "author")]
     pub author: BlockedAuthor,
@@ -127,6 +127,6 @@ pub struct RecordEmbedViewBlocked {
 pub struct RecordEmbedViewDetached {
     #[serde(rename = "uri")]
     pub uri: String,
-    #[serde(rename = "detached")]
+    #[serde(rename = "detached", default)]
     pub detached: bool,
 }

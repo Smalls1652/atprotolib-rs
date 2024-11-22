@@ -81,13 +81,13 @@ pub struct ViewerState {
     pub repost: Option<String>,
     #[serde(rename = "like", skip_serializing_if = "Option::is_none")]
     pub like: Option<String>,
-    #[serde(rename = "threadMuted")]
+    #[serde(rename = "threadMuted", default)]
     pub thread_muted: bool,
-    #[serde(rename = "replyDisabled")]
+    #[serde(rename = "replyDisabled", default)]
     pub reply_disabled: bool,
-    #[serde(rename = "embeddingDisabled")]
+    #[serde(rename = "embeddingDisabled", default)]
     pub embedding_disabled: bool,
-    #[serde(rename = "pinned")]
+    #[serde(rename = "pinned", default)]
     pub pinned: bool
 }
 
@@ -214,7 +214,7 @@ pub enum ThreadViewPostItem {
 pub struct NotFoundPost {
     #[serde(rename = "uri")]
     pub uri: String,
-    #[serde(rename = "notFound")]
+    #[serde(rename = "notFound", default)]
     pub not_found: bool
 }
 
@@ -232,7 +232,7 @@ pub struct NotFoundPost {
 pub struct BlockedPost {
     #[serde(rename = "uri")]
     pub uri: String,
-    #[serde(rename = "blocked")]
+    #[serde(rename = "blocked", default)]
     pub blocked: bool,
     #[serde(rename = "author")]
     pub author: BlockedAuthor
@@ -295,7 +295,7 @@ pub struct GeneratorView {
     pub avatar: Option<String>,
     #[serde(rename = "likeCount")]
     pub like_count: i32,
-    #[serde(rename = "acceptsInteractions")]
+    #[serde(rename = "acceptsInteractions", default)]
     pub accepts_interactions: bool,
     #[serde(rename = "labels", skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<Label>>,

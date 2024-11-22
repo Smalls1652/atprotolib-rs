@@ -27,9 +27,9 @@ use serde::{Deserialize, Serialize};
 pub struct Commit {
     #[serde(rename = "seq")]
     pub seq: i32,
-    #[serde(rename = "rebase")]
+    #[serde(rename = "rebase", default)]
     pub rebase: bool,
-    #[serde(rename = "tooBig")]
+    #[serde(rename = "tooBig", default)]
     pub too_big: bool,
     #[serde(rename = "repo")]
     pub repo: String,
@@ -92,7 +92,7 @@ pub struct Account {
     pub did: String,
     #[serde(rename = "time")]
     pub time: DateTime<Utc>,
-    #[serde(rename = "active")]
+    #[serde(rename = "active", default)]
     pub active: bool,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>

@@ -41,13 +41,13 @@ pub struct CreateSessionResponse {
     #[serde(rename = "email")]
     pub email: String,
 
-    #[serde(rename = "emailConfirmed")]
+    #[serde(rename = "emailConfirmed", default)]
     pub email_confirmed: bool,
 
-    #[serde(rename = "emailAuthFactor")]
+    #[serde(rename = "emailAuthFactor", default)]
     pub email_auth_factor: bool,
 
-    #[serde(rename = "active")]
+    #[serde(rename = "active", default)]
     pub active: bool,
 
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]

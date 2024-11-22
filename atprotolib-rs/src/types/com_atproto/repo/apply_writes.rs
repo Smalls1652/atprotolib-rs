@@ -20,7 +20,7 @@ use super::CommitMeta;
 pub struct ApplyWritesRequest {
     #[serde(rename = "repo")]
     pub repo: String,
-    #[serde(rename = "validate")]
+    #[serde(rename = "validate", default)]
     pub validate: bool,
     #[serde(rename = "writes")]
     pub writes: Vec<ApplyWritesRequestWrites>,

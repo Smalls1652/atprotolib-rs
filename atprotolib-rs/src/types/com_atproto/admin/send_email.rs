@@ -30,6 +30,6 @@ pub struct SendEmailRequest {
 /// [`com.atproto.admin.sendEmail#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-send-email#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct SendEmailResponse {
-    #[serde(rename = "sent")]
+    #[serde(rename = "sent", default)]
     pub sent: bool
 }
