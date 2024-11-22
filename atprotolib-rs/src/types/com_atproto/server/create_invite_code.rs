@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct InviteCodeRequest {
     /// The amount of uses the invite code has.
-    #[serde(rename = "useCount")]
+    #[serde(rename = "useCount", default)]
     pub use_count: i32,
 
     /// Generated for a specific account.

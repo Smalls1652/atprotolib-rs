@@ -19,9 +19,9 @@ use serde::{Deserialize, Serialize};
 pub struct GetUploadLimitsResponse {
     #[serde(rename = "canUpload", default)]
     pub can_upload: bool,
-    #[serde(rename = "remainingDailyVideos")]
+    #[serde(rename = "remainingDailyVideos", default)]
     pub remaining_daily_videos: i32,
-    #[serde(rename = "remainingDailyBytes")]
+    #[serde(rename = "remainingDailyBytes", default)]
     pub remaining_daily_bytes: i32,
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,

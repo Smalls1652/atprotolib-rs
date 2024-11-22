@@ -116,11 +116,11 @@ pub struct ProfileViewDetailed {
     pub avatar: Option<String>,
     #[serde(rename = "banner", skip_serializing_if = "Option::is_none")]
     pub banner: Option<String>,
-    #[serde(rename = "followersCount")]
+    #[serde(rename = "followersCount", default)]
     pub followers_count: i32,
-    #[serde(rename = "followsCount")]
+    #[serde(rename = "followsCount", default)]
     pub follows_count: i32,
-    #[serde(rename = "postsCount")]
+    #[serde(rename = "postsCount", default)]
     pub posts_count: i32,
     #[serde(rename = "associated", skip_serializing_if = "Option::is_none")]
     pub associated: Option<ProfileAssociated>,
@@ -152,11 +152,11 @@ pub struct ProfileViewDetailed {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.actor.defs#profileAssociated")]
 pub struct ProfileAssociated {
-    #[serde(rename = "lists")]
+    #[serde(rename = "lists", default)]
     pub lists: i32,
-    #[serde(rename = "feedgens")]
+    #[serde(rename = "feedgens", default)]
     pub feedgens: i32,
-    #[serde(rename = "starterPacks")]
+    #[serde(rename = "starterPacks", default)]
     pub starter_packs: i32,
     #[serde(rename = "labeler", default)]
     pub labeler: bool,
@@ -224,7 +224,7 @@ pub struct ViewerState {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.actor.defs#knownFollowers")]
 pub struct KnownFollowers {
-    #[serde(rename = "count")]
+    #[serde(rename = "count", default)]
     pub count: i32,
     #[serde(rename = "followers")]
     pub followers: Vec<ProfileViewBasic>
@@ -346,7 +346,7 @@ pub struct SavedFeedsPref {
     pub pinned: Vec<String>,
     #[serde(rename = "saved")]
     pub saved: Vec<String>,
-    #[serde(rename = "timelineIndex")]
+    #[serde(rename = "timelineIndex", default)]
     pub timeline_index: i32
 }
 
@@ -385,7 +385,7 @@ pub struct FeedViewPref {
     pub hide_replies: bool,
     #[serde(rename = "hideRepliesByUnfollowed", default)]
     pub hide_replies_by_unfollowed: bool,
-    #[serde(rename = "hideRepliesByLikeCount")]
+    #[serde(rename = "hideRepliesByLikeCount", default)]
     pub hide_replies_by_like_count: i32,
     #[serde(rename = "hideReposts", default)]
     pub hide_reposts: bool,

@@ -22,7 +22,7 @@ pub struct GetInviteCodesResponseCode {
     #[serde(rename = "code")]
     pub code: String,
 
-    #[serde(rename = "available")]
+    #[serde(rename = "available", default)]
     pub available: i32,
 
     #[serde(rename = "disabled", default)]

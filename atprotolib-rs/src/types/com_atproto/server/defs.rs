@@ -19,7 +19,7 @@ use serde::{Deserialize, Serialize};
 pub struct InviteCode {
     #[serde(rename = "code")]
     pub code: String,
-    #[serde(rename = "available")]
+    #[serde(rename = "available", default)]
     pub available: i32,
     #[serde(rename = "disabled", default)]
     pub disabled: bool,

@@ -13,6 +13,6 @@ use serde::{Deserialize, Serialize};
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetUnreadCountResponse {
-    #[serde(rename = "count")]
+    #[serde(rename = "count", default)]
     pub count: i32
 }

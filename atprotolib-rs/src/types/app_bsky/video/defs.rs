@@ -22,7 +22,7 @@ pub struct JobStatus {
     pub did: String,
     #[serde(rename = "state")]
     pub state: String,
-    #[serde(rename = "progress")]
+    #[serde(rename = "progress", default)]
     pub progress: i32,
     #[serde(rename = "blob", skip_serializing_if = "Option::is_none")]
     pub blob: Option<Vec<u8>>,

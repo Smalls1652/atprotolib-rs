@@ -25,7 +25,7 @@ use serde::{Deserialize, Serialize};
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Commit {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "rebase", default)]
     pub rebase: bool,
@@ -63,7 +63,7 @@ pub struct Commit {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Identity {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "did")]
     pub did: String,
@@ -86,7 +86,7 @@ pub struct Identity {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Account {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "did")]
     pub did: String,
@@ -110,7 +110,7 @@ pub struct Account {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Handle {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "did")]
     pub did: String,
@@ -132,7 +132,7 @@ pub struct Handle {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Migrate {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "did")]
     pub did: String,
@@ -153,7 +153,7 @@ pub struct Migrate {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Tombstone {
-    #[serde(rename = "seq")]
+    #[serde(rename = "seq", default)]
     pub seq: i32,
     #[serde(rename = "did")]
     pub did: String,

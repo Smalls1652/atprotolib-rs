@@ -35,13 +35,13 @@ pub struct PostView {
     pub record: serde_json::Value,
     #[serde(rename = "embed", skip_serializing_if = "Option::is_none")]
     pub embed: Option<PostViewEmbed>,
-    #[serde(rename = "replyCount")]
+    #[serde(rename = "replyCount", default)]
     pub reply_count: i32,
-    #[serde(rename = "repostCount")]
+    #[serde(rename = "repostCount", default)]
     pub repost_count: i32,
-    #[serde(rename = "likeCount")]
+    #[serde(rename = "likeCount", default)]
     pub like_count: i32,
-    #[serde(rename = "quoteCount")]
+    #[serde(rename = "quoteCount", default)]
     pub quote_count: i32,
     #[serde(rename = "indexedAt")]
     pub indexed_at: DateTime<Utc>,
@@ -293,7 +293,7 @@ pub struct GeneratorView {
     pub description_facets: Option<Vec<serde_json::Value>>,
     #[serde(rename = "avatar", skip_serializing_if = "Option::is_none")]
     pub avatar: Option<String>,
-    #[serde(rename = "likeCount")]
+    #[serde(rename = "likeCount", default)]
     pub like_count: i32,
     #[serde(rename = "acceptsInteractions", default)]
     pub accepts_interactions: bool,

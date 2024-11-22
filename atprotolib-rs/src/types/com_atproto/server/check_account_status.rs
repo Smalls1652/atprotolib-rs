@@ -26,15 +26,15 @@ pub struct CheckAccountStatusResponse {
     #[serde(rename = "repoBlocks")]
     pub repo_blocks: String,
 
-    #[serde(rename = "indexedRecords")]
+    #[serde(rename = "indexedRecords", default)]
     pub indexed_records: i32,
 
-    #[serde(rename = "privateStateValues")]
+    #[serde(rename = "privateStateValues", default)]
     pub private_state_values: i32,
 
-    #[serde(rename = "publicStateValues")]
+    #[serde(rename = "publicStateValues", default)]
     pub expected_blobs: i32,
 
-    #[serde(rename = "importedBlobs")]
+    #[serde(rename = "importedBlobs", default)]
     pub imported_blobs: i32
 }

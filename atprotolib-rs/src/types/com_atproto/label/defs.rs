@@ -18,7 +18,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.label.defs#label")]
 pub struct Label {
-    #[serde(rename = "ver")]
+    #[serde(rename = "ver", default)]
     pub ver: i32,
     #[serde(rename = "src")]
     pub src: String,

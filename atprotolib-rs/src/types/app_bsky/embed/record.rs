@@ -63,13 +63,13 @@ pub struct RecordEmbedViewRecord {
     pub value: serde_json::Value,
     #[serde(rename = "labels", skip_serializing_if = "Option::is_none")]
     pub labels: Option<Vec<Label>>,
-    #[serde(rename = "replyCount")]
+    #[serde(rename = "replyCount", default)]
     pub reply_count: i32,
-    #[serde(rename = "repostCount")]
+    #[serde(rename = "repostCount", default)]
     pub repost_count: i32,
-    #[serde(rename = "likeCount")]
+    #[serde(rename = "likeCount", default)]
     pub like_count: i32,
-    #[serde(rename = "quoteCount")]
+    #[serde(rename = "quoteCount", default)]
     pub quote_count: i32,
     #[serde(rename = "embeds", skip_serializing_if = "Option::is_none")]
     pub embeds: Option<Vec<RecordEmbedUnion>>,

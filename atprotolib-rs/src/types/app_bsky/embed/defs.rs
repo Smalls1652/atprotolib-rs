@@ -11,8 +11,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.embed.defs#aspectRatio")]
 pub struct AspectRatio {
-    #[serde(rename = "width")]
+    #[serde(rename = "width", default)]
     pub width: i32,
-    #[serde(rename = "height")]
+    #[serde(rename = "height", default)]
     pub height: i32,
 }

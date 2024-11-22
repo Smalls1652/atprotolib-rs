@@ -19,7 +19,7 @@ use super::defs::PostView;
 pub struct SearchPostsResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
-    #[serde(rename = "hitsTotal")]
+    #[serde(rename = "hitsTotal", default)]
     pub hits_total: i32,
     #[serde(rename = "posts")]
     pub posts: Vec<PostView>,

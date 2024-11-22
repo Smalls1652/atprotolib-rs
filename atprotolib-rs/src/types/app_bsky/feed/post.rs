@@ -49,8 +49,8 @@ pub struct PostEntity {
 */
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PostTextSlice {
-    #[serde(rename = "start")]
+    #[serde(rename = "start", default)]
     pub start: i32,
-    #[serde(rename = "end")]
+    #[serde(rename = "end", default)]
     pub end: i32,
 }
