@@ -55,6 +55,10 @@ A Rust library for various [ATProtocol](https://atproto.com/) (Used by [BlueSky]
 - [`serde`](https://crates.io/crates/serde)
 - [`serde_json`](https://crates.io/crates/serde_json)
 
+### With the `apicalls` feature
+
+- [`reqwest`](https://crates.io/crates/reqwest)
+
 ## 🤝 License
 
 The source code for this project is licensed with the [MIT License](LICENSE).
