@@ -28,10 +28,7 @@ use crate::types::{
     - created_at: datetime (JsonProperty: createdAt) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.feed.post")]
 pub struct Post {
-    #[serde(rename = "$type")]
-    pub type_: String,
     #[serde(rename = "text")]
     pub text: String,
     #[serde(rename = "facets", skip_serializing_if = "Option::is_none")]
@@ -52,17 +49,22 @@ pub struct Post {
 
 impl Post {
     pub fn new(
-        text: String,
+        text: &str,
         created_at: DateTime<Utc>,
-        langs: Option<Vec<String>>
+        langs: Option<Vec<&str>>
     ) -> Post {
         Post {
-            type_: "app.bsky.feed.post".to_string(),
-            text,
+            text: text.to_string(),
             facets: None,
             reply_ref: None,
             embed: None,
-            langs: Some(langs.unwrap_or_else(|| vec!["en".to_string()])),
+            langs: Some(
+                langs
+                    .unwrap_or_else(|| vec!["en"])
+                    .iter()
+                    .map(|s| s.to_string())
+                    .collect()
+            ),
             labels: None,
             tags: None,
             created_at
@@ -71,13 +73,18 @@ impl Post {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "$type")]
 pub enum PostEmbeds {
+    #[serde(rename = "app.bsky.embed.images")]
     Images(ImageEmbed),
+    #[serde(rename = "app.bsky.embed.external")]
     External(ExternalEmbed)
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "$type")]
 pub enum PostLabels {
+    #[serde(rename = "com.atproto.label.defs#selfLabels")]
     SelfLabels(SelfLabels)
 }
 

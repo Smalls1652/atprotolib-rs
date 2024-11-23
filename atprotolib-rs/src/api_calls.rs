@@ -1,8 +1,6 @@
 use reqwest::{RequestBuilder, Response, StatusCode};
 use serde::{Deserialize, Serialize};
 
-use crate::types::com_atproto;
-
 #[derive(Clone)]
 pub struct ApiAuthConfig {
     pub data: ApiAuthConfigData

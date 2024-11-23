@@ -16,7 +16,6 @@ use super::AspectRatio;
     - aspect_ratio: app.bsky.embed.defs#aspectRatio (JsonProperty: aspectRatio) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.images")]
 pub struct ImageEmbed {
     #[serde(rename = "image")]
     pub image: Vec<u8>,
@@ -34,7 +33,6 @@ pub struct ImageEmbed {
     - images: #viewImage[] (JsonProperty: images) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.images#view")]
 pub struct ImageEmbedView {
     #[serde(rename = "images")]
     pub images: Vec<ImageEmbed>
@@ -51,7 +49,6 @@ pub struct ImageEmbedView {
     - aspect_ratio: app.bsky.embed.defs#aspectRatio (JsonProperty: aspectRatio) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.images#viewImage")]
 pub struct ImageEmbedViewImage {
     #[serde(rename = "thumb")]
     pub thumb: String,

@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 use super::CommitMeta;
+use crate::types::app_bsky;
 
 /*
     com.atproto.repo.applyWrites
@@ -66,6 +67,13 @@ pub enum ApplyWritesResponseResults {
     DeleteResult(DeleteResult)
 }
 
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "$type")]
+pub enum ApplyWritesValue {
+    #[serde(rename = "app.bsky.feed.post")]
+    Post(app_bsky::feed::Post)
+}
+
 /*    Type: create
     Id: com.atproto.repo.applyWrites#create
     Kind: object
@@ -82,16 +90,16 @@ pub struct Create {
     #[serde(rename = "rkey", skip_serializing_if = "Option::is_none")]
     pub rkey: Option<String>,
     #[serde(rename = "value")]
-    pub value: serde_json::Value
+    pub value: ApplyWritesValue
 }
 
 impl Create {
     pub fn new(
-        collection: String,
-        value: serde_json::Value
+        collection: &str,
+        value: ApplyWritesValue
     ) -> Create {
         Create {
-            collection,
+            collection: collection.to_string(),
             rkey: None,
             value
         }
@@ -108,14 +116,27 @@ impl Create {
     - value: unknown  (JsonProperty: value) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#update")]
 pub struct Update {
     #[serde(rename = "collection")]
     pub collection: String,
     #[serde(rename = "rkey")]
     pub rkey: String,
     #[serde(rename = "value")]
-    pub value: serde_json::Value
+    pub value: ApplyWritesValue
+}
+
+impl Update {
+    pub fn new(
+        collection: &str,
+        rkey: &str,
+        value: ApplyWritesValue
+    ) -> Update {
+        Update {
+            collection: collection.to_string(),
+            rkey: rkey.to_string(),
+            value
+        }
+    }
 }
 
 /*    Type: delete
@@ -127,12 +148,23 @@ pub struct Update {
     - rkey: string (JsonProperty: rkey) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#delete")]
 pub struct Delete {
     #[serde(rename = "collection")]
     pub collection: String,
     #[serde(rename = "rkey")]
     pub rkey: String
+}
+
+impl Delete {
+    pub fn new(
+        collection: &str,
+        rkey: &str
+    ) -> Delete {
+        Delete {
+            collection: collection.to_string(),
+            rkey: rkey.to_string()
+        }
+    }
 }
 
 /*    Type: createResult
@@ -145,7 +177,6 @@ pub struct Delete {
     - validation_status: string (JsonProperty: validationStatus) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#createResult")]
 pub struct CreateResult {
     #[serde(rename = "uri")]
     pub uri: String,
@@ -165,7 +196,6 @@ pub struct CreateResult {
     - validation_status: string (JsonProperty: validationStatus) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#updateResult")]
 pub struct UpdateResult {
     #[serde(rename = "uri")]
     pub uri: String,
@@ -182,5 +212,4 @@ pub struct UpdateResult {
     Properties:
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#deleteResult")]
 pub struct DeleteResult {}

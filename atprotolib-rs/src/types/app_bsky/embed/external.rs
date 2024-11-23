@@ -15,7 +15,6 @@ use serde::{Deserialize, Serialize};
     - thumb: blob  (JsonProperty: thumb) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.external")]
 pub struct ExternalEmbed {
     #[serde(rename = "uri")]
     pub uri: String,
@@ -35,7 +34,6 @@ pub struct ExternalEmbed {
     - external: #viewExternal (JsonProperty: external) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.external#view")]
 pub struct ExternalEmbedView {
     #[serde(rename = "external")]
     pub external: ExternalEmbed
@@ -52,7 +50,6 @@ pub struct ExternalEmbedView {
     - thumb: string (JsonProperty: thumb) [Optional]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.embed.external#viewExternal")]
 pub struct ExternalEmbedViewExternal {
     #[serde(rename = "uri")]
     pub uri: String,

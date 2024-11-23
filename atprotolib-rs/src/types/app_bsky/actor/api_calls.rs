@@ -1,4 +1,3 @@
-use super::ProfileView;
 use crate::{
     api_calls::{AddApiAuth, ApiAuthConfig, ApiError},
     types::app_bsky
