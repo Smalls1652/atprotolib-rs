@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a response to get the status of an Account subject.
-/// 
+///
 /// [`com.atproto.admin.getSubjectStatus#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-subject-status#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetSubjectStatusAccountResponse {
@@ -20,7 +20,7 @@ pub struct GetSubjectStatusAccountResponse {
 }
 
 /// Represents a response to get the status of a Record subject.
-/// 
+///
 /// [`com.atproto.admin.getSubjectStatus#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-subject-status#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetSubjectStatusRecordResponse {
@@ -38,7 +38,7 @@ pub struct GetSubjectStatusRecordResponse {
 }
 
 /// Represents a response to get the status of a Blob subject.
-/// 
+///
 /// [`com.atproto.admin.getSubjectStatus#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-subject-status#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetSubjectStatusBlobResponse {

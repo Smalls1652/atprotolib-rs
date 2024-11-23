@@ -26,3 +26,4 @@ pub struct ListAppPasswordsResponseAppPassword {
     #[serde(rename = "privileged", default)]
     pub privileged: bool
 }
+

@@ -31,6 +31,12 @@ pub mod admin {
         update_account_handle::*,
         update_account_password::* // update_subject_status::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod identity {
@@ -47,6 +53,12 @@ pub mod identity {
         submit_plc_operation::*,
         update_handle::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod label {
@@ -61,6 +73,12 @@ pub mod moderation {
     mod create_report;
 
     pub use self::create_report::*;
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod repo {
@@ -87,6 +105,12 @@ pub mod repo {
         put_record::*,
         upload_blob::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod server {
@@ -137,6 +161,12 @@ pub mod server {
         revoke_app_password::*,
         update_email::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod sync {
@@ -159,4 +189,10 @@ pub mod sync {
         request_crawl::*,
         subscribe_repos::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }

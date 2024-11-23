@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a request to get account information.
-/// 
+///
 /// [`com.atproto.admin.getAccountInfo#request`](https://docs.bsky.app/docs/api/com-atproto-admin-get-account-info#request)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetAccountInfoRequest {
@@ -15,7 +15,7 @@ pub struct GetAccountInfoRequest {
 }
 
 /// Represents a response to a request to get account information.
-/// 
+///
 /// [`com.atproto.admin.getAccountInfo#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-account-info#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetAccountInfoResponse {

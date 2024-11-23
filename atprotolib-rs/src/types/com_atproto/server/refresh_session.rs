@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// [`com.atproto.server.refreshSession#responses`](https://docs.bsky.app/docs/api/com-atproto-server-refresh-session#responses)
 #[derive(Serialize, Deserialize, Debug)]
-pub struct RefreshSessionRequest {
+pub struct RefreshSessionResponse {
     #[serde(rename = "accessJwt")]
     pub access_jwt: String,
 

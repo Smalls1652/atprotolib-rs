@@ -12,6 +12,12 @@ pub mod actor {
         search_actors::*,
         search_actors_typeahead::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod embed {
@@ -80,6 +86,12 @@ pub mod feed {
         send_interactions::*,
         threadgate::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod graph {
@@ -132,6 +144,12 @@ pub mod graph {
         unmute_actor_list::*,
         unmute_thread::*
     };
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }
 
 pub mod labeler {
@@ -170,4 +188,10 @@ pub mod video {
     mod upload_video;
 
     pub use self::{defs::*, get_job_status::*, get_upload_limits::*, upload_video::*};
+
+    #[cfg(feature = "apicalls")]
+    mod api_calls;
+
+    #[cfg(feature = "apicalls")]
+    pub use self::api_calls::*;
 }

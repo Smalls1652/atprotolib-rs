@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a request to send an email.
-/// 
+///
 /// [`com.atproto.admin.sendEmail#request`](https://docs.bsky.app/docs/api/com-atproto-admin-send-email#request)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct SendEmailRequest {
@@ -26,7 +26,7 @@ pub struct SendEmailRequest {
 }
 
 /// Represents a response to a request to send an email.
-/// 
+///
 /// [`com.atproto.admin.sendEmail#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-send-email#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct SendEmailResponse {

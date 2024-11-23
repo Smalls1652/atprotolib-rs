@@ -29,9 +29,13 @@ pub struct ApplyWritesRequest {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "$type")]
 pub enum ApplyWritesRequestWrites {
+    #[serde(rename = "com.atproto.repo.applyWrites#create")]
     Create(Create),
+    #[serde(rename = "com.atproto.repo.applyWrites#update")]
     Update(Update),
+    #[serde(rename = "com.atproto.repo.applyWrites#delete")]
     Delete(Delete)
 }
 
@@ -52,9 +56,13 @@ pub struct ApplyWritesResponse {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "$type")]
 pub enum ApplyWritesResponseResults {
+    #[serde(rename = "com.atproto.repo.applyWrites#createResult")]
     CreateResult(CreateResult),
+    #[serde(rename = "com.atproto.repo.applyWrites#updateResult")]
     UpdateResult(UpdateResult),
+    #[serde(rename = "com.atproto.repo.applyWrites#deleteResult")]
     DeleteResult(DeleteResult)
 }
 
@@ -68,7 +76,6 @@ pub enum ApplyWritesResponseResults {
     - value: unknown  (JsonProperty: value) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.applyWrites#create")]
 pub struct Create {
     #[serde(rename = "collection")]
     pub collection: String,
@@ -76,6 +83,16 @@ pub struct Create {
     pub rkey: Option<String>,
     #[serde(rename = "value")]
     pub value: serde_json::Value
+}
+
+impl Create {
+    pub fn new(collection: String, value: serde_json::Value) -> Create {
+        Create {
+            collection,
+            rkey: None,
+            value
+        }
+    }
 }
 
 /*    Type: update

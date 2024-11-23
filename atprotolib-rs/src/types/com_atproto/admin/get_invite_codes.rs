@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a response to get invite codes.
-/// 
+///
 /// [`com.atproto.admin.getInviteCodes#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-invite-codes#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetInviteCodesResponse {

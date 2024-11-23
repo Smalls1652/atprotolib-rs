@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a request to disable invite codes.
-/// 
+///
 /// [`com.atproto.admin.disableInviteCodes#request`](https://docs.bsky.app/docs/api/com-atproto-admin-disable-invite-codes#request)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DisableInviteCodesRequest {

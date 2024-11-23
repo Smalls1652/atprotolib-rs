@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a request to enable account invites.
-/// 
+///
 /// [`com.atproto.admin.enableAccountInvites#request`](https://docs.bsky.app/docs/api/com-atproto-admin-enable-account-invites#request)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct EnableAccountInvitesRequest {
