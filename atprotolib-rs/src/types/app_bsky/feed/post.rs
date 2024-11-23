@@ -1,7 +1,13 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::{embed::{ExternalEmbed, ImageEmbed}, richtext::RichTextFacet}, com_atproto::{label::SelfLabels, repo::{Record, StrongRef}}};
+use crate::types::{
+    app_bsky::{
+        embed::{ExternalEmbed, ImageEmbed},
+        richtext::RichTextFacet
+    },
+    com_atproto::{label::SelfLabels, repo::StrongRef}
+};
 
 /*
     app.bsky.feed.post
@@ -10,7 +16,7 @@ use crate::types::{app_bsky::{embed::{ExternalEmbed, ImageEmbed}, richtext::Rich
 /*    Type: post
     Id: app.bsky.feed.post
     Kind: object
-    
+
     Properties:
     - text: string (JsonProperty: text) [Required]
     - facets: #app.bsky.richtext.facet[] (JsonProperty: facets) [Optional]
@@ -41,14 +47,14 @@ pub struct Post {
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
     #[serde(rename = "createdAt")]
-    pub created_at: DateTime<Utc>,
+    pub created_at: DateTime<Utc>
 }
 
 impl Post {
     pub fn new(
         text: String,
         created_at: DateTime<Utc>,
-        langs : Option<Vec<String>>,
+        langs: Option<Vec<String>>
     ) -> Post {
         Post {
             type_: "app.bsky.feed.post".to_string(),
@@ -78,7 +84,7 @@ pub enum PostLabels {
 /*    Type: replyRef
     Id: app.bsky.feed.post#replyRef
     Kind: object
-    
+
     Properties:
     - root: com.atproto.repo.strongRef (JsonProperty: root) [Required]
     - parent: com.atproto.repo.strongRef (JsonProperty: parent) [Required]
@@ -88,13 +94,13 @@ pub struct PostReplyRef {
     #[serde(rename = "root")]
     pub root: StrongRef,
     #[serde(rename = "parent")]
-    pub parent: StrongRef,
+    pub parent: StrongRef
 }
 
 /*    Type: entity
     Id: app.bsky.feed.post#entity
     Kind: object
-    
+
     Properties:
     - index: #textSlice (JsonProperty: index) [Required]
     - type: string (JsonProperty: type) [Required]
@@ -107,13 +113,13 @@ pub struct PostEntity {
     #[serde(rename = "type")]
     pub type_: String,
     #[serde(rename = "value")]
-    pub value: String,
+    pub value: String
 }
 
 /*    Type: textSlice
     Id: app.bsky.feed.post#textSlice
     Kind: object
-    
+
     Properties:
     - start: integer  (JsonProperty: start) [Required]
     - end: integer  (JsonProperty: end) [Required]
@@ -123,5 +129,5 @@ pub struct PostTextSlice {
     #[serde(rename = "start", default)]
     pub start: i32,
     #[serde(rename = "end", default)]
-    pub end: i32,
+    pub end: i32
 }
