@@ -8,7 +8,10 @@ pub async fn create_report(
     api_auth_config: &ApiAuthConfig,
     report: com_atproto::moderation::CreateReportRequest
 ) -> Result<com_atproto::moderation::CreateReportResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.moderation.createReport", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.moderation.createReport",
+        host_name
+    );
 
     let client = reqwest::Client::new();
 
@@ -21,7 +24,8 @@ pub async fn create_report(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: com_atproto::moderation::CreateReportResponse = response.json().await?;
+            let response_body: com_atproto::moderation::CreateReportResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))

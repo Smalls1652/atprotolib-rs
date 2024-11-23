@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.sync.getLatestCommit#response
     Kind: object
-    
+
     Properties:
     - cid: string (JsonProperty: cid) [Required]
     - rev: string (JsonProperty: rev) [Required]

@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: com.atproto.identity.submitPlcOperation#request
     Kind: object
-    
+
     Properties:
     - operation: unknown  (JsonProperty: operation) [Required]
 */

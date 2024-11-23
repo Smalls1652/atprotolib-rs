@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.repo.listMissingBlobs#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - blobs: #recordBlob[] (JsonProperty: blobs) [Required]
@@ -23,7 +23,7 @@ pub struct ListMissingBlobsResponse {
 /*    Type: recordBlob
     Id: com.atproto.repo.listMissingBlobs#recordBlob
     Kind: object
-    
+
     Properties:
     - cid: string (JsonProperty: cid) [Required]
     - record_uri: string (JsonProperty: recordUri) [Required]

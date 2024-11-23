@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.graph.unmuteActorList#request
     Kind: object
-    
+
     Properties:
     - list: string (JsonProperty: list) [Required]
 */

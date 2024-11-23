@@ -9,7 +9,7 @@ use super::CommitMeta;
 /*    Type: request
     Id: com.atproto.repo.deleteRecord#request
     Kind: object
-    
+
     Properties:
     - repo: string (JsonProperty: repo) [Required]
     - collection: string (JsonProperty: collection) [Required]
@@ -34,7 +34,7 @@ pub struct DeleteRecordRequest {
 /*    Type: response
     Id: com.atproto.repo.deleteRecord#response
     Kind: object
-    
+
     Properties:
     - commit: com.atproto.repo.defs#commitMeta (JsonProperty: commit) [Optional]
 */

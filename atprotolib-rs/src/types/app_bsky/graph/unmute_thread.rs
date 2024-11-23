@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.graph.unmuteThread#request
     Kind: object
-    
+
     Properties:
     - root: string (JsonProperty: root) [Required]
 */

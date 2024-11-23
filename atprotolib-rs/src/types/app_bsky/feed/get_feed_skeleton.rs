@@ -9,7 +9,7 @@ use super::defs::SkeletonFeedPost;
 /*    Type: response
     Id: app.bsky.feed.getFeedSkeleton#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - feed: app.bsky.feed.defs#skeletonFeedPost[] (JsonProperty: feed) [Required]
@@ -19,5 +19,5 @@ pub struct GetFeedSkeletonResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
     #[serde(rename = "feed")]
-    pub feed: Vec<SkeletonFeedPost>,
+    pub feed: Vec<SkeletonFeedPost>
 }

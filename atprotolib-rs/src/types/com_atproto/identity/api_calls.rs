@@ -6,8 +6,12 @@ use crate::{
 pub async fn get_recommended_did_credentials(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
-) -> Result<com_atproto::identity::GetRecommendedDidCredentialsResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.identity.getRecommendedDidCredentials", host_name);
+) -> Result<com_atproto::identity::GetRecommendedDidCredentialsResponse, Box<dyn std::error::Error>>
+{
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.identity.getRecommendedDidCredentials",
+        host_name
+    );
 
     let client = reqwest::Client::new();
 
@@ -19,7 +23,8 @@ pub async fn get_recommended_did_credentials(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: com_atproto::identity::GetRecommendedDidCredentialsResponse = response.json().await?;
+            let response_body: com_atproto::identity::GetRecommendedDidCredentialsResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
@@ -31,11 +36,12 @@ pub async fn resolve_handle(
     api_auth_config: &ApiAuthConfig,
     handle: &str
 ) -> Result<com_atproto::identity::ResolveHandleResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.identity.resolveHandle", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.identity.resolveHandle",
+        host_name
+    );
 
-    let query_params = vec![
-        ("handle", handle)
-    ];
+    let query_params = vec![("handle", handle)];
 
     let client = reqwest::Client::new();
 
@@ -48,7 +54,8 @@ pub async fn resolve_handle(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: com_atproto::identity::ResolveHandleResponse = response.json().await?;
+            let response_body: com_atproto::identity::ResolveHandleResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
@@ -60,7 +67,10 @@ pub async fn sign_plc_operation(
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::SignPlcOperationRequest
 ) -> Result<com_atproto::identity::SignPlcOperationResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.identity.signPlcOperation", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.identity.signPlcOperation",
+        host_name
+    );
 
     let client = reqwest::Client::new();
 
@@ -73,7 +83,8 @@ pub async fn sign_plc_operation(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: com_atproto::identity::SignPlcOperationResponse = response.json().await?;
+            let response_body: com_atproto::identity::SignPlcOperationResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
@@ -85,7 +96,10 @@ pub async fn submit_plc_operation(
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::SubmitPlcOperationRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.identity.submitPlcOperation", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.identity.submitPlcOperation",
+        host_name
+    );
 
     let client = reqwest::Client::new();
 
@@ -107,7 +121,10 @@ pub async fn update_handle(
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::UpdateHandleRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.identity.updateHandle", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.identity.updateHandle",
+        host_name
+    );
 
     let client = reqwest::Client::new();
 

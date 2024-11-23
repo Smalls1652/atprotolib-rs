@@ -1,5 +1,6 @@
 use reqwest::{RequestBuilder, Response, StatusCode};
 use serde::{Deserialize, Serialize};
+
 use crate::types::com_atproto;
 
 #[derive(Clone)]
@@ -40,11 +41,9 @@ impl AddApiAuth for RequestBuilder {
         match api_auth_config.data {
             ApiAuthConfigData::AdminUser(auth) => {
                 self.basic_auth(auth.username, Some(auth.password))
-            },
+            }
 
-            ApiAuthConfigData::BearerToken(auth) => {
-                self.bearer_auth(auth.token)
-            },
+            ApiAuthConfigData::BearerToken(auth) => self.bearer_auth(auth.token),
 
             ApiAuthConfigData::None => self
         }

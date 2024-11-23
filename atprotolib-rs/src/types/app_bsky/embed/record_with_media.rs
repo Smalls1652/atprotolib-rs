@@ -9,7 +9,7 @@ use super::{ExternalEmbedView, ImageEmbedView, RecordEmbedView, VideoEmbedView};
 /*    Type: view
     Id: app.bsky.embed.recordWithMedia#view
     Kind: object
-    
+
     Properties:
     - record: app.bsky.embed.record#view (JsonProperty: record) [Required]
     - media: union  (JsonProperty: media) [Required]

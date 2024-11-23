@@ -6,7 +6,7 @@ use crate::types::com_atproto::server::InviteCode;
 /*    Type: statusAttr
     Id: com.atproto.admin.defs#statusAttr
     Kind: object
-    
+
     Properties:
     - applied: boolean  (JsonProperty: applied) [Required]
     - ref: string (JsonProperty: ref) [Optional]
@@ -17,13 +17,13 @@ pub struct StatusAttr {
     #[serde(rename = "applied", default)]
     pub applied: bool,
     #[serde(rename = "ref", skip_serializing_if = "Option::is_none")]
-    pub reference: Option<String>,
+    pub reference: Option<String>
 }
 
 /*    Type: accountView
     Id: com.atproto.admin.defs#accountView
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - handle: string (JsonProperty: handle) [Required]
@@ -70,7 +70,7 @@ pub struct AccountView {
 /*    Type: repoRef
     Id: com.atproto.admin.defs#repoRef
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
 */
@@ -78,13 +78,13 @@ pub struct AccountView {
 #[serde(tag = "$type", rename = "com.atproto.admin.defs#repoRef")]
 pub struct RepoRef {
     #[serde(rename = "did")]
-    pub did: String,
+    pub did: String
 }
 
 /*    Type: repoBlobRef
     Id: com.atproto.admin.defs#repoBlobRef
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -98,13 +98,13 @@ pub struct RepoBlobRef {
     #[serde(rename = "cid")]
     pub cid: String,
     #[serde(rename = "recordUri", skip_serializing_if = "Option::is_none")]
-    pub record_uri: Option<String>,
+    pub record_uri: Option<String>
 }
 
 /*    Type: threatSignature
     Id: com.atproto.admin.defs#threatSignature
     Kind: object
-    
+
     Properties:
     - property: string (JsonProperty: property) [Required]
     - value: string (JsonProperty: value) [Required]
@@ -115,5 +115,5 @@ pub struct ThreatSignature {
     #[serde(rename = "property")]
     pub property: String,
     #[serde(rename = "value")]
-    pub value: String,
+    pub value: String
 }

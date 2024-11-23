@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: inviteCode
     Id: com.atproto.server.defs#inviteCode
     Kind: object
-    
+
     Properties:
     - code: string (JsonProperty: code) [Required]
     - available: integer  (JsonProperty: available) [Required]
@@ -36,7 +36,7 @@ pub struct InviteCode {
 /*    Type: inviteCodeUse
     Id: com.atproto.server.defs#inviteCodeUse
     Kind: object
-    
+
     Properties:
     - used_by: string (JsonProperty: usedBy) [Required]
     - used_at: datetime (JsonProperty: usedAt) [Required]

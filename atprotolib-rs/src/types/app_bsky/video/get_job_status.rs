@@ -9,7 +9,7 @@ use super::JobStatus;
 /*    Type: response
     Id: app.bsky.video.getJobStatus#response
     Kind: object
-    
+
     Properties:
     - job_status: app.bsky.video.defs#jobStatus (JsonProperty: jobStatus) [Required]
 */

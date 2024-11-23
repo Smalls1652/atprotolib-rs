@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.sync.listBlobs#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - cids: string[] (JsonProperty: cids) [Required]

@@ -9,7 +9,7 @@ use super::ProfileViewDetailed;
 /*    Type: response
     Id: app.bsky.actor.getProfiles#response
     Kind: object
-    
+
     Properties:
     - profiles: app.bsky.actor.defs#profileViewDetailed[] (JsonProperty: profiles) [Required]
 */

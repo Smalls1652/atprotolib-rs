@@ -9,7 +9,7 @@ use crate::types::app_bsky::actor::ProfileView;
 /*    Type: response
     Id: app.bsky.graph.getMutes#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - mutes: app.bsky.actor.defs#profileView[] (JsonProperty: mutes) [Required]

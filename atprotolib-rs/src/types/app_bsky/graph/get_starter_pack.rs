@@ -9,7 +9,7 @@ use super::defs::StarterPackView;
 /*    Type: response
     Id: app.bsky.graph.getStarterPack#response
     Kind: object
-    
+
     Properties:
     - starter_pack: app.bsky.graph.defs#starterPackView (JsonProperty: starterPack) [Required]
 */

@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.identity.getRecommendedDidCredentials#response
     Kind: object
-    
+
     Properties:
     - rotation_keys: string[] (JsonProperty: rotationKeys) [Optional]
     - also_known_as: string[] (JsonProperty: alsoKnownAs) [Optional]

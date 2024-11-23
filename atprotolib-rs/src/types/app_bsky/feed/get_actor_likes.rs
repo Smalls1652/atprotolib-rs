@@ -9,7 +9,7 @@ use super::defs::FeedViewPost;
 /*    Type: response
     Id: app.bsky.feed.getActorLikes#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - feed: app.bsky.feed.defs#feedViewPost[] (JsonProperty: feed) [Required]
@@ -19,7 +19,5 @@ pub struct GetActorLikesResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
     #[serde(rename = "feed")]
-    pub feed: Vec<FeedViewPost>,
+    pub feed: Vec<FeedViewPost>
 }
-
-

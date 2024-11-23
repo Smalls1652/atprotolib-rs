@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.sync.getHead#response
     Kind: object
-    
+
     Properties:
     - root: string (JsonProperty: root) [Required]
 */

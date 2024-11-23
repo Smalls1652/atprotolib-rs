@@ -9,7 +9,7 @@ use super::defs::{ListItemView, ListView};
 /*    Type: response
     Id: app.bsky.graph.getList#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - list: app.bsky.graph.defs#listView (JsonProperty: list) [Required]

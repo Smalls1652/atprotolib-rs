@@ -9,7 +9,7 @@ use super::AspectRatio;
 /*    Type: image
     Id: app.bsky.embed.images#image
     Kind: object
-    
+
     Properties:
     - image: blob  (JsonProperty: image) [Required]
     - alt: string (JsonProperty: alt) [Required]
@@ -29,7 +29,7 @@ pub struct ImageEmbed {
 /*    Type: view
     Id: app.bsky.embed.images#view
     Kind: object
-    
+
     Properties:
     - images: #viewImage[] (JsonProperty: images) [Required]
 */
@@ -43,7 +43,7 @@ pub struct ImageEmbedView {
 /*    Type: viewImage
     Id: app.bsky.embed.images#viewImage
     Kind: object
-    
+
     Properties:
     - thumb: string (JsonProperty: thumb) [Required]
     - fullsize: string (JsonProperty: fullsize) [Required]

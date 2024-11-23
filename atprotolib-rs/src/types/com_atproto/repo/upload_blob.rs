@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.repo.uploadBlob#response
     Kind: object
-    
+
     Properties:
     - blob: blob  (JsonProperty: blob) [Required]
 */

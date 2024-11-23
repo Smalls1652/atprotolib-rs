@@ -9,7 +9,7 @@ use super::CommitMeta;
 /*    Type: request
     Id: com.atproto.repo.createRecord#request
     Kind: object
-    
+
     Properties:
     - repo: string (JsonProperty: repo) [Required]
     - collection: string (JsonProperty: collection) [Required]
@@ -37,7 +37,7 @@ pub struct CreateRecordRequest {
 /*    Type: response
     Id: com.atproto.repo.createRecord#response
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]

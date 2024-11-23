@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: com.atproto.sync.requestCrawl#request
     Kind: object
-    
+
     Properties:
     - hostname: string (JsonProperty: hostname) [Required]
 */

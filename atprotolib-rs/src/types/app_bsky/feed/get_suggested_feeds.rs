@@ -9,7 +9,7 @@ use super::defs::GeneratorView;
 /*    Type: response
     Id: app.bsky.feed.getSuggestedFeeds#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - feeds: app.bsky.feed.defs#generatorView[] (JsonProperty: feeds) [Required]

@@ -9,7 +9,7 @@ use super::defs::PostView;
 /*    Type: response
     Id: app.bsky.feed.getQuotes#response
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Optional]
@@ -25,5 +25,5 @@ pub struct GetQuotesResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
     #[serde(rename = "posts")]
-    pub posts: Vec<PostView>,
+    pub posts: Vec<PostView>
 }

@@ -10,7 +10,10 @@ pub async fn get_actor_starter_packs(
     limit: Option<i32>,
     cursor: Option<&str>
 ) -> Result<app_bsky::graph::GetActorStarterPacksResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/app.bsky.graph.getActorStarterPacks", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/app.bsky.graph.getActorStarterPacks",
+        host_name
+    );
 
     let mut query_params = Vec::new();
     query_params.push(("actor", actor));
@@ -33,7 +36,8 @@ pub async fn get_actor_starter_packs(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: app_bsky::graph::GetActorStarterPacksResponse = response.json().await?;
+            let response_body: app_bsky::graph::GetActorStarterPacksResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
@@ -156,7 +160,10 @@ pub async fn get_known_followers(
     limit: Option<i32>,
     cursor: Option<&str>
 ) -> Result<app_bsky::graph::GetKnownFollowersResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/app.bsky.graph.getKnownFollowers", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/app.bsky.graph.getKnownFollowers",
+        host_name
+    );
 
     let mut query_params = Vec::new();
     query_params.push(("actor", actor));
@@ -372,9 +379,7 @@ pub async fn get_starter_pack(
 ) -> Result<app_bsky::graph::GetStarterPackResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.graph.getStarterPack", host_name);
 
-    let query_params = vec![
-        ("starter_pack", starter_pack)
-    ];
+    let query_params = vec![("starter_pack", starter_pack)];
 
     let client = reqwest::Client::new();
 
@@ -399,11 +404,12 @@ pub async fn get_suggested_follows_by_actor(
     api_auth_config: &ApiAuthConfig,
     actor: &str
 ) -> Result<app_bsky::graph::GetSuggestedFollowsByActorResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/app.bsky.graph.getSuggestedFollowsByActor", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/app.bsky.graph.getSuggestedFollowsByActor",
+        host_name
+    );
 
-    let query_params = vec![
-        ("actor", actor)
-    ];
+    let query_params = vec![("actor", actor)];
 
     let client = reqwest::Client::new();
 
@@ -416,7 +422,8 @@ pub async fn get_suggested_follows_by_actor(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: app_bsky::graph::GetSuggestedFollowsByActorResponse = response.json().await?;
+            let response_body: app_bsky::graph::GetSuggestedFollowsByActorResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))

@@ -1,12 +1,25 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::{actor::{ProfileView, ProfileViewBasic}, embed::{ExternalEmbedView, ImageEmbedView, RecordEmbedView, RecordWithMediaEmbedView, VideoEmbedView}, graph::ListViewBasic}, com_atproto::label::Label};
+use crate::types::{
+    app_bsky::{
+        actor::{ProfileView, ProfileViewBasic},
+        embed::{
+            ExternalEmbedView,
+            ImageEmbedView,
+            RecordEmbedView,
+            RecordWithMediaEmbedView,
+            VideoEmbedView
+        },
+        graph::ListViewBasic
+    },
+    com_atproto::label::Label
+};
 
 /*    Type: postView
     Id: app.bsky.feed.defs#postView
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -65,7 +78,7 @@ pub enum PostViewEmbed {
 /*    Type: viewerState
     Id: app.bsky.feed.defs#viewerState
     Kind: object
-    
+
     Properties:
     - repost: string (JsonProperty: repost) [Optional]
     - like: string (JsonProperty: like) [Optional]
@@ -94,7 +107,7 @@ pub struct ViewerState {
 /*    Type: feedViewPost
     Id: app.bsky.feed.defs#feedViewPost
     Kind: object
-    
+
     Properties:
     - post: #postView (JsonProperty: post) [Required]
     - reply: #replyRef (JsonProperty: reply) [Optional]
@@ -123,7 +136,7 @@ pub enum FeedViewPostReason {
 /*    Type: replyRef
     Id: app.bsky.feed.defs#replyRef
     Kind: object
-    
+
     Properties:
     - root: union  (JsonProperty: root) [Required]
     - parent: union  (JsonProperty: parent) [Required]
@@ -150,7 +163,7 @@ pub enum ReplyRefItem {
 /*    Type: reasonRepost
     Id: app.bsky.feed.defs#reasonRepost
     Kind: object
-    
+
     Properties:
     - by: app.bsky.actor.defs#profileViewBasic (JsonProperty: by) [Required]
     - indexed_at: datetime (JsonProperty: indexedAt) [Required]
@@ -167,7 +180,7 @@ pub struct ReasonRepost {
 /*    Type: reasonPin
     Id: app.bsky.feed.defs#reasonPin
     Kind: object
-    
+
     Properties:
 */
 #[derive(Serialize, Deserialize, Debug)]
@@ -177,7 +190,7 @@ pub struct ReasonPin {}
 /*    Type: threadViewPost
     Id: app.bsky.feed.defs#threadViewPost
     Kind: object
-    
+
     Properties:
     - post: #postView (JsonProperty: post) [Required]
     - parent: union  (JsonProperty: parent) [Optional]
@@ -204,7 +217,7 @@ pub enum ThreadViewPostItem {
 /*    Type: notFoundPost
     Id: app.bsky.feed.defs#notFoundPost
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - not_found: boolean  (JsonProperty: notFound) [Required]
@@ -221,7 +234,7 @@ pub struct NotFoundPost {
 /*    Type: blockedPost
     Id: app.bsky.feed.defs#blockedPost
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - blocked: boolean  (JsonProperty: blocked) [Required]
@@ -241,7 +254,7 @@ pub struct BlockedPost {
 /*    Type: blockedAuthor
     Id: app.bsky.feed.defs#blockedAuthor
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - viewer: app.bsky.actor.defs#viewerState (JsonProperty: viewer) [Optional]
@@ -258,7 +271,7 @@ pub struct BlockedAuthor {
 /*    Type: generatorView
     Id: app.bsky.feed.defs#generatorView
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -308,7 +321,7 @@ pub struct GeneratorView {
 /*    Type: generatorViewerState
     Id: app.bsky.feed.defs#generatorViewerState
     Kind: object
-    
+
     Properties:
     - like: string (JsonProperty: like) [Optional]
 */
@@ -322,7 +335,7 @@ pub struct GeneratorViewerState {
 /*    Type: skeletonFeedPost
     Id: app.bsky.feed.defs#skeletonFeedPost
     Kind: object
-    
+
     Properties:
     - post: string (JsonProperty: post) [Required]
     - reason: union  (JsonProperty: reason) [Optional]
@@ -348,7 +361,7 @@ pub enum SkeletonFeedPostReason {
 /*    Type: skeletonReasonRepost
     Id: app.bsky.feed.defs#skeletonReasonRepost
     Kind: object
-    
+
     Properties:
     - repost: string (JsonProperty: repost) [Required]
 */
@@ -362,7 +375,7 @@ pub struct SkeletonReasonRepost {
 /*    Type: skeletonReasonPin
     Id: app.bsky.feed.defs#skeletonReasonPin
     Kind: object
-    
+
     Properties:
 */
 #[derive(Serialize, Deserialize, Debug)]
@@ -372,7 +385,7 @@ pub struct SkeletonReasonPin {}
 /*    Type: threadgateView
     Id: app.bsky.feed.defs#threadgateView
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Optional]
     - cid: string (JsonProperty: cid) [Optional]
@@ -395,7 +408,7 @@ pub struct ThreadgateView {
 /*    Type: interaction
     Id: app.bsky.feed.defs#interaction
     Kind: object
-    
+
     Properties:
     - item: string (JsonProperty: item) [Optional]
     - event: string (JsonProperty: event) [Optional]

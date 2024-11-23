@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: accountCodes
     Id: com.atproto.server.createInviteCodes#accountCodes
     Kind: object
-    
+
     Properties:
     - account: string (JsonProperty: account) [Required]
     - codes: string[] (JsonProperty: codes) [Required]

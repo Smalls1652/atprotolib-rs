@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: disableRule
     Id: app.bsky.feed.postgate#disableRule
     Kind: object
-    
+
     Properties:
 */
 #[derive(Serialize, Deserialize, Debug)]

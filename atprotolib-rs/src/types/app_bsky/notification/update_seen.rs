@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.notification.updateSeen#request
     Kind: object
-    
+
     Properties:
     - seen_at: datetime (JsonProperty: seenAt) [Required]
 */

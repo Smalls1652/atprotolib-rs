@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: feedItem
     Id: app.bsky.graph.starterpack#feedItem
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
 */

@@ -28,14 +28,7 @@ pub mod embed {
     mod record_with_media;
     mod video;
 
-    pub use self::{
-        defs::*,
-        external::*,
-        images::*,
-        record::*,
-        record_with_media::*,
-        video::*
-    };
+    pub use self::{defs::*, external::*, images::*, record::*, record_with_media::*, video::*};
 }
 
 pub mod feed {

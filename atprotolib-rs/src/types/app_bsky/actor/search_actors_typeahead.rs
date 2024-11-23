@@ -9,7 +9,7 @@ use super::ProfileViewBasic;
 /*    Type: response
     Id: app.bsky.actor.searchActorsTypeahead#response
     Kind: object
-    
+
     Properties:
     - actors: app.bsky.actor.defs#profileViewBasic[] (JsonProperty: actors) [Required]
 */
@@ -18,5 +18,3 @@ pub struct SearchActorsTypeaheadResponse {
     #[serde(rename = "actors")]
     pub actors: Vec<ProfileViewBasic>
 }
-
-

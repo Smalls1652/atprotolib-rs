@@ -9,7 +9,7 @@ use crate::types::app_bsky::actor::ProfileView;
 /*    Type: response
     Id: app.bsky.feed.getLikes#response
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Optional]
@@ -25,13 +25,13 @@ pub struct GetLikesResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
     #[serde(rename = "likes")]
-    pub likes: Vec<Like>,
+    pub likes: Vec<Like>
 }
 
 /*    Type: like
     Id: app.bsky.feed.getLikes#like
     Kind: object
-    
+
     Properties:
     - indexed_at: datetime (JsonProperty: indexedAt) [Required]
     - created_at: datetime (JsonProperty: createdAt) [Required]
@@ -44,5 +44,5 @@ pub struct Like {
     #[serde(rename = "createdAt")]
     pub created_at: String,
     #[serde(rename = "actor")]
-    pub actor: ProfileView,
+    pub actor: ProfileView
 }

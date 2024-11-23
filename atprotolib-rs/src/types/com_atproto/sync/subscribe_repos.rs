@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: commit
     Id: com.atproto.sync.subscribeRepos#commit
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - rebase: boolean  (JsonProperty: rebase) [Required]
@@ -54,7 +54,7 @@ pub struct Commit {
 /*    Type: identity
     Id: com.atproto.sync.subscribeRepos#identity
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - did: string (JsonProperty: did) [Required]
@@ -76,7 +76,7 @@ pub struct Identity {
 /*    Type: account
     Id: com.atproto.sync.subscribeRepos#account
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - did: string (JsonProperty: did) [Required]
@@ -101,7 +101,7 @@ pub struct Account {
 /*    Type: handle
     Id: com.atproto.sync.subscribeRepos#handle
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - did: string (JsonProperty: did) [Required]
@@ -123,7 +123,7 @@ pub struct Handle {
 /*    Type: migrate
     Id: com.atproto.sync.subscribeRepos#migrate
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - did: string (JsonProperty: did) [Required]
@@ -145,7 +145,7 @@ pub struct Migrate {
 /*    Type: tombstone
     Id: com.atproto.sync.subscribeRepos#tombstone
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - did: string (JsonProperty: did) [Required]
@@ -164,7 +164,7 @@ pub struct Tombstone {
 /*    Type: info
     Id: com.atproto.sync.subscribeRepos#info
     Kind: object
-    
+
     Properties:
     - name: string (JsonProperty: name) [Required]
     - message: string (JsonProperty: message) [Optional]
@@ -180,7 +180,7 @@ pub struct Info {
 /*    Type: repoOp
     Id: com.atproto.sync.subscribeRepos#repoOp
     Kind: object
-    
+
     Properties:
     - action: string (JsonProperty: action) [Required]
     - path: string (JsonProperty: path) [Required]
@@ -195,5 +195,3 @@ pub struct RepoOp {
     #[serde(rename = "cid")]
     pub cid: String
 }
-
-

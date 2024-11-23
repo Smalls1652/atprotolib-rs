@@ -9,7 +9,7 @@ use super::defs::PostView;
 /*    Type: response
     Id: app.bsky.feed.searchPosts#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - hits_total: integer  (JsonProperty: hitsTotal) [Optional]
@@ -22,5 +22,5 @@ pub struct SearchPostsResponse {
     #[serde(rename = "hitsTotal", default)]
     pub hits_total: i32,
     #[serde(rename = "posts")]
-    pub posts: Vec<PostView>,
+    pub posts: Vec<PostView>
 }

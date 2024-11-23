@@ -9,7 +9,7 @@ use super::defs::StarterPackViewBasic;
 /*    Type: response
     Id: app.bsky.graph.getActorStarterPacks#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - starter_packs: app.bsky.graph.defs#starterPackViewBasic[] (JsonProperty: starterPacks) [Required]
@@ -19,4 +19,3 @@ pub struct GetActorStarterPacksResponse {
     cursor: Option<String>,
     starter_packs: Vec<StarterPackViewBasic>
 }
-

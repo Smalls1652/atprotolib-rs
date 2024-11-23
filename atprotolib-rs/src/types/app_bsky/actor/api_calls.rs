@@ -1,9 +1,8 @@
+use super::ProfileView;
 use crate::{
     api_calls::{AddApiAuth, ApiAuthConfig, ApiError},
     types::app_bsky
 };
-
-use super::ProfileView;
 
 pub async fn get_profile(
     host_name: &str,
@@ -12,9 +11,7 @@ pub async fn get_profile(
 ) -> Result<app_bsky::actor::ProfileViewDetailed, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.actor.getProfile", host_name);
 
-    let query_params = vec![
-        ("actor", actor)
-    ];
+    let query_params = vec![("actor", actor)];
 
     let client = reqwest::Client::new();
 
@@ -75,7 +72,10 @@ pub async fn search_actors_typeahead(
     query: &str,
     limit: Option<i32>
 ) -> Result<app_bsky::actor::SearchActorsTypeaheadResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/app.bsky.actor.searchActorsTypeahead", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/app.bsky.actor.searchActorsTypeahead",
+        host_name
+    );
 
     let mut query_params = Vec::new();
     query_params.push(("q", query));
@@ -94,7 +94,8 @@ pub async fn search_actors_typeahead(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: app_bsky::actor::SearchActorsTypeaheadResponse = response.json().await?;
+            let response_body: app_bsky::actor::SearchActorsTypeaheadResponse =
+                response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))

@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.graph.muteActor#request
     Kind: object
-    
+
     Properties:
     - actor: string (JsonProperty: actor) [Required]
 */

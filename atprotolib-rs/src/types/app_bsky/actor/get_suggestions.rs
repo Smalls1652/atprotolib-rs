@@ -9,7 +9,7 @@ use super::ProfileView;
 /*    Type: response
     Id: app.bsky.actor.getSuggestions#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - actors: app.bsky.actor.defs#profileView[] (JsonProperty: actors) [Required]

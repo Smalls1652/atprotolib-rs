@@ -9,7 +9,7 @@ use super::{LabelerView, LabelerViewDetailed};
 /*    Type: response
     Id: app.bsky.labeler.getServices#response
     Kind: object
-    
+
     Properties:
     - views: union[] (JsonProperty: views) [Required]
 */

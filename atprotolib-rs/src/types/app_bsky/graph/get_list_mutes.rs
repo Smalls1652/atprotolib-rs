@@ -9,7 +9,7 @@ use super::defs::ListView;
 /*    Type: response
     Id: app.bsky.graph.getListMutes#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - lists: app.bsky.graph.defs#listView[] (JsonProperty: lists) [Required]

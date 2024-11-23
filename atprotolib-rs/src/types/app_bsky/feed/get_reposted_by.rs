@@ -9,7 +9,7 @@ use crate::types::app_bsky::actor::ProfileView;
 /*    Type: response
     Id: app.bsky.feed.getRepostedBy#response
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Optional]
@@ -25,5 +25,5 @@ pub struct GetRepostedByResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
     #[serde(rename = "reposted_by")]
-    pub reposted_by: Vec<ProfileView>,
+    pub reposted_by: Vec<ProfileView>
 }

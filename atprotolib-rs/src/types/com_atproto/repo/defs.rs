@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: commitMeta
     Id: com.atproto.repo.defs#commitMeta
     Kind: object
-    
+
     Properties:
     - cid: string (JsonProperty: cid) [Required]
     - rev: string (JsonProperty: rev) [Required]

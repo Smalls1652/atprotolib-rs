@@ -1,6 +1,13 @@
 use crate::{
     api_calls::{AddApiAuth, ApiAuthConfig, ApiError},
-    types::com_atproto::sync::{ListReposResponse, GetLatestCommitResponse, GetRepoStatusResponse, ListBlobsResponse, NotifyOfUpdateRequest, RequestCrawlRequest}
+    types::com_atproto::sync::{
+        GetLatestCommitResponse,
+        GetRepoStatusResponse,
+        ListBlobsResponse,
+        ListReposResponse,
+        NotifyOfUpdateRequest,
+        RequestCrawlRequest
+    }
 };
 
 pub async fn get_blob(
@@ -11,10 +18,7 @@ pub async fn get_blob(
 ) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.sync.getBlob", host_name);
 
-    let query_params = vec![
-        ("did", did),
-        ("cid", cid)
-    ];
+    let query_params = vec![("did", did), ("cid", cid)];
 
     let client = reqwest::Client::new();
 
@@ -39,11 +43,12 @@ pub async fn get_latest_commit(
     api_auth_config: &ApiAuthConfig,
     did: &str
 ) -> Result<GetLatestCommitResponse, Box<dyn std::error::Error>> {
-    let api_url = format!("https://{}/xrpc/com.atproto.sync.getLatestCommit", host_name);
+    let api_url = format!(
+        "https://{}/xrpc/com.atproto.sync.getLatestCommit",
+        host_name
+    );
 
-    let query_params = vec![
-        ("did", did)
-    ];
+    let query_params = vec![("did", did)];
 
     let client = reqwest::Client::new();
 
@@ -72,11 +77,7 @@ pub async fn get_record(
 ) -> Result<String, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.sync.getRecord", host_name);
 
-    let query_params = vec![
-        ("did", did),
-        ("collection", collection),
-        ("rkey", rkey)
-    ];
+    let query_params = vec![("did", did), ("collection", collection), ("rkey", rkey)];
 
     let client = reqwest::Client::new();
 
@@ -103,9 +104,7 @@ pub async fn get_repo_status(
 ) -> Result<GetRepoStatusResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.sync.getRepoStatus", host_name);
 
-    let query_params = vec![
-        ("did", did)
-    ];
+    let query_params = vec![("did", did)];
 
     let client = reqwest::Client::new();
 

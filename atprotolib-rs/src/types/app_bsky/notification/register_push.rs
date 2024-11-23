@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.notification.registerPush#request
     Kind: object
-    
+
     Properties:
     - service_did: string (JsonProperty: serviceDid) [Required]
     - token: string (JsonProperty: token) [Required]

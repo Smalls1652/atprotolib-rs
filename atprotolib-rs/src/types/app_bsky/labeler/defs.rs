@@ -1,12 +1,15 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::actor::ProfileView, com_atproto::label::{Label, LabelValueDefinition}};
+use crate::types::{
+    app_bsky::actor::ProfileView,
+    com_atproto::label::{Label, LabelValueDefinition}
+};
 
 /*    Type: labelerView
     Id: app.bsky.labeler.defs#labelerView
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -31,7 +34,7 @@ pub struct LabelerView {
 /*    Type: labelerViewDetailed
     Id: app.bsky.labeler.defs#labelerViewDetailed
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -57,7 +60,7 @@ pub struct LabelerViewDetailed {
 /*    Type: labelerViewerState
     Id: app.bsky.labeler.defs#labelerViewerState
     Kind: object
-    
+
     Properties:
     - like: string (JsonProperty: like) [Optional]
 */
@@ -69,7 +72,7 @@ pub struct LabelerViewerState {
 /*    Type: labelerPolicies
     Id: app.bsky.labeler.defs#labelerPolicies
     Kind: object
-    
+
     Properties:
     - label_values: com.atproto.label.defs#labelValue[] (JsonProperty: labelValues) [Required]
     - label_value_definitions: com.atproto.label.defs#labelValueDefinition[] (JsonProperty: labelValueDefinitions) [Optional]

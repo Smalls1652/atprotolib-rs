@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: jobStatus
     Id: app.bsky.video.defs#jobStatus
     Kind: object
-    
+
     Properties:
     - job_id: string (JsonProperty: jobId) [Required]
     - did: string (JsonProperty: did) [Required]

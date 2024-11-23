@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.repo.describeRepo#response
     Kind: object
-    
+
     Properties:
     - handle: string (JsonProperty: handle) [Required]
     - did: string (JsonProperty: did) [Required]

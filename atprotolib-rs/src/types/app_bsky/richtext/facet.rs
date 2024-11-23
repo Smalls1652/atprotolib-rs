@@ -32,7 +32,7 @@ pub enum RichTextFacetFeatures {
 /*    Type: mention
     Id: app.bsky.richtext.facet#mention
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
 */
@@ -46,7 +46,7 @@ pub struct Mention {
 /*    Type: link
     Id: app.bsky.richtext.facet#link
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
 */
@@ -60,7 +60,7 @@ pub struct Link {
 /*    Type: tag
     Id: app.bsky.richtext.facet#tag
     Kind: object
-    
+
     Properties:
     - tag: string (JsonProperty: tag) [Required]
 */
@@ -74,7 +74,7 @@ pub struct Tag {
 /*    Type: byteSlice
     Id: app.bsky.richtext.facet#byteSlice
     Kind: object
-    
+
     Properties:
     - byte_start: integer  (JsonProperty: byteStart) [Required]
     - byte_end: integer  (JsonProperty: byteEnd) [Required]

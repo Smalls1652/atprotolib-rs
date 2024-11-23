@@ -9,7 +9,7 @@ use super::{NotFoundActor, Relationship};
 /*    Type: response
     Id: app.bsky.graph.getRelationships#response
     Kind: object
-    
+
     Properties:
     - actor: string (JsonProperty: actor) [Optional]
     - relationships: union[] (JsonProperty: relationships) [Required]

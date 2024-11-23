@@ -10,7 +10,7 @@ use crate::types::com_atproto::{admin::RepoRef, repo::StrongRef};
 /*    Type: request
     Id: com.atproto.moderation.createReport#request
     Kind: object
-    
+
     Properties:
     - reason_type: com.atproto.moderation.defs#reasonType (JsonProperty: reasonType) [Required]
     - reason: string (JsonProperty: reason) [Optional]
@@ -35,7 +35,7 @@ pub enum CreateReportRequestSubject {
 /*    Type: response
     Id: com.atproto.moderation.createReport#response
     Kind: object
-    
+
     Properties:
     - id: integer  (JsonProperty: id) [Required]
     - reason_type: com.atproto.moderation.defs#reasonType (JsonProperty: reasonType) [Required]

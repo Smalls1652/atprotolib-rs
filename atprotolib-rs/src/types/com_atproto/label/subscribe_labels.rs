@@ -9,7 +9,7 @@ use super::Label;
 /*    Type: labels
     Id: com.atproto.label.subscribeLabels#labels
     Kind: object
-    
+
     Properties:
     - seq: integer  (JsonProperty: seq) [Required]
     - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Required]
@@ -25,7 +25,7 @@ pub struct Labels {
 /*    Type: info
     Id: com.atproto.label.subscribeLabels#info
     Kind: object
-    
+
     Properties:
     - name: string (JsonProperty: name) [Required]
     - message: string (JsonProperty: message) [Optional]

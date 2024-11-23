@@ -1,7 +1,15 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::{actor::ProfileViewBasic, feed::{BlockedAuthor, GeneratorView}, graph::{ListView, StarterPackViewBasic}, labeler::LabelerView}, com_atproto::label::Label};
+use crate::types::{
+    app_bsky::{
+        actor::ProfileViewBasic,
+        feed::{BlockedAuthor, GeneratorView},
+        graph::{ListView, StarterPackViewBasic},
+        labeler::LabelerView
+    },
+    com_atproto::label::Label
+};
 
 /*
     app.bsky.embed.record
@@ -10,7 +18,7 @@ use crate::types::{app_bsky::{actor::ProfileViewBasic, feed::{BlockedAuthor, Gen
 /*    Type: view
     Id: app.bsky.embed.record#view
     Kind: object
-    
+
     Properties:
     - record: union  (JsonProperty: record) [Required]
 */
@@ -36,7 +44,7 @@ pub enum RecordEmbedUnion {
 /*    Type: viewRecord
     Id: app.bsky.embed.record#viewRecord
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - cid: string (JsonProperty: cid) [Required]
@@ -74,13 +82,13 @@ pub struct RecordEmbedViewRecord {
     #[serde(rename = "embeds", skip_serializing_if = "Option::is_none")]
     pub embeds: Option<Vec<RecordEmbedUnion>>,
     #[serde(rename = "indexedAt")]
-    pub indexed_at: DateTime<Utc>,
+    pub indexed_at: DateTime<Utc>
 }
 
 /*    Type: viewNotFound
     Id: app.bsky.embed.record#viewNotFound
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - not_found: boolean  (JsonProperty: notFound) [Required]
@@ -91,13 +99,13 @@ pub struct RecordEmbedViewNotFound {
     #[serde(rename = "uri")]
     pub uri: String,
     #[serde(rename = "notFound", default)]
-    pub not_found: bool,
+    pub not_found: bool
 }
 
 /*    Type: viewBlocked
     Id: app.bsky.embed.record#viewBlocked
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - blocked: boolean  (JsonProperty: blocked) [Required]
@@ -111,13 +119,13 @@ pub struct RecordEmbedViewBlocked {
     #[serde(rename = "blocked", default)]
     pub blocked: bool,
     #[serde(rename = "author")]
-    pub author: BlockedAuthor,
+    pub author: BlockedAuthor
 }
 
 /*    Type: viewDetached
     Id: app.bsky.embed.record#viewDetached
     Kind: object
-    
+
     Properties:
     - uri: string (JsonProperty: uri) [Required]
     - detached: boolean  (JsonProperty: detached) [Required]
@@ -128,5 +136,5 @@ pub struct RecordEmbedViewDetached {
     #[serde(rename = "uri")]
     pub uri: String,
     #[serde(rename = "detached", default)]
-    pub detached: bool,
+    pub detached: bool
 }

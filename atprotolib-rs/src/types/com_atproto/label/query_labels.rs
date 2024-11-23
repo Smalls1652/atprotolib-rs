@@ -9,7 +9,7 @@ use super::Label;
 /*    Type: response
     Id: com.atproto.label.queryLabels#response
     Kind: object
-    
+
     Properties:
     - cursor: string (JsonProperty: cursor) [Optional]
     - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Required]

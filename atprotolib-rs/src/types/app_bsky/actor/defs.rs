@@ -1,12 +1,15 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::graph::{ListViewBasic, StarterPackViewBasic}, com_atproto::label::Label};
+use crate::types::{
+    app_bsky::graph::{ListViewBasic, StarterPackViewBasic},
+    com_atproto::label::Label
+};
 
 /*    Type: profileViewBasic
     Id: app.bsky.actor.defs#profileViewBasic
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - handle: string (JsonProperty: handle) [Required]
@@ -41,7 +44,7 @@ pub struct ProfileViewBasic {
 /*    Type: profileView
     Id: app.bsky.actor.defs#profileView
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - handle: string (JsonProperty: handle) [Required]
@@ -82,7 +85,7 @@ pub struct ProfileView {
 /*    Type: profileViewDetailed
     Id: app.bsky.actor.defs#profileViewDetailed
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - handle: string (JsonProperty: handle) [Required]
@@ -124,7 +127,10 @@ pub struct ProfileViewDetailed {
     pub posts_count: i32,
     #[serde(rename = "associated", skip_serializing_if = "Option::is_none")]
     pub associated: Option<ProfileAssociated>,
-    #[serde(rename = "joinedViaStarterPack", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "joinedViaStarterPack",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub joined_via_starter_pack: Option<StarterPackViewBasic>,
     #[serde(rename = "indexedAt", skip_serializing_if = "Option::is_none")]
     pub indexed_at: Option<DateTime<Utc>>,
@@ -141,7 +147,7 @@ pub struct ProfileViewDetailed {
 /*    Type: profileAssociated
     Id: app.bsky.actor.defs#profileAssociated
     Kind: object
-    
+
     Properties:
     - lists: integer  (JsonProperty: lists) [Optional]
     - feedgens: integer  (JsonProperty: feedgens) [Optional]
@@ -167,7 +173,7 @@ pub struct ProfileAssociated {
 /*    Type: profileAssociatedChat
     Id: app.bsky.actor.defs#profileAssociatedChat
     Kind: object
-    
+
     Properties:
     - allow_incoming: string (JsonProperty: allowIncoming) [Required]
 */
@@ -181,7 +187,7 @@ pub struct ProfileAssociatedChat {
 /*    Type: viewerState
     Id: app.bsky.actor.defs#viewerState
     Kind: object
-    
+
     Properties:
     - muted: boolean  (JsonProperty: muted) [Optional]
     - muted_by_list: app.bsky.graph.defs#listViewBasic (JsonProperty: mutedByList) [Optional]
@@ -216,7 +222,7 @@ pub struct ViewerState {
 /*    Type: knownFollowers
     Id: app.bsky.actor.defs#knownFollowers
     Kind: object
-    
+
     Properties:
     - count: integer  (JsonProperty: count) [Required]
     - followers: #profileViewBasic[] (JsonProperty: followers) [Required]
@@ -233,7 +239,7 @@ pub struct KnownFollowers {
 /*    Type: preferences
     Id: app.bsky.actor.defs#preferences
     Kind: array union
-    
+
     Properties:
 */
 #[derive(Serialize, Deserialize, Debug)]
@@ -262,7 +268,7 @@ pub enum PreferencesEnum {
 /*    Type: adultContentPref
     Id: app.bsky.actor.defs#adultContentPref
     Kind: object
-    
+
     Properties:
     - enabled: boolean  (JsonProperty: enabled) [Required]
 */
@@ -276,7 +282,7 @@ pub struct AdultContentPref {
 /*    Type: contentLabelPref
     Id: app.bsky.actor.defs#contentLabelPref
     Kind: object
-    
+
     Properties:
     - labeler_did: string (JsonProperty: labelerDid) [Optional]
     - label: string (JsonProperty: label) [Required]
@@ -296,7 +302,7 @@ pub struct ContentLabelPref {
 /*    Type: savedFeed
     Id: app.bsky.actor.defs#savedFeed
     Kind: object
-    
+
     Properties:
     - id: string (JsonProperty: id) [Required]
     - type: string (JsonProperty: type) [Required]
@@ -319,7 +325,7 @@ pub struct SavedFeed {
 /*    Type: savedFeedsPrefV2
     Id: app.bsky.actor.defs#savedFeedsPrefV2
     Kind: object
-    
+
     Properties:
     - items: app.bsky.actor.defs#savedFeed[] (JsonProperty: items) [Required]
 */
@@ -333,7 +339,7 @@ pub struct SavedFeedsPrefV2 {
 /*    Type: savedFeedsPref
     Id: app.bsky.actor.defs#savedFeedsPref
     Kind: object
-    
+
     Properties:
     - pinned: string[] (JsonProperty: pinned) [Required]
     - saved: string[] (JsonProperty: saved) [Required]
@@ -353,7 +359,7 @@ pub struct SavedFeedsPref {
 /*    Type: personalDetailsPref
     Id: app.bsky.actor.defs#personalDetailsPref
     Kind: object
-    
+
     Properties:
     - birth_date: datetime (JsonProperty: birthDate) [Optional]
 */
@@ -367,7 +373,7 @@ pub struct PersonalDetailsPref {
 /*    Type: feedViewPref
     Id: app.bsky.actor.defs#feedViewPref
     Kind: object
-    
+
     Properties:
     - feed: string (JsonProperty: feed) [Required]
     - hide_replies: boolean  (JsonProperty: hideReplies) [Optional]
@@ -396,7 +402,7 @@ pub struct FeedViewPref {
 /*    Type: threadViewPref
     Id: app.bsky.actor.defs#threadViewPref
     Kind: object
-    
+
     Properties:
     - sort: string (JsonProperty: sort) [Optional]
     - prioritize_followed_users: boolean  (JsonProperty: prioritizeFollowedUsers) [Optional]
@@ -413,7 +419,7 @@ pub struct ThreadViewPref {
 /*    Type: interestsPref
     Id: app.bsky.actor.defs#interestsPref
     Kind: object
-    
+
     Properties:
     - tags: string[] (JsonProperty: tags) [Required]
 */
@@ -427,7 +433,7 @@ pub struct InterestsPref {
 /*    Type: mutedWord
     Id: app.bsky.actor.defs#mutedWord
     Kind: object
-    
+
     Properties:
     - id: string (JsonProperty: id) [Optional]
     - value: string (JsonProperty: value) [Required]
@@ -453,7 +459,7 @@ pub struct MutedWord {
 /*    Type: mutedWordsPref
     Id: app.bsky.actor.defs#mutedWordsPref
     Kind: object
-    
+
     Properties:
     - items: app.bsky.actor.defs#mutedWord[] (JsonProperty: items) [Required]
 */
@@ -467,7 +473,7 @@ pub struct MutedWordsPref {
 /*    Type: hiddenPostsPref
     Id: app.bsky.actor.defs#hiddenPostsPref
     Kind: object
-    
+
     Properties:
     - items: string[] (JsonProperty: items) [Required]
 */
@@ -481,7 +487,7 @@ pub struct HiddenPostsPref {
 /*    Type: labelersPref
     Id: app.bsky.actor.defs#labelersPref
     Kind: object
-    
+
     Properties:
     - labelers: #labelerPrefItem[] (JsonProperty: labelers) [Required]
 */
@@ -495,7 +501,7 @@ pub struct LabelersPref {
 /*    Type: labelerPrefItem
     Id: app.bsky.actor.defs#labelerPrefItem
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
 */
@@ -509,7 +515,7 @@ pub struct LabelerPrefItem {
 /*    Type: bskyAppStatePref
     Id: app.bsky.actor.defs#bskyAppStatePref
     Kind: object
-    
+
     Properties:
     - active_progress_guide: #bskyAppProgressGuide (JsonProperty: activeProgressGuide) [Optional]
     - queued_nudges: string[] (JsonProperty: queuedNudges) [Optional]
@@ -518,7 +524,10 @@ pub struct LabelerPrefItem {
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.actor.defs#bskyAppStatePref")]
 pub struct BskyAppStatePref {
-    #[serde(rename = "activeProgressGuide", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "activeProgressGuide",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub active_progress_guide: Option<BskyAppProgressGuide>,
     #[serde(rename = "queuedNudges", skip_serializing_if = "Option::is_none")]
     pub queued_nudges: Option<Vec<String>>,
@@ -529,7 +538,7 @@ pub struct BskyAppStatePref {
 /*    Type: bskyAppProgressGuide
     Id: app.bsky.actor.defs#bskyAppProgressGuide
     Kind: object
-    
+
     Properties:
     - guide: string (JsonProperty: guide) [Required]
 */
@@ -543,7 +552,7 @@ pub struct BskyAppProgressGuide {
 /*    Type: nux
     Id: app.bsky.actor.defs#nux
     Kind: object
-    
+
     Properties:
     - id: string (JsonProperty: id) [Required]
     - completed: boolean  (JsonProperty: completed) [Required]
@@ -562,5 +571,3 @@ pub struct Nux {
     #[serde(rename = "expiresAt", skip_serializing_if = "Option::is_none")]
     pub expires_at: Option<DateTime<Utc>>
 }
-
-

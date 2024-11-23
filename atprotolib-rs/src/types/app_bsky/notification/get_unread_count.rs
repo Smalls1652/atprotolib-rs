@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: app.bsky.notification.getUnreadCount#response
     Kind: object
-    
+
     Properties:
     - count: integer  (JsonProperty: count) [Required]
 */

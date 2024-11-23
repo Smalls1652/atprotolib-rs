@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.identity.resolveHandle#response
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
 */

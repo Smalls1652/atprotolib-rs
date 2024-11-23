@@ -9,7 +9,7 @@ use super::AspectRatio;
 /*    Type: caption
     Id: app.bsky.embed.video#caption
     Kind: object
-    
+
     Properties:
     - lang: string (JsonProperty: lang) [Required]
     - file: blob  (JsonProperty: file) [Required]
@@ -26,7 +26,7 @@ pub struct VideoEmbedCaption {
 /*    Type: view
     Id: app.bsky.embed.video#view
     Kind: object
-    
+
     Properties:
     - cid: string (JsonProperty: cid) [Required]
     - playlist: string (JsonProperty: playlist) [Required]

@@ -10,9 +10,7 @@ pub async fn get_job_status(
 ) -> Result<app_bsky::video::GetJobStatusResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.video.getJobStatus", host_name);
 
-    let query_params = vec![
-        ("jobId", job_id)
-    ];
+    let query_params = vec![("jobId", job_id)];
 
     let client = reqwest::Client::new();
 

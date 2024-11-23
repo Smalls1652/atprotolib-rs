@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: app.bsky.video.getUploadLimits#response
     Kind: object
-    
+
     Properties:
     - can_upload: boolean  (JsonProperty: canUpload) [Required]
     - remaining_daily_videos: integer  (JsonProperty: remainingDailyVideos) [Optional]

@@ -9,7 +9,7 @@ use super::defs::GeneratorView;
 /*    Type: response
     Id: app.bsky.feed.getFeedGenerator#response
     Kind: object
-    
+
     Properties:
     - view: app.bsky.feed.defs#generatorView (JsonProperty: view) [Required]
     - is_online: boolean  (JsonProperty: isOnline) [Required]
@@ -22,5 +22,5 @@ pub struct GetFeedGeneratorResponse {
     #[serde(rename = "isOnline", default)]
     pub is_online: bool,
     #[serde(rename = "isValid", default)]
-    pub is_valid: bool,
+    pub is_valid: bool
 }

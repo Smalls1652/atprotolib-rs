@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: label
     Id: com.atproto.label.defs#label
     Kind: object
-    
+
     Properties:
     - ver: integer  (JsonProperty: ver) [Optional]
     - src: string (JsonProperty: src) [Required]
@@ -41,7 +41,7 @@ pub struct Label {
 /*    Type: selfLabels
     Id: com.atproto.label.defs#selfLabels
     Kind: object
-    
+
     Properties:
     - values: #selfLabel[] (JsonProperty: values) [Required]
 */
@@ -55,7 +55,7 @@ pub struct SelfLabels {
 /*    Type: selfLabel
     Id: com.atproto.label.defs#selfLabel
     Kind: object
-    
+
     Properties:
     - val: string (JsonProperty: val) [Required]
 */
@@ -69,7 +69,7 @@ pub struct SelfLabel {
 /*    Type: labelValueDefinition
     Id: com.atproto.label.defs#labelValueDefinition
     Kind: object
-    
+
     Properties:
     - identifier: string (JsonProperty: identifier) [Required]
     - severity: string (JsonProperty: severity) [Required]
@@ -98,14 +98,17 @@ pub struct LabelValueDefinition {
 /*    Type: labelValueDefinitionStrings
     Id: com.atproto.label.defs#labelValueDefinitionStrings
     Kind: object
-    
+
     Properties:
     - lang: string (JsonProperty: lang) [Required]
     - name: string (JsonProperty: name) [Required]
     - description: string (JsonProperty: description) [Required]
 */
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.label.defs#labelValueDefinitionStrings")]
+#[serde(
+    tag = "$type",
+    rename = "com.atproto.label.defs#labelValueDefinitionStrings"
+)]
 pub struct LabelValueDefinitionStrings {
     #[serde(rename = "lang")]
     pub lang: String,

@@ -9,7 +9,7 @@ use crate::types::app_bsky::actor::ProfileView;
 /*    Type: response
     Id: app.bsky.graph.getFollows#response
     Kind: object
-    
+
     Properties:
     - subject: app.bsky.actor.defs#profileView (JsonProperty: subject) [Required]
     - cursor: string (JsonProperty: cursor) [Optional]

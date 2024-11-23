@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: request
     Id: app.bsky.notification.putPreferences#request
     Kind: object
-    
+
     Properties:
     - priority: boolean  (JsonProperty: priority) [Required]
 */

@@ -1,10 +1,14 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-use crate::types::{app_bsky::{
-    actor::{ProfileView, ProfileViewBasic},
-    feed::GeneratorView, richtext::RichTextFacet
-}, com_atproto::label::Label};
+use crate::types::{
+    app_bsky::{
+        actor::{ProfileView, ProfileViewBasic},
+        feed::GeneratorView,
+        richtext::RichTextFacet
+    },
+    com_atproto::label::Label
+};
 
 /*    Type: listViewBasic
     Id: app.bsky.graph.defs#listViewBasic

@@ -86,7 +86,10 @@ pub struct Create {
 }
 
 impl Create {
-    pub fn new(collection: String, value: serde_json::Value) -> Create {
+    pub fn new(
+        collection: String,
+        value: serde_json::Value
+    ) -> Create {
         Create {
             collection,
             rkey: None,

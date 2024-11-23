@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /*    Type: response
     Id: com.atproto.sync.getRepoStatus#response
     Kind: object
-    
+
     Properties:
     - did: string (JsonProperty: did) [Required]
     - active: boolean  (JsonProperty: active) [Required]
