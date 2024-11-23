@@ -8,7 +8,7 @@ A Rust library for various [ATProtocol](https://atproto.com/) (Used by [BlueSky]
 ## 📋 API/Lexicon types implemented
 
 > [!NOTE]
-> Even if a specific namespace is marked as implemented, there might still be some missing types.
+> Even if a specific namespace is marked as implemented, there might still be some missing types. Likewise, some types might not be mapped correctly.
 
 ### `app.bsky`
 
