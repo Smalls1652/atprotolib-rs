@@ -49,7 +49,7 @@ impl Post {
         text: String,
         created_at: DateTime<Utc>,
         langs : Option<Vec<String>>,
-    ) -> Post {;
+    ) -> Post {
         Post {
             type_: "app.bsky.feed.post".to_string(),
             text,
