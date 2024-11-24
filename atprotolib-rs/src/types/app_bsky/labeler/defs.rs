@@ -6,79 +6,73 @@ use crate::types::{
     com_atproto::label::{Label, LabelValueDefinition}
 };
 
-/*    Type: labelerView
-    Id: app.bsky.labeler.defs#labelerView
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - creator: app.bsky.actor.defs#profileView (JsonProperty: creator) [Required]
-    - like_count: integer  (JsonProperty: likeCount) [Optional]
-    - viewer: #labelerViewerState (JsonProperty: viewer) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Required]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-*/
+/// A view of a labeler.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.labeler.defs#labelerView")]
 pub struct LabelerView {
+    /// The URI of the labeler.
     uri: String,
+
+    /// The CID of the labeler.
     cid: String,
+
+    /// The creator of the labeler.
     creator: ProfileView,
+
+    /// The number of likes the labeler has.
     like_count: i32,
+
+    /// A representation of the viewer's relationship with the labeler.
     viewer: Option<LabelerViewerState>,
+
+    /// The date and time the labeler was indexed.
     indexed_at: DateTime<Utc>,
+
+    /// The labels associated with the labeler.
     labels: Option<Vec<Label>>
 }
 
-/*    Type: labelerViewDetailed
-    Id: app.bsky.labeler.defs#labelerViewDetailed
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - creator: app.bsky.actor.defs#profileView (JsonProperty: creator) [Required]
-    - policies: app.bsky.labeler.defs#labelerPolicies (JsonProperty: policies) [Required]
-    - like_count: integer  (JsonProperty: likeCount) [Optional]
-    - viewer: #labelerViewerState (JsonProperty: viewer) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Required]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-*/
+/// A detailed view of a labeler.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct LabelerViewDetailed {
+    /// The URI of the labeler.
     uri: String,
+
+    /// The CID of the labeler.
     cid: String,
+
+    /// The creator of the labeler.
     creator: ProfileView,
+
+    /// The policies of the labeler.
     policies: LabelerPolicies,
+
+    /// The number of likes the labeler has.
     like_count: i32,
+
+    /// A representation of the viewer's relationship with the labeler.
     viewer: Option<LabelerViewerState>,
+
+    /// The date and time the labeler was indexed.
     indexed_at: DateTime<Utc>,
+
+    /// The labels associated with the labeler.
     labels: Option<Vec<Label>>
 }
 
-/*    Type: labelerViewerState
-    Id: app.bsky.labeler.defs#labelerViewerState
-    Kind: object
-
-    Properties:
-    - like: string (JsonProperty: like) [Optional]
-*/
+/// A representation of the viewer's relationship with a labeler.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct LabelerViewerState {
+    /// The URI of the like record.
     like: Option<String>
 }
 
-/*    Type: labelerPolicies
-    Id: app.bsky.labeler.defs#labelerPolicies
-    Kind: object
-
-    Properties:
-    - label_values: com.atproto.label.defs#labelValue[] (JsonProperty: labelValues) [Required]
-    - label_value_definitions: com.atproto.label.defs#labelValueDefinition[] (JsonProperty: labelValueDefinitions) [Optional]
-*/
+/// Policies for a labeler.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct LabelerPolicies {
+    /// The label values of the labeler.
     label_values: Vec<String>,
+
+    /// The label value definitions of the labeler.
     label_value_definitions: Option<Vec<LabelValueDefinition>>
 }

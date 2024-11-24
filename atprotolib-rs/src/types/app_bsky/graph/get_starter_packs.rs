@@ -6,14 +6,9 @@ use super::defs::StarterPackViewBasic;
     app.bsky.graph.getStarterPacks
 */
 
-/*    Type: response
-    Id: app.bsky.graph.getStarterPacks#response
-    Kind: object
-
-    Properties:
-    - starter_packs: app.bsky.graph.defs#starterPackViewBasic[] (JsonProperty: starterPacks) [Required]
-*/
+/// The response to a request for starter packs.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetStarterPacksResponse {
+    /// A list of the starter packs.
     starter_packs: Vec<StarterPackViewBasic>
 }

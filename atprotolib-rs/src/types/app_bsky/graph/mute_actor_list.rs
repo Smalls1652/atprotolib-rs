@@ -4,14 +4,9 @@ use serde::{Deserialize, Serialize};
     app.bsky.graph.muteActorList
 */
 
-/*    Type: request
-    Id: app.bsky.graph.muteActorList#request
-    Kind: object
-
-    Properties:
-    - list: string (JsonProperty: list) [Required]
-*/
+/// The request to mute an actor list.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct MuteActorListRequest {
+    /// The list.
     list: String
 }

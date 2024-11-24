@@ -4,14 +4,9 @@ use serde::{Deserialize, Serialize};
     app.bsky.graph.unmuteActor
 */
 
-/*    Type: request
-    Id: app.bsky.graph.unmuteActor#request
-    Kind: object
-
-    Properties:
-    - actor: string (JsonProperty: actor) [Required]
-*/
+/// The request to unmute an actor.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UnmuteActorRequest {
+    /// The URI of the actor to unmute.
     actor: String
 }

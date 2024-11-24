@@ -6,18 +6,15 @@ use crate::types::app_bsky::actor::ProfileView;
     app.bsky.graph.getFollowers
 */
 
-/*    Type: response
-    Id: app.bsky.graph.getFollowers#response
-    Kind: object
-
-    Properties:
-    - subject: app.bsky.actor.defs#profileView (JsonProperty: subject) [Required]
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - followers: app.bsky.actor.defs#profileView[] (JsonProperty: followers) [Required]
-*/
+/// The response to a request for a user's followers.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetFollowersResponse {
+    /// The subject of the request.
     subject: ProfileView,
+
+    /// The cursor for the stream.
     cursor: Option<String>,
+
+    /// A list of the user's followers.
     followers: Vec<ProfileView>
 }

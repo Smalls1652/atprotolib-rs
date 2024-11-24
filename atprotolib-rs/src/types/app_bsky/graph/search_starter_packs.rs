@@ -6,16 +6,12 @@ use super::defs::StarterPackViewBasic;
     app.bsky.graph.searchStarterPacks
 */
 
-/*    Type: response
-    Id: app.bsky.graph.searchStarterPacks#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - starter_packs: app.bsky.graph.defs#starterPackViewBasic[] (JsonProperty: starterPacks) [Required]
-*/
+/// The response to a request to search for starter packs.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SearchStarterPacksResponse {
+    /// The cursor for the stream.
     cursor: Option<String>,
+
+    /// A list of the starter packs.
     starter_packs: Vec<StarterPackViewBasic>
 }

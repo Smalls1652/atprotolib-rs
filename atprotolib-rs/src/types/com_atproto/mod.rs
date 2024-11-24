@@ -1,3 +1,4 @@
+/// Contains types for the `com.atproto.admin` namespace.
 pub mod admin {
     mod defs;
     mod delete_account;
@@ -39,6 +40,7 @@ pub mod admin {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `com.atproto.identity` namespace.
 pub mod identity {
     mod get_recommended_did_credentials;
     mod resolve_handle;
@@ -61,6 +63,7 @@ pub mod identity {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `com.atproto.label` namespace.
 pub mod label {
     mod defs;
     mod query_labels;
@@ -69,6 +72,7 @@ pub mod label {
     pub use self::{defs::*, query_labels::*, subscribe_labels::*};
 }
 
+/// Contains types for the `com.atproto.moderation` namespace.
 pub mod moderation {
     mod create_report;
 
@@ -81,6 +85,7 @@ pub mod moderation {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `com.atproto.repo` namespace.
 pub mod repo {
     mod apply_writes;
     mod create_record;
@@ -113,6 +118,7 @@ pub mod repo {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `com.atproto.server` namespace.
 pub mod server {
     mod check_account_status;
     mod confirm_email;
@@ -169,6 +175,7 @@ pub mod server {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `com.atproto.sync` namespace.
 pub mod sync {
     mod get_head;
     mod get_latest_commit;

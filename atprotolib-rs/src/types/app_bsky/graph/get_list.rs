@@ -6,18 +6,15 @@ use super::defs::{ListItemView, ListView};
     app.bsky.graph.getList
 */
 
-/*    Type: response
-    Id: app.bsky.graph.getList#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - list: app.bsky.graph.defs#listView (JsonProperty: list) [Required]
-    - items: app.bsky.graph.defs#listItemView[] (JsonProperty: items) [Required]
-*/
+/// The response to a request for a list.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetListResponse {
+    /// The cursor for the stream.
     cursor: Option<String>,
+
+    /// The list.
     list: ListView,
+
+    /// A list of the list's items.
     items: Vec<ListItemView>
 }

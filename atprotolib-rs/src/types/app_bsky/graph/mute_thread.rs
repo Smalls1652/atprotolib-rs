@@ -4,14 +4,9 @@ use serde::{Deserialize, Serialize};
     app.bsky.graph.muteThread
 */
 
-/*    Type: request
-    Id: app.bsky.graph.muteThread#request
-    Kind: object
-
-    Properties:
-    - root: string (JsonProperty: root) [Required]
-*/
+/// The request to mute a thread.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct MuteThreadRequest {
+    /// The URI of the thread to mute.
     root: String
 }

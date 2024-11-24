@@ -4,15 +4,10 @@ use serde::{Deserialize, Serialize};
     app.bsky.notification.getUnreadCount
 */
 
-/*    Type: response
-    Id: app.bsky.notification.getUnreadCount#response
-    Kind: object
-
-    Properties:
-    - count: integer  (JsonProperty: count) [Required]
-*/
+/// The response to a request for the unread count of notifications.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetUnreadCountResponse {
+    /// The count of unread notifications.
     #[serde(rename = "count", default)]
     pub count: i32
 }
