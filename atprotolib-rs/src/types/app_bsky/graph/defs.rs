@@ -10,187 +10,189 @@ use crate::types::{
     com_atproto::label::Label
 };
 
-/*    Type: listViewBasic
-    Id: app.bsky.graph.defs#listViewBasic
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - name: string (JsonProperty: name) [Required]
-    - purpose: #listPurpose (JsonProperty: purpose) [Required]
-    - avatar: string (JsonProperty: avatar) [Optional]
-    - list_item_count: integer  (JsonProperty: listItemCount) [Optional]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-    - viewer: #listViewerState (JsonProperty: viewer) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Optional]
-*/
+/// A basic view of a list.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListViewBasic {
+    /// The URI of the list.
     uri: String,
+
+    /// The CID of the list.
     cid: String,
+
+    /// The name of the list.
     name: String,
+
+    /// The purpose of the list.
     purpose: String,
+
+    /// The URI for the avatar of the list.
     avatar: Option<String>,
+
+    /// The number of items in the list.
     list_item_count: i32,
+
+    /// The labels associated with the list.
     labels: Option<Vec<Label>>,
+
+    /// A representation of the viewer's relationship with the list.
     viewer: Option<ListViewerState>,
+
+    /// The date and time the list was indexed.
     indexed_at: Option<DateTime<Utc>>
 }
 
-/*    Type: listView
-    Id: app.bsky.graph.defs#listView
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - creator: app.bsky.actor.defs#profileView (JsonProperty: creator) [Required]
-    - name: string (JsonProperty: name) [Required]
-    - purpose: #listPurpose (JsonProperty: purpose) [Required]
-    - description: string (JsonProperty: description) [Optional]
-    - description_facets: app.bsky.richtext.facet[] (JsonProperty: descriptionFacets) [Optional]
-    - avatar: string (JsonProperty: avatar) [Optional]
-    - list_item_count: integer  (JsonProperty: listItemCount) [Optional]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-    - viewer: #listViewerState (JsonProperty: viewer) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Required]
-*/
+/// A view of a list.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.graph.defs#listView")]
 pub struct ListView {
+    /// The URI of the list.
     uri: String,
+
+    /// The CID of the list.
     cid: String,
+
+    /// The creator of the list.
     creator: ProfileView,
+
+    /// The name of the list.
     name: String,
+
+    /// The purpose of the list.
     purpose: String,
+
+    /// A description of the list.
     description: Option<String>,
+
+    /// A description of the list, in rich text.
     description_facets: Option<Vec<RichTextFacet>>,
+
+    /// The URI for the avatar of the list.
     avatar: Option<String>,
+
+    /// The number of items in the list.
     list_item_count: i32,
+
+    /// The labels associated with the list.
     labels: Option<Vec<Label>>,
+
+    /// A representation of the viewer's relationship with the list.
     viewer: Option<ListViewerState>,
+
+    /// The date and time the list was indexed.
     indexed_at: DateTime<Utc>
 }
 
-/*    Type: listItemView
-    Id: app.bsky.graph.defs#listItemView
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - subject: app.bsky.actor.defs#profileView (JsonProperty: subject) [Required]
-*/
+/// An item in a list.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListItemView {
+    /// The URI of the profile.
     uri: String,
+
+    /// The profile.
     subject: ProfileView
 }
 
-/*    Type: starterPackView
-    Id: app.bsky.graph.defs#starterPackView
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - record: unknown  (JsonProperty: record) [Required]
-    - creator: app.bsky.actor.defs#profileViewBasic (JsonProperty: creator) [Required]
-    - list: #listViewBasic (JsonProperty: list) [Optional]
-    - list_items_sample: #listItemView[] (JsonProperty: listItemsSample) [Optional]
-    - feeds: app.bsky.feed.defs#generatorView[] (JsonProperty: feeds) [Optional]
-    - joined_week_count: integer  (JsonProperty: joinedWeekCount) [Optional]
-    - joined_all_time_count: integer  (JsonProperty: joinedAllTimeCount) [Optional]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Required]
-*/
+/// A view of a starter pack.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct StarterPackView {
+    /// The URI of the starter pack.
     uri: String,
+
+    /// The CID of the starter pack.
     cid: String,
+
+    /// The record of the starter pack.
     record: serde_json::Value,
+
+    /// The creator of the starter pack.
     creator: ProfileViewBasic,
+
+    /// The list associated with the starter pack.
     list: Option<ListViewBasic>,
+
+    /// A sample of items in the list.
     list_items_sample: Option<Vec<ListItemView>>,
+
+    /// Feed generators associated with the starter pack.
     feeds: Option<Vec<GeneratorView>>,
+
+    /// Number of starter packs joined in the last week.
     joined_week_count: i32,
+
+    /// Number of starter packs joined all time.
     joined_all_time_count: i32,
+
+    /// The labels associated with the starter pack.
     labels: Option<Vec<Label>>,
+
+    /// The date and time the starter pack was indexed.
     indexed_at: DateTime<Utc>
 }
 
-/*    Type: starterPackViewBasic
-    Id: app.bsky.graph.defs#starterPackViewBasic
-    Kind: object
-
-    Properties:
-    - uri: string (JsonProperty: uri) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-    - record: unknown  (JsonProperty: record) [Required]
-    - creator: app.bsky.actor.defs#profileViewBasic (JsonProperty: creator) [Required]
-    - list_item_count: integer  (JsonProperty: listItemCount) [Optional]
-    - joined_week_count: integer  (JsonProperty: joinedWeekCount) [Optional]
-    - joined_all_time_count: integer  (JsonProperty: joinedAllTimeCount) [Optional]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Optional]
-    - indexed_at: datetime (JsonProperty: indexedAt) [Required]
-*/
+/// A basic view of a starter pack.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.graph.defs#starterPackViewBasic")]
 pub struct StarterPackViewBasic {
+    /// The URI of the starter pack.
     uri: String,
+
+    /// The CID of the starter pack.
     cid: String,
+
+    /// The record of the starter pack.
     record: serde_json::Value,
+
+    /// The creator of the starter pack.
     creator: ProfileViewBasic,
+
+    /// The count of items in the list.
     list_item_count: i32,
+
+    /// The number of starter packs joined in the last week.
     joined_week_count: i32,
+
+    /// The number of starter packs joined all time.
     joined_all_time_count: i32,
+
+    /// The labels associated with the starter pack.
     labels: Option<Vec<Label>>,
+
+    /// The date and time the starter pack was indexed.
     indexed_at: DateTime<Utc>
 }
 
-/*    Type: listViewerState
-    Id: app.bsky.graph.defs#listViewerState
-    Kind: object
-
-    Properties:
-    - muted: boolean  (JsonProperty: muted) [Optional]
-    - blocked: string (JsonProperty: blocked) [Optional]
-*/
+/// Represents the relationship between a viewer and a list.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.graph.defs#listViewerState")]
 pub struct ListViewerState {
+    /// Whether the list is muted.
     muted: bool,
+
+    /// Whether the list is blocked.
     blocked: Option<String>
 }
 
-/*    Type: notFoundActor
-    Id: app.bsky.graph.defs#notFoundActor
-    Kind: object
-
-    Properties:
-    - actor: string (JsonProperty: actor) [Required]
-    - not_found: boolean  (JsonProperty: notFound) [Required]
-*/
+/// Represents an actor not found.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.graph.defs#notFoundActor")]
 pub struct NotFoundActor {
+    /// The URI of the actor.
     actor: String,
+
+    /// Whether the actor is not found.
     not_found: bool
 }
 
-/*    Type: relationship
-    Id: app.bsky.graph.defs#relationship
-    Kind: object
-
-    Properties:
-    - did: string (JsonProperty: did) [Required]
-    - following: string (JsonProperty: following) [Optional]
-    - followed_by: string (JsonProperty: followedBy) [Optional]
-*/
+/// Represents a relationship.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "app.bsky.graph.defs#relationship")]
 pub struct Relationship {
+    /// The URI of the actor.
     did: String,
+
+    /// If the actor follows this DID, this is the AT-URI of the follow record.
     following: Option<String>,
+
+    /// If the actor is followed by this DID, contains the AT-URI of the follow record.
     followed_by: Option<String>
 }

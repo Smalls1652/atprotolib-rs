@@ -6,16 +6,12 @@ use crate::types::app_bsky::actor::ProfileView;
     app.bsky.graph.getSuggestedFollowsByActor
 */
 
-/*    Type: response
-    Id: app.bsky.graph.getSuggestedFollowsByActor#response
-    Kind: object
-
-    Properties:
-    - suggestions: app.bsky.actor.defs#profileView[] (JsonProperty: suggestions) [Required]
-    - is_fallback: boolean  (JsonProperty: isFallback) [Optional]
-*/
+/// The response to a request for suggested follows for a user.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetSuggestedFollowsByActorResponse {
+    /// A list of suggested profiles.
     suggestions: Vec<ProfileView>,
+
+    /// Whether the response is a fallback.
     is_fallback: bool
 }
