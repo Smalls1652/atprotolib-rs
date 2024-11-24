@@ -3,6 +3,15 @@ use crate::{
     types::app_bsky
 };
 
+/// Get a detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the profile of.
 pub async fn get_profile(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -30,6 +39,16 @@ pub async fn get_profile(
     }
 }
 
+/// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of actors to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_suggestions(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -65,6 +84,16 @@ pub async fn get_suggestions(
     }
 }
 
+/// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `query` - The search term to find actors for.
+/// * `limit` - The maximum number of actors to return. Defaults to 10.
 pub async fn search_actors_typeahead(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -101,6 +130,17 @@ pub async fn search_actors_typeahead(
     }
 }
 
+/// Find actors (profiles) matching search criteria. Does not require auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `query` - The search term to find actors for.
+/// * `limit` - The maximum number of actors to return. Defaults to 25.
+/// * `cursor` - A cursor for pagination.
 pub async fn search_actors(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
