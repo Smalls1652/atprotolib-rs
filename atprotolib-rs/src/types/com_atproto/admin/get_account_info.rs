@@ -10,6 +10,7 @@ use serde::{Deserialize, Serialize};
 /// [`com.atproto.admin.getAccountInfo#request`](https://docs.bsky.app/docs/api/com-atproto-admin-get-account-info#request)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetAccountInfoRequest {
+    /// The DID of the account to get information for.
     #[serde(rename = "did")]
     pub did: String
 }
@@ -17,6 +18,7 @@ pub struct GetAccountInfoRequest {
 /// Represents a response to a request to get account information.
 ///
 /// [`com.atproto.admin.getAccountInfo#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-account-info#responses)
+#[allow(missing_docs)] // This should be replaced with just the response being `AccountView`.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetAccountInfoResponse {
     #[serde(rename = "did")]
@@ -47,6 +49,7 @@ pub struct GetAccountInfoResponse {
     pub threat_signatures: Option<Vec<GetAccountInfoResponseThreatSignatures>>
 }
 
+#[allow(missing_docs)] // This should be replaced with just the response being `AccountView`.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetAccountInfoResponseThreatSignatures {
     #[serde(rename = "property")]
