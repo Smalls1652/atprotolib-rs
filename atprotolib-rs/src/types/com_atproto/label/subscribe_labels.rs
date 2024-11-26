@@ -6,14 +6,7 @@ use super::Label;
     com.atproto.label.subscribeLabels
 */
 
-/*    Type: labels
-    Id: com.atproto.label.subscribeLabels#labels
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Labels {
     #[serde(rename = "seq")]
@@ -22,14 +15,7 @@ pub struct Labels {
     pub labels: Vec<Label>
 }
 
-/*    Type: info
-    Id: com.atproto.label.subscribeLabels#info
-    Kind: object
-
-    Properties:
-    - name: string (JsonProperty: name) [Required]
-    - message: string (JsonProperty: message) [Optional]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Info {
     #[serde(rename = "name")]
