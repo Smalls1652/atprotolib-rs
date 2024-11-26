@@ -5,24 +5,7 @@ use serde::{Deserialize, Serialize};
     com.atproto.sync.subscribeRepos
 */
 
-/*    Type: commit
-    Id: com.atproto.sync.subscribeRepos#commit
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - rebase: boolean  (JsonProperty: rebase) [Required]
-    - too_big: boolean  (JsonProperty: tooBig) [Required]
-    - repo: string (JsonProperty: repo) [Required]
-    - commit: cid-link  (JsonProperty: commit) [Required]
-    - prev: cid-link  (JsonProperty: prev) [Optional]
-    - rev: string (JsonProperty: rev) [Required]
-    - since: string (JsonProperty: since) [Required]
-    - blocks: bytes  (JsonProperty: blocks) [Required]
-    - ops: #repoOp[] (JsonProperty: ops) [Required]
-    - blobs: cid-link[] (JsonProperty: blobs) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Commit {
     #[serde(rename = "seq", default)]
@@ -51,16 +34,7 @@ pub struct Commit {
     pub time: String
 }
 
-/*    Type: identity
-    Id: com.atproto.sync.subscribeRepos#identity
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - did: string (JsonProperty: did) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-    - handle: string (JsonProperty: handle) [Optional]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Identity {
     #[serde(rename = "seq", default)]
@@ -73,17 +47,7 @@ pub struct Identity {
     pub handle: Option<String>
 }
 
-/*    Type: account
-    Id: com.atproto.sync.subscribeRepos#account
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - did: string (JsonProperty: did) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-    - active: boolean  (JsonProperty: active) [Required]
-    - status: string (JsonProperty: status) [Optional]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Account {
     #[serde(rename = "seq", default)]
@@ -98,16 +62,7 @@ pub struct Account {
     pub status: Option<String>
 }
 
-/*    Type: handle
-    Id: com.atproto.sync.subscribeRepos#handle
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - did: string (JsonProperty: did) [Required]
-    - handle: string (JsonProperty: handle) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Handle {
     #[serde(rename = "seq", default)]
@@ -120,16 +75,7 @@ pub struct Handle {
     pub time: DateTime<Utc>
 }
 
-/*    Type: migrate
-    Id: com.atproto.sync.subscribeRepos#migrate
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - did: string (JsonProperty: did) [Required]
-    - migrate_to: string (JsonProperty: migrateTo) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Migrate {
     #[serde(rename = "seq", default)]
@@ -142,15 +88,7 @@ pub struct Migrate {
     pub time: DateTime<Utc>
 }
 
-/*    Type: tombstone
-    Id: com.atproto.sync.subscribeRepos#tombstone
-    Kind: object
-
-    Properties:
-    - seq: integer  (JsonProperty: seq) [Required]
-    - did: string (JsonProperty: did) [Required]
-    - time: datetime (JsonProperty: time) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Tombstone {
     #[serde(rename = "seq", default)]
@@ -161,14 +99,7 @@ pub struct Tombstone {
     pub time: DateTime<Utc>
 }
 
-/*    Type: info
-    Id: com.atproto.sync.subscribeRepos#info
-    Kind: object
-
-    Properties:
-    - name: string (JsonProperty: name) [Required]
-    - message: string (JsonProperty: message) [Optional]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Info {
     #[serde(rename = "name")]
@@ -177,15 +108,7 @@ pub struct Info {
     pub message: Option<String>
 }
 
-/*    Type: repoOp
-    Id: com.atproto.sync.subscribeRepos#repoOp
-    Kind: object
-
-    Properties:
-    - action: string (JsonProperty: action) [Required]
-    - path: string (JsonProperty: path) [Required]
-    - cid: cid-link  (JsonProperty: cid) [Required]
-*/
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RepoOp {
     #[serde(rename = "action")]

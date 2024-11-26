@@ -4,15 +4,10 @@ use serde::{Deserialize, Serialize};
     com.atproto.sync.requestCrawl
 */
 
-/*    Type: request
-    Id: com.atproto.sync.requestCrawl#request
-    Kind: object
-
-    Properties:
-    - hostname: string (JsonProperty: hostname) [Required]
-*/
+/// Represents a request to crawl a hostname.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RequestCrawlRequest {
+    /// The hostname to crawl.
     #[serde(rename = "hostname")]
     pub hostname: String
 }

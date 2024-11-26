@@ -4,43 +4,38 @@ use serde::{Deserialize, Serialize};
     com.atproto.sync.listRepos
 */
 
-/*    Type: response
-    Id: com.atproto.sync.listRepos#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - repos: #repo[] (JsonProperty: repos) [Required]
-*/
+/// Represents a response to a request to list repos.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListReposResponse {
+    /// The cursor stream position.
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
+
+    /// The repositories.
     #[serde(rename = "repos")]
     pub repos: Vec<Repo>
 }
 
-/*    Type: repo
-    Id: com.atproto.sync.listRepos#repo
-    Kind: object
-
-    Properties:
-    - did: string (JsonProperty: did) [Required]
-    - head: string (JsonProperty: head) [Required]
-    - rev: string (JsonProperty: rev) [Required]
-    - active: boolean  (JsonProperty: active) [Optional]
-    - status: string (JsonProperty: status) [Optional]
-*/
+/// Represents a repository.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Repo {
+    /// The DID of the repository.
     #[serde(rename = "did")]
     pub did: String,
+
+    /// The head of the repository.
     #[serde(rename = "head")]
     pub head: String,
+
+    /// The latest revision of the repository.
     #[serde(rename = "rev")]
     pub rev: String,
+
+    /// Whether the repository is active.
     #[serde(rename = "active", default)]
     pub active: bool,
+
+    /// The status of the repository.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>
 }
