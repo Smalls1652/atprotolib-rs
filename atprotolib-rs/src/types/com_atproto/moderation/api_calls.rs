@@ -3,6 +3,13 @@ use crate::{
     types::com_atproto
 };
 
+/// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to send the request to.
+/// * `api_auth_config` - The authentication configuration to use for the request.
+/// * `report` - The report to create.
 pub async fn create_report(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
