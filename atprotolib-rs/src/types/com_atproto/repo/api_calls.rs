@@ -3,6 +3,13 @@ use crate::{
     types::com_atproto::repo::{ApplyWritesRequest, ApplyWritesResponse}
 };
 
+/// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to send the request to.
+/// * `api_auth_config` - The authentication configuration to use for the request.
+/// * `request` - The writes to apply.
 pub async fn apply_writes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

@@ -1,36 +1,27 @@
 use serde::{Deserialize, Serialize};
 
-/*    Type: commitMeta
-    Id: com.atproto.repo.defs#commitMeta
-    Kind: object
-
-    Properties:
-    - cid: string (JsonProperty: cid) [Required]
-    - rev: string (JsonProperty: rev) [Required]
-*/
+/// Metadata for a commit.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.repo.defs#commitMeta")]
 pub struct CommitMeta {
+    /// The CID.
     #[serde(rename = "cid")]
     pub cid: String,
+
+    /// The revision.
     #[serde(rename = "rev")]
     pub rev: String
 }
 
-/*
-    Type: strongRef
-    Id: com.atproto.repo.strongRef
-    Kind: object
-
-    Properties:
-    - did: string (JsonProperty: did) [Required]
-    - cid: string (JsonProperty: cid) [Required]
-*/
+/// A URI with a content-hash fingerprint.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.repo.strongRef")]
 pub struct StrongRef {
-    #[serde(rename = "did")]
-    pub did: String,
+    /// The URI of the record.
+    #[serde(rename = "uri")]
+    pub uri: String,
+
+    /// The CID of the record.
     #[serde(rename = "cid")]
     pub cid: String
 }
