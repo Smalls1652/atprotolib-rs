@@ -27,6 +27,13 @@ use crate::{
     }
 };
 
+/// Confirm an email using a token from `com.atproto.server.requestEmailConfirmation`.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to confirm the email.
 pub async fn confirm_email(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -50,6 +57,13 @@ pub async fn confirm_email(
     }
 }
 
+/// Create an account. Implemented by PDS.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to create the account.
 pub async fn create_account(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -79,6 +93,13 @@ pub async fn create_account(
     }
 }
 
+/// Create an App Password.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to create the App Password.
 pub async fn create_app_password(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -108,6 +129,13 @@ pub async fn create_app_password(
     }
 }
 
+/// Create an invite code.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to create the invite code.
 pub async fn create_invite_code(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -137,6 +165,13 @@ pub async fn create_invite_code(
     }
 }
 
+/// Create an authentication session.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to create the session.
 pub async fn create_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -166,6 +201,13 @@ pub async fn create_session(
     }
 }
 
+/// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to deactivate the account.
 pub async fn deactivate_account(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -192,6 +234,13 @@ pub async fn deactivate_account(
     }
 }
 
+/// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to delete the account.
 pub async fn delete_account(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -218,6 +267,12 @@ pub async fn delete_account(
     }
 }
 
+/// Describes the server's account creation requirements and capabilities. Implemented by PDS.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
 pub async fn describe_server(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -245,6 +300,15 @@ pub async fn describe_server(
     }
 }
 
+/// Get a signed token on behalf of the requesting DID for the requested service.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `did` - The DID of the service that the token will be used to authenticate with
+/// * `expiry` - The time in Unix Epoch seconds that the JWT expires. Defaults to 60 seconds in the future. The service may enforce certain time bounds on tokens depending on the requested scope.
+/// * `lexicon` - Lexicon (XRPC) method to bind the requested token to
 pub async fn get_service_auth(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -284,6 +348,12 @@ pub async fn get_service_auth(
     }
 }
 
+/// Get information about the current auth session. Requires auth.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
 pub async fn get_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -308,6 +378,12 @@ pub async fn get_session(
     }
 }
 
+/// List all App Passwords.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
 pub async fn list_app_passwords(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -335,6 +411,12 @@ pub async fn list_app_passwords(
     }
 }
 
+/// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
 pub async fn refresh_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -362,6 +444,13 @@ pub async fn refresh_session(
     }
 }
 
+/// Request a token in order to update email.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `email` - The new email address.
 pub async fn request_email_update(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -391,6 +480,14 @@ pub async fn request_email_update(
     }
 }
 
+
+/// Initiate a user account password reset via email.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to reset the password.
 pub async fn request_password_reset(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -417,6 +514,13 @@ pub async fn request_password_reset(
     }
 }
 
+/// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to reserve the signing key.
 pub async fn reserve_signing_key(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -446,6 +550,13 @@ pub async fn reserve_signing_key(
     }
 }
 
+/// Reset a user account password using a token.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to reset the password.
 pub async fn reset_password(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -472,6 +583,13 @@ pub async fn reset_password(
     }
 }
 
+/// Revoke an App Password by name.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to revoke the App Password.
 pub async fn revoke_app_password(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -498,6 +616,13 @@ pub async fn revoke_app_password(
     }
 }
 
+/// Update an account's email.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to update the email.
 pub async fn update_email(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

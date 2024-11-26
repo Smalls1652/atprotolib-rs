@@ -9,9 +9,11 @@ use serde::{Deserialize, Serialize};
 /// [`com.atproto.server.updateEmail#request`](https://docs.bsky.app/docs/api/com-atproto-server-update-email#request)
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateEmailRequest {
+    /// The email address.
     #[serde(rename = "email")]
     pub email: String,
 
+    /// Whether to require email authentication.
     #[serde(rename = "emailAuthFactor", default)]
     pub email_auth_factor: bool,
 
