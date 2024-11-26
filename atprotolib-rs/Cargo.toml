@@ -17,5 +17,5 @@ reqwest = { version = "0.12.9", features = ["json"], optional = true}
 [features]
 apicalls = ["dep:reqwest"]
 
-[lints.rust]
-missing_docs = "warn"
+# [lints.rust]
+# missing_docs = "warn"
