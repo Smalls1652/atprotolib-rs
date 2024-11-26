@@ -17,6 +17,7 @@ pub struct DeleteAccountRequest {
     #[serde(rename = "password")]
     pub password: String,
 
+    /// Confirmation token for the account deletion.
     #[serde(rename = "token")]
     pub token: String
 }

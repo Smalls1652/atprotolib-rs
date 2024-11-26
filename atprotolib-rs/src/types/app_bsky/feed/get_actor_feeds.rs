@@ -6,18 +6,14 @@ use super::defs::GeneratorView;
     app.bsky.feed.getActorFeeds
 */
 
-/*    Type: response
-    Id: app.bsky.feed.getActorFeeds#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - feeds: app.bsky.feed.defs#generatorView[] (JsonProperty: feeds) [Required]
-*/
+/// A response to getting feeds for an actor.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetActorFeedsResponse {
+    /// A cursor for the stream.
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
+
+    /// A list of feeds.
     #[serde(rename = "feeds")]
     pub feeds: Vec<GeneratorView>
 }

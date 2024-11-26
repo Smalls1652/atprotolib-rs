@@ -12,6 +12,7 @@ use serde::{Deserialize, Serialize};
     - cursor: string (JsonProperty: cursor) [Optional]
     - blobs: #recordBlob[] (JsonProperty: blobs) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListMissingBlobsResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
@@ -28,6 +29,7 @@ pub struct ListMissingBlobsResponse {
     - cid: string (JsonProperty: cid) [Required]
     - record_uri: string (JsonProperty: recordUri) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RecordBlob {
     #[serde(rename = "cid")]

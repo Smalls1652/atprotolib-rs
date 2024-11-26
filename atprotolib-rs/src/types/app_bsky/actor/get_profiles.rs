@@ -6,15 +6,10 @@ use super::ProfileViewDetailed;
     app.bsky.actor.getProfiles
 */
 
-/*    Type: response
-    Id: app.bsky.actor.getProfiles#response
-    Kind: object
-
-    Properties:
-    - profiles: app.bsky.actor.defs#profileViewDetailed[] (JsonProperty: profiles) [Required]
-*/
+/// A response to getting multiple profiles.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetProfilesResponse {
+    /// A list of profiles.
     #[serde(rename = "profiles")]
     pub profiles: Vec<ProfileViewDetailed>
 }

@@ -3,6 +3,17 @@ use crate::{
     types::app_bsky
 };
 
+/// Get a list of starter packs created by the actor.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the starter packs of.
+/// * `limit` - The maximum number of starter packs to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_actor_starter_packs(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -44,6 +55,16 @@ pub async fn get_actor_starter_packs(
     }
 }
 
+/// Enumerates which accounts the requesting account is currently blocking. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of accounts to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_blocks(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -79,6 +100,17 @@ pub async fn get_blocks(
     }
 }
 
+/// Enumerates accounts which follow a specified account (actor).
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the followers of.
+/// * `limit` - The maximum number of followers to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_followers(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -116,6 +148,17 @@ pub async fn get_followers(
     }
 }
 
+/// Enumerates accounts which a specified account (actor) follows.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the profiles of.
+/// * `limit` - The maximum number of profiles to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_follows(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -153,6 +196,17 @@ pub async fn get_follows(
     }
 }
 
+/// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the followers of.
+/// * `limit` - The maximum number of followers to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_known_followers(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -193,6 +247,16 @@ pub async fn get_known_followers(
     }
 }
 
+/// Get mod lists that the requesting account (actor) is blocking. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of mod lists to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_list_blocks(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -228,6 +292,16 @@ pub async fn get_list_blocks(
     }
 }
 
+/// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of mod lists to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_list_mutes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -263,6 +337,17 @@ pub async fn get_list_mutes(
     }
 }
 
+/// Gets a 'view' (with additional context) of a specified list.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `list` - The list to fetch.
+/// * `limit` - The maximum number of items to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_list(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -300,6 +385,17 @@ pub async fn get_list(
     }
 }
 
+/// Enumerates the lists created by a specified account (actor).
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the lists of.
+/// * `limit` - The maximum number of lists to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_lists(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -337,6 +433,16 @@ pub async fn get_lists(
     }
 }
 
+/// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of accounts to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_mutes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -372,6 +478,15 @@ pub async fn get_mutes(
     }
 }
 
+/// Gets a view of a starter pack.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `starter_pack` - The URI of the starter pack to fetch.
 pub async fn get_starter_pack(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -399,6 +514,15 @@ pub async fn get_starter_pack(
     }
 }
 
+/// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the suggested follows for.
 pub async fn get_suggested_follows_by_actor(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -430,6 +554,15 @@ pub async fn get_suggested_follows_by_actor(
     }
 }
 
+/// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to mute a list of actors.
 pub async fn mute_actor_list(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -452,6 +585,15 @@ pub async fn mute_actor_list(
     }
 }
 
+/// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to mute an actor.
 pub async fn mute_actor(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -474,6 +616,15 @@ pub async fn mute_actor(
     }
 }
 
+/// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to mute a thread.
 pub async fn mute_thread(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -496,6 +647,15 @@ pub async fn mute_thread(
     }
 }
 
+/// Unmutes the specified list of accounts. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to unmute a list of actors.
 pub async fn unmute_actor_list(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -518,6 +678,15 @@ pub async fn unmute_actor_list(
     }
 }
 
+/// Unmutes the specified account. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to unmute an actor.
 pub async fn unmute_actor(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -540,6 +709,15 @@ pub async fn unmute_actor(
     }
 }
 
+/// Unmutes the specified thread. Requires auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to unmute a thread.
 pub async fn unmute_thread(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

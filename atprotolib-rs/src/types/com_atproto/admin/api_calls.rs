@@ -21,6 +21,13 @@ use crate::{
     }
 };
 
+/// Delete a user account as an administrator.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to delete an account.
 pub async fn delete_account(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -44,6 +51,13 @@ pub async fn delete_account(
     }
 }
 
+/// Disable an account from receiving new invite codes, but does not invalidate existing codes.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to disable account invites.
 pub async fn disable_account_invites(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -70,6 +84,14 @@ pub async fn disable_account_invites(
     }
 }
 
+
+/// Disable some set of codes and/or all codes associated with a set of users.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to disable invite codes.
 pub async fn disable_invite_codes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -96,6 +118,13 @@ pub async fn disable_invite_codes(
     }
 }
 
+/// Re-enable an account's ability to receive invite codes.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to enable account invites.
 pub async fn enable_account_invites(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -122,6 +151,13 @@ pub async fn enable_account_invites(
     }
 }
 
+/// Get details about an account.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `did` - The DID of the account.
 pub async fn get_account_info(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -150,6 +186,13 @@ pub async fn get_account_info(
     }
 }
 
+/// Get details about some accounts.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to get account infos.
 pub async fn get_account_infos(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -179,6 +222,15 @@ pub async fn get_account_infos(
     }
 }
 
+/// Get an admin view of invite codes.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `limit` - The maximum number of invite codes to return. Defaults to 100.
+/// * `cursor` - The cursor to use for pagination.
+/// * `sort` - The sort order to use.
 pub async fn get_invite_codes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -221,18 +273,37 @@ pub async fn get_invite_codes(
     }
 }
 
+/// The subject to get the status of.
 pub enum GetSubjectStatusSubject {
+    /// The account DID.
     Account(String),
+
+    /// The record URI.
     Record(String),
+
+    /// The blob CID.
     Blob(String)
 }
 
+/// The response from getting the status of a subject.
 pub enum GetSubjectStatusResponse {
+    /// The account status.
     Account(GetSubjectStatusAccountResponse),
+
+    /// The record status.
     Record(GetSubjectStatusRecordResponse),
+
+    /// The blob status.
     Blob(GetSubjectStatusBlobResponse)
 }
 
+/// Get the service-specific admin status of a subject (account, record, or blob).
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `subject` - The subject to get the status of.
 pub async fn get_subject_status(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -278,6 +349,15 @@ pub async fn get_subject_status(
     }
 }
 
+/// Get a list of accounts that matches your search query.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `query` - The search query.
+/// * `limit` - The maximum number of accounts to return. Defaults to 10.
+/// * `cursor` - The cursor to use for pagination.
 pub async fn search_accounts(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -316,6 +396,13 @@ pub async fn search_accounts(
     }
 }
 
+/// Send an email to a user's account email address.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to send an email.
 pub async fn send_email(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -342,6 +429,13 @@ pub async fn send_email(
     }
 }
 
+/// Administrative action to update an account's email.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to update an account's email.
 pub async fn update_account_email(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -368,6 +462,13 @@ pub async fn update_account_email(
     }
 }
 
+/// Administrative action to update an account's handle.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to update an account's handle.
 pub async fn update_account_handle(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -394,6 +495,13 @@ pub async fn update_account_handle(
     }
 }
 
+/// Update the password for a user account as an administrator.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to update an account's password.
 pub async fn update_account_password(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

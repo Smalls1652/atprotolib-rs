@@ -11,6 +11,7 @@ use serde::{Deserialize, Serialize};
     Properties:
     - blob: blob  (JsonProperty: blob) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UploadBlobResponse {
     #[serde(rename = "blob")]

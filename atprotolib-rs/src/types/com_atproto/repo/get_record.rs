@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
     - cid: string (JsonProperty: cid) [Optional]
     - value: unknown  (JsonProperty: value) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetRecordResponse {
     #[serde(rename = "uri")]

@@ -3,6 +3,12 @@ use crate::{
     types::com_atproto
 };
 
+/// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the service.
+/// * `api_auth_config` - The API authentication configuration.
 pub async fn get_recommended_did_credentials(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -31,6 +37,13 @@ pub async fn get_recommended_did_credentials(
     }
 }
 
+/// Resolves a handle (domain name) to a DID.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the service.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `handle` - The handle to resolve.
 pub async fn resolve_handle(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -62,6 +75,13 @@ pub async fn resolve_handle(
     }
 }
 
+/// Signs a PLC operation to update some value(s) in the requesting DID's document.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the service.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to sign the PLC operation.
 pub async fn sign_plc_operation(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -91,6 +111,13 @@ pub async fn sign_plc_operation(
     }
 }
 
+/// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the service.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to submit the PLC operation.
 pub async fn submit_plc_operation(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -116,6 +143,13 @@ pub async fn submit_plc_operation(
     }
 }
 
+/// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the service.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `request` - The request to update the handle.
 pub async fn update_handle(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

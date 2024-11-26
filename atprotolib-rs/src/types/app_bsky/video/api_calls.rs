@@ -3,6 +3,15 @@ use crate::{
     types::app_bsky
 };
 
+/// Get status details for a video processing job.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The hostname of the server to connect to.
+/// * `api_auth_config` - The authentication configuration to use.
+/// * `job_id` - The ID of the job to get the status of.
 pub async fn get_job_status(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -30,6 +39,14 @@ pub async fn get_job_status(
     }
 }
 
+/// Get video upload limits for the authenticated user.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The hostname of the server to connect to.
+/// * `api_auth_config` - The authentication configuration to use.
 pub async fn get_upload_limits(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
@@ -53,6 +70,15 @@ pub async fn get_upload_limits(
     }
 }
 
+/// Upload a video to be processed then stored on the PDS.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The hostname of the server to connect to.
+/// * `api_auth_config` - The authentication configuration to use.
+/// * `video` - The video to upload.
 pub async fn upload_video(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

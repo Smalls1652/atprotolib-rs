@@ -4,18 +4,14 @@ use serde::{Deserialize, Serialize};
     com.atproto.sync.listBlobs
 */
 
-/*    Type: response
-    Id: com.atproto.sync.listBlobs#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - cids: string[] (JsonProperty: cids) [Required]
-*/
+/// Represents a response to a request to list blobs.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListBlobsResponse {
+    /// The cursor stream position.
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
+
+    /// The CIDs of the blobs.
     #[serde(rename = "cids")]
     pub cids: Vec<String>
 }

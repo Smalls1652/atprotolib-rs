@@ -6,56 +6,49 @@ use super::AspectRatio;
     app.bsky.embed.images
 */
 
-/*    Type: image
-    Id: app.bsky.embed.images#image
-    Kind: object
-
-    Properties:
-    - image: blob  (JsonProperty: image) [Required]
-    - alt: string (JsonProperty: alt) [Required]
-    - aspect_ratio: app.bsky.embed.defs#aspectRatio (JsonProperty: aspectRatio) [Optional]
-*/
+/// A representation of an image embedded in a Bluesky record (eg, a post).
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ImageEmbed {
+    /// The image data.
     #[serde(rename = "image")]
     pub image: Vec<u8>,
+
+    /// Alt text for the image.
     #[serde(rename = "alt")]
     pub alt: String,
+
+    /// The aspect ratio of the image.
     #[serde(rename = "aspectRatio", skip_serializing_if = "Option::is_none")]
     pub aspect_ratio: Option<AspectRatio>
 }
 
-/*    Type: view
-    Id: app.bsky.embed.images#view
-    Kind: object
-
-    Properties:
-    - images: #viewImage[] (JsonProperty: images) [Required]
-*/
+/// A view of an image embed.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ImageEmbedView {
+    /// A list of image embeds.
     #[serde(rename = "images")]
     pub images: Vec<ImageEmbed>
 }
 
-/*    Type: viewImage
-    Id: app.bsky.embed.images#viewImage
-    Kind: object
-
-    Properties:
-    - thumb: string (JsonProperty: thumb) [Required]
-    - fullsize: string (JsonProperty: fullsize) [Required]
-    - alt: string (JsonProperty: alt) [Required]
-    - aspect_ratio: app.bsky.embed.defs#aspectRatio (JsonProperty: aspectRatio) [Optional]
-*/
+/// A view of an image embed, with the image embed itself embedded. (?)
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ImageEmbedViewImage {
+    /// Fully-qualified URL where a thumbnail of the image can be fetched. For
+    /// example, CDN location provided by the App View.
     #[serde(rename = "thumb")]
     pub thumb: String,
+
+    /// Fully-qualified URL where a large version of the image can be fetched.
+    /// May or may not be the exact original blob. For example, CDN location
+    /// provided by the App View.
     #[serde(rename = "fullsize")]
     pub fullsize: String,
+
+    /// Alt text for the image.
     #[serde(rename = "alt")]
     pub alt: String,
+
+    /// The aspect ratio of the image.
     #[serde(rename = "aspectRatio", skip_serializing_if = "Option::is_none")]
     pub aspect_ratio: Option<AspectRatio>
 }

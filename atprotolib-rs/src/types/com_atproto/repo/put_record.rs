@@ -19,6 +19,7 @@ use super::CommitMeta;
     - swap_record: string (JsonProperty: swapRecord) [Optional]
     - swap_commit: string (JsonProperty: swapCommit) [Optional]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PutRecordRequest {
     #[serde(rename = "repo")]
@@ -47,6 +48,7 @@ pub struct PutRecordRequest {
     - commit: com.atproto.repo.defs#commitMeta (JsonProperty: commit) [Optional]
     - validation_status: string (JsonProperty: validationStatus) [Optional]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PutRecordResponse {
     #[serde(rename = "uri")]

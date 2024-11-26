@@ -3,6 +3,17 @@ use crate::{
     types::app_bsky
 };
 
+/// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the feeds of.
+/// * `limit` - The maximum number of feeds to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_actor_feeds(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -40,6 +51,17 @@ pub async fn get_actor_feeds(
     }
 }
 
+/// Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the likes of.
+/// * `limit` - The maximum number of likes to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
 pub async fn get_actor_likes(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
@@ -77,6 +99,19 @@ pub async fn get_actor_likes(
     }
 }
 
+/// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
+/// 
+/// <div class="warning">Requires the <code>apicalls</code> feature.</div>
+/// 
+/// ## Arguments
+/// 
+/// * `host_name` - The host name of the server to make the request to.
+/// * `api_auth_config` - The API authentication configuration.
+/// * `actor` - Handle or DID of the account to fetch the author feed of.
+/// * `limit` - The maximum number of posts to return. Defaults to 50.
+/// * `cursor` - A cursor for pagination.
+/// * `filter` - A filter for the feed.
+/// * `include_pins` - Whether to include pinned posts in the feed.
 pub async fn get_author_feed(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,

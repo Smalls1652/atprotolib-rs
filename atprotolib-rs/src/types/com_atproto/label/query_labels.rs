@@ -6,18 +6,14 @@ use super::Label;
     com.atproto.label.queryLabels
 */
 
-/*    Type: response
-    Id: com.atproto.label.queryLabels#response
-    Kind: object
-
-    Properties:
-    - cursor: string (JsonProperty: cursor) [Optional]
-    - labels: com.atproto.label.defs#label[] (JsonProperty: labels) [Required]
-*/
+/// Represents a response to a request to query labels.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct QueryLabelsResponse {
+    /// The cursor stream position.
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
+
+    /// The labels that match the query criteria.
     #[serde(rename = "labels")]
     pub labels: Vec<Label>
 }

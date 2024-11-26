@@ -17,6 +17,7 @@ use super::CommitMeta;
     - swap_record: string (JsonProperty: swapRecord) [Optional]
     - swap_commit: string (JsonProperty: swapCommit) [Optional]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteRecordRequest {
     #[serde(rename = "repo")]
@@ -38,6 +39,7 @@ pub struct DeleteRecordRequest {
     Properties:
     - commit: com.atproto.repo.defs#commitMeta (JsonProperty: commit) [Optional]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DeleteRecordResponse {
     #[serde(rename = "commit", skip_serializing_if = "Option::is_none")]

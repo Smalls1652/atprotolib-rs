@@ -6,22 +6,22 @@ use super::{NotFoundActor, Relationship};
     app.bsky.graph.getRelationships
 */
 
-/*    Type: response
-    Id: app.bsky.graph.getRelationships#response
-    Kind: object
-
-    Properties:
-    - actor: string (JsonProperty: actor) [Optional]
-    - relationships: union[] (JsonProperty: relationships) [Required]
-*/
+/// The response to a request for a user's relationships.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GetRelationshipsResponse {
+    /// The account the relationships are for.
     actor: Option<String>,
+
+    /// A list of the user's relationships.
     relationships: Vec<GetRelationshipsResponseRelationships>
 }
 
+/// A type union for the relationships.
 #[derive(Serialize, Deserialize, Debug)]
 pub enum GetRelationshipsResponseRelationships {
+    /// A relationship.
     Relationship(Relationship),
+
+    /// An actor that was not found.
     NotFoundActor(NotFoundActor)
 }

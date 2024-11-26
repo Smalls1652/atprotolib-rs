@@ -12,6 +12,7 @@ use serde::{Deserialize, Serialize};
     - cursor: string (JsonProperty: cursor) [Optional]
     - records: #record[] (JsonProperty: records) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ListRecordsResponse {
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
@@ -29,6 +30,7 @@ pub struct ListRecordsResponse {
     - cid: string (JsonProperty: cid) [Required]
     - value: unknown  (JsonProperty: value) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Record {
     #[serde(rename = "uri")]

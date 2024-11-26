@@ -15,6 +15,7 @@ use serde::{Deserialize, Serialize};
     - collections: string[] (JsonProperty: collections) [Required]
     - handle_is_correct: boolean  (JsonProperty: handleIsCorrect) [Required]
 */
+#[allow(missing_docs)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct DescribeRepoResponse {
     #[serde(rename = "handle")]

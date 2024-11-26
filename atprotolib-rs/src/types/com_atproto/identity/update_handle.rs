@@ -4,15 +4,10 @@ use serde::{Deserialize, Serialize};
     com.atproto.identity.updateHandle
 */
 
-/*    Type: request
-    Id: com.atproto.identity.updateHandle#request
-    Kind: object
-
-    Properties:
-    - handle: string (JsonProperty: handle) [Required]
-*/
+/// Represents a request to update a handle.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateHandleRequest {
+    /// The new handle.
     #[serde(rename = "handle")]
     pub handle: String
 }

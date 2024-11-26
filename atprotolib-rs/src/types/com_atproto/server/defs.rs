@@ -1,51 +1,48 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-/*    Type: inviteCode
-    Id: com.atproto.server.defs#inviteCode
-    Kind: object
-
-    Properties:
-    - code: string (JsonProperty: code) [Required]
-    - available: integer  (JsonProperty: available) [Required]
-    - disabled: boolean  (JsonProperty: disabled) [Required]
-    - for_account: string (JsonProperty: forAccount) [Required]
-    - created_by: string (JsonProperty: createdBy) [Required]
-    - created_at: datetime (JsonProperty: createdAt) [Required]
-    - uses: #inviteCodeUse[] (JsonProperty: uses) [Required]
-*/
+/// Represents an invite code.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.server.defs#inviteCode")]
 pub struct InviteCode {
+    /// The invite code.
     #[serde(rename = "code")]
     pub code: String,
+
+    /// The number of available uses.
     #[serde(rename = "available", default)]
     pub available: i32,
+
+    /// Whether the invite code is disabled.
     #[serde(rename = "disabled", default)]
     pub disabled: bool,
+
+    /// The account the invite code is for.
     #[serde(rename = "forAccount")]
     pub for_account: String,
+
+    /// The account that created the invite code.
     #[serde(rename = "createdBy")]
     pub created_by: String,
+
+    /// The date and time the invite code was created.
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: DateTime<Utc>,
+
+    /// The uses of the invite code.
     #[serde(rename = "uses")]
     pub uses: Vec<InviteCodeUse>
 }
 
-/*    Type: inviteCodeUse
-    Id: com.atproto.server.defs#inviteCodeUse
-    Kind: object
-
-    Properties:
-    - used_by: string (JsonProperty: usedBy) [Required]
-    - used_at: datetime (JsonProperty: usedAt) [Required]
-*/
+/// Represents an invite code use.
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "$type", rename = "com.atproto.server.defs#inviteCodeUse")]
 pub struct InviteCodeUse {
+    /// The account that used the invite code.
     #[serde(rename = "usedBy")]
     pub used_by: String,
+
+    /// The date and time the invite code was used.
     #[serde(rename = "usedAt")]
     pub used_at: DateTime<Utc>
 }

@@ -1,3 +1,4 @@
+/// Contains types for the `app.bsky.actor` namespace.
 pub mod actor {
     mod defs;
     mod get_profiles;
@@ -20,6 +21,7 @@ pub mod actor {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `app.bsky.embed` namespace.
 pub mod embed {
     mod defs;
     mod external;
@@ -31,6 +33,7 @@ pub mod embed {
     pub use self::{defs::*, external::*, images::*, record::*, record_with_media::*, video::*};
 }
 
+/// Contains types for the `app.bsky.feed` namespace.
 pub mod feed {
     mod defs;
     mod describe_feed_generator;
@@ -87,6 +90,7 @@ pub mod feed {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `app.bsky.graph` namespace.
 pub mod graph {
     mod defs;
     mod get_actor_starter_packs;
@@ -145,6 +149,7 @@ pub mod graph {
     pub use self::api_calls::*;
 }
 
+/// Contains types for the `app.bsky.labeler` namespace.
 pub mod labeler {
     mod defs;
     mod get_services;
@@ -152,6 +157,7 @@ pub mod labeler {
     pub use self::{defs::*, get_services::*};
 }
 
+/// Contains types for the `app.bsky.notification` namespace.
 pub mod notification {
     mod get_unread_count;
     mod list_notifications;
@@ -168,12 +174,14 @@ pub mod notification {
     };
 }
 
+/// Contains types for the `app.bsky.richtext` namespace.
 pub mod richtext {
     mod facet;
 
     pub use self::facet::*;
 }
 
+/// Contains types for the `app.bsky.video` namespace.
 pub mod video {
     mod defs;
     mod get_job_status;

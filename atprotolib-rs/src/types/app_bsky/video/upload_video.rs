@@ -6,15 +6,10 @@ use super::JobStatus;
     app.bsky.video.uploadVideo
 */
 
-/*    Type: response
-    Id: app.bsky.video.uploadVideo#response
-    Kind: object
-
-    Properties:
-    - job_status: app.bsky.video.defs#jobStatus (JsonProperty: jobStatus) [Required]
-*/
+/// The response to a request to upload a video.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UploadVideoResponse {
+    /// The status of the job.
     #[serde(rename = "jobStatus")]
     pub job_status: JobStatus
 }

@@ -33,9 +33,11 @@ pub struct CreateAppPasswordResponse {
     #[serde(rename = "password")]
     pub password: String,
 
+    /// The date and time the app password was created.
     #[serde(rename = "createdAt")]
     pub created_at: DateTime<Utc>,
 
+    /// Whether the app password has 'privileged' access to possibly sensitive account data.
     #[serde(rename = "privileged", default)]
     pub privileged: bool
 }

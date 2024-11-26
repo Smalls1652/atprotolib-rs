@@ -10,13 +10,16 @@ use serde::{Deserialize, Serialize};
 /// [`com.atproto.admin.getInviteCodes#responses`](https://docs.bsky.app/docs/api/com-atproto-admin-get-invite-codes#responses)
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetInviteCodesResponse {
+    /// The cursor stream position.
     #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
     pub cursor: Option<String>,
 
+    /// The invite codes.
     #[serde(rename = "codes")]
     pub codes: Vec<GetInviteCodesResponseCode>
 }
 
+#[allow(missing_docs)] // This should be replaced with just the response being `InviteCode`.
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetInviteCodesResponseCode {
     #[serde(rename = "code")]
@@ -41,6 +44,7 @@ pub struct GetInviteCodesResponseCode {
     pub uses: Vec<GetInviteCodesResponseCodeUse>
 }
 
+#[allow(missing_docs)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetInviteCodesResponseCodeUse {
     #[serde(rename = "usedBy")]
