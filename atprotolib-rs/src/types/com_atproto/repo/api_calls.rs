@@ -3,6 +3,8 @@ use crate::{
     types::com_atproto::repo::{ApplyWritesRequest, ApplyWritesResponse}
 };
 
+use super::UploadBlobResponse;
+
 /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
 /// 
 /// ## Arguments
@@ -30,6 +32,33 @@ pub async fn apply_writes(
     match response.status() {
         reqwest::StatusCode::OK => {
             let response_body: ApplyWritesResponse = response.json().await?;
+            Ok(response_body)
+        }
+        _ => Err(Box::new(ApiError::new(response).await?))
+    }
+}
+
+pub async fn upload_blob(
+    host_name: &str,
+    api_auth_config: &ApiAuthConfig,
+    blob: Vec<u8>,
+    content_type: Option<&str>
+) -> Result<UploadBlobResponse, Box<dyn std::error::Error>> {
+    let api_url = format!("https://{}/xrpc/com.atproto.repo.uploadBlob", host_name);
+
+    let client = reqwest::Client::new();
+
+    let response = client
+        .post(&api_url)
+        .add_api_auth(api_auth_config.clone())
+        .header("Content-Type", content_type.unwrap_or_else(|| "application/octet-stream"))
+        .body(blob)
+        .send()
+        .await?;
+
+    match response.status() {
+        reqwest::StatusCode::OK => {
+            let response_body: UploadBlobResponse = response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
