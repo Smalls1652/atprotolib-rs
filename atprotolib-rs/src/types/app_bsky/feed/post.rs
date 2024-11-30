@@ -76,9 +76,21 @@ impl Post {
 #[serde(tag = "$type")]
 pub enum PostEmbeds {
     #[serde(rename = "app.bsky.embed.images")]
-    Images(ImageEmbed),
+    Images(PostEmbedImage),
     #[serde(rename = "app.bsky.embed.external")]
-    External(ExternalEmbed)
+    External(PostEmbedExternal)
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct PostEmbedImage {
+    #[serde(rename = "image")]
+    pub image: ImageEmbed
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct PostEmbedExternal {
+    #[serde(rename = "external")]
+    pub external: ExternalEmbed
 }
 
 #[derive(Serialize, Deserialize, Debug)]
