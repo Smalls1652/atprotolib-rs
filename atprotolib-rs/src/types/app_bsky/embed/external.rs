@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::types::com_atproto::repo::BlobItem;
+
 /*
     app.bsky.embed.external
 */
@@ -20,8 +22,29 @@ pub struct ExternalEmbed {
     pub description: String,
 
     /// A thumbnail image representing the external content.
-    #[serde(rename = "thumb", skip_serializing_if = "Option::is_none")]
-    pub thumb: Option<Vec<u8>>
+    #[serde(rename = "thumb")]
+    pub thumb: BlobItem
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ExternalEmbedThumbnail {
+    #[serde(rename = "$type")]
+    pub embed_type: String,
+
+    #[serde(rename = "mimeType")]
+    pub mime_type: String,
+
+    #[serde(rename = "ref")]
+    pub thumbnail_ref: ExternalEmbedThumbnailRef,
+
+    #[serde(rename = "size")]
+    pub size: u64
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ExternalEmbedThumbnailRef {
+    #[serde(rename = "$link")]
+    pub link: String
 }
 
 /// A view of an external embed.
