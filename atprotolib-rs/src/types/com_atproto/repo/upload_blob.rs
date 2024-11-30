@@ -15,5 +15,26 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UploadBlobResponse {
     #[serde(rename = "blob")]
-    pub blob: Vec<u8>
+    pub blob: BlobItem
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct BlobItem {
+    #[serde(rename = "$type")]
+    pub item_type: String,
+
+    #[serde(rename = "mimeType")]
+    pub mime_type: String,
+
+    #[serde(rename = "ref")]
+    pub item_ref: BlobItemRef,
+
+    #[serde(rename = "size")]
+    pub size: u64
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct BlobItemRef {
+    #[serde(rename = "$link")]
+    pub link: String
 }
