@@ -10,62 +10,62 @@ use serde::{Deserialize, Serialize};
 pub struct RichTextFacet {
     /// The index of the facet in the rich text.
     #[serde(rename = "index")]
-    index: ByteSlice,
+    pub index: ByteSlice,
 
     /// The features of the facet.
     #[serde(rename = "features")]
-    features: Vec<RichTextFacetFeatures>
+    pub features: Vec<RichTextFacetFeature>
 }
 
 /// A type union for the features of a rich text facet.
 #[derive(Serialize, Deserialize, Debug)]
-pub enum RichTextFacetFeatures {
+#[serde(tag = "$type")]
+pub enum RichTextFacetFeature {
     /// A mention.
-    Mention(Mention),
+    #[serde(rename = "app.bsky.richtext.facet#mention")]
+    Mention(RichTextFacetMention),
 
     /// A link.
-    Link(Link),
+    #[serde(rename = "app.bsky.richtext.facet#link")]
+    Link(RichTextFacetLink),
 
     /// A tag.
-    Tag(Tag)
+    #[serde(rename = "app.bsky.richtext.facet#tag")]
+    Tag(RichTextFacetTag)
 }
 
 /// Represents a mention in a rich text facet.
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.richtext.facet#mention")]
-pub struct Mention {
+pub struct RichTextFacetMention {
     /// The DID of the mention.
     #[serde(rename = "did")]
-    did: String
+    pub did: String
 }
 
 /// Represents a link in a rich text facet.
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.richtext.facet#link")]
-pub struct Link {
+pub struct RichTextFacetLink {
     /// The URI of the link.
     #[serde(rename = "uri")]
-    uri: String
+    pub uri: String
 }
 
 /// Represents a tag in a rich text facet.
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.richtext.facet#tag")]
-pub struct Tag {
+pub struct RichTextFacetTag {
     /// The tag.
     #[serde(rename = "tag")]
-    tag: String
+    pub tag: String
 }
 
 /// Represents a byte slice.
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "app.bsky.richtext.facet#byteSlice")]
 pub struct ByteSlice {
     /// The start byte.
     #[serde(rename = "byteStart")]
-    byte_start: i64,
+    pub byte_start: i64,
 
     /// The end byte.
     #[serde(rename = "byteEnd")]
-    byte_end: i64
+    pub byte_end: i64
 }
