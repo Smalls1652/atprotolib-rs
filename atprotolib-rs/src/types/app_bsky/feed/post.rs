@@ -33,7 +33,7 @@ pub struct Post {
     pub text: String,
     #[serde(rename = "facets", skip_serializing_if = "Option::is_none")]
     pub facets: Option<Vec<RichTextFacet>>,
-    #[serde(rename = "replyRef", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "reply", skip_serializing_if = "Option::is_none")]
     pub reply_ref: Option<PostReplyRef>,
     #[serde(rename = "embed", skip_serializing_if = "Option::is_none")]
     pub embed: Option<PostEmbeds>,
@@ -83,8 +83,8 @@ pub enum PostEmbeds {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PostEmbedImage {
-    #[serde(rename = "image")]
-    pub image: ImageEmbed
+    #[serde(rename = "images")]
+    pub images: Vec<ImageEmbed>
 }
 
 #[derive(Serialize, Deserialize, Debug)]
