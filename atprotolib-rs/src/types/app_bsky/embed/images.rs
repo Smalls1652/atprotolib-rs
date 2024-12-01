@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::types::com_atproto::repo::BlobItem;
+
 use super::AspectRatio;
 
 /*
@@ -11,7 +13,7 @@ use super::AspectRatio;
 pub struct ImageEmbed {
     /// The image data.
     #[serde(rename = "image")]
-    pub image: Vec<u8>,
+    pub image: BlobItem,
 
     /// Alt text for the image.
     #[serde(rename = "alt")]
@@ -20,6 +22,27 @@ pub struct ImageEmbed {
     /// The aspect ratio of the image.
     #[serde(rename = "aspectRatio", skip_serializing_if = "Option::is_none")]
     pub aspect_ratio: Option<AspectRatio>
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ImageEmbedImage {
+    #[serde(rename = "$type")]
+    pub embed_type: String,
+
+    #[serde(rename = "mimeType")]
+    pub mime_type: String,
+
+    #[serde(rename = "ref")]
+    pub image_ref: ImageEmbedImageRef,
+
+    #[serde(rename = "size")]
+    pub size: u64
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ImageEmbedImageRef {
+    #[serde(rename = "$link")]
+    pub link: String
 }
 
 /// A view of an image embed.
