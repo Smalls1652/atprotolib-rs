@@ -48,12 +48,12 @@ pub enum ApplyWritesRequestWrites {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ApplyWritesResponse {
     /// The commit metadata.
-    #[serde(rename = "commit", skip_serializing_if = "Option::is_none")]
-    pub commit: Option<CommitMeta>,
+    #[serde(rename = "commit")]
+    pub commit: CommitMeta,
 
     /// The results of the writes.
-    #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<ApplyWritesResponseResults>>
+    #[serde(rename = "results")]
+    pub results: Vec<ApplyWritesResponseResults>
 }
 
 /// Represents the results of the writes.
