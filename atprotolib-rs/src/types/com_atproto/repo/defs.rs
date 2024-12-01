@@ -15,7 +15,6 @@ pub struct CommitMeta {
 
 /// A URI with a content-hash fingerprint.
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "$type", rename = "com.atproto.repo.strongRef")]
 pub struct StrongRef {
     /// The URI of the record.
     #[serde(rename = "uri")]
