@@ -22,7 +22,7 @@ pub struct ExternalEmbed {
     pub description: String,
 
     /// A thumbnail image representing the external content.
-    #[serde(rename = "thumb")]
+    #[serde(rename = "thumb", skip_serializing_if = "Option::is_none")]
     pub thumb: Option<BlobItem>
 }
 
