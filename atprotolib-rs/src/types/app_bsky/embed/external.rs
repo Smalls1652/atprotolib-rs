@@ -23,7 +23,7 @@ pub struct ExternalEmbed {
 
     /// A thumbnail image representing the external content.
     #[serde(rename = "thumb")]
-    pub thumb: BlobItem
+    pub thumb: Option<BlobItem>
 }
 
 #[derive(Serialize, Deserialize, Debug)]
