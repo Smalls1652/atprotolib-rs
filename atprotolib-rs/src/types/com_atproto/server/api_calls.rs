@@ -420,7 +420,7 @@ pub async fn list_app_passwords(
 pub async fn refresh_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
-) -> Result<RefreshSessionResponse, Box<dyn std::error::Error>> {
+) -> Result<CreateSessionResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
         "https://{}/xrpc/com.atproto.server.refreshSession",
         host_name
@@ -437,7 +437,7 @@ pub async fn refresh_session(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: RefreshSessionResponse = response.json().await?;
+            let response_body: CreateSessionResponse = response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
