@@ -45,8 +45,8 @@ pub struct CreateSessionResponse {
     pub did: String,
 
     /// The email of the account.
-    #[serde(rename = "email")]
-    pub email: String,
+    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+    pub email: Option<String>,
 
     /// Whether the email is confirmed.
     #[serde(rename = "emailConfirmed", default)]
