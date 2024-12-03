@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 /// Represents the status of a video upload job.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "app.bsky.video.defs#jobStatus")]
 pub struct JobStatus {
     /// The ID of the job.
