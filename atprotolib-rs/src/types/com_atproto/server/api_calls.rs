@@ -312,9 +312,9 @@ pub async fn describe_server(
 pub async fn get_service_auth(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
-    did: String,
+    did: &str,
     expiry: i64,
-    lexicon: Option<String>
+    lexicon: Option<&str>
 ) -> Result<GetServiceAuthResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
         "https://{}/xrpc/com.atproto.server.getServiceAuth",
@@ -323,10 +323,12 @@ pub async fn get_service_auth(
 
     let mut query_params = Vec::new();
     query_params.push(("aud", did));
-    query_params.push(("exp", expiry.to_string()));
+
+    let expiry_str = expiry.to_string();
+    query_params.push(("exp", &expiry_str));
 
     if let Some(lexicon) = lexicon {
-        query_params.push(("lexicon", lexicon));
+        query_params.push(("lxm", lexicon));
     }
 
     let client = reqwest::Client::new();
