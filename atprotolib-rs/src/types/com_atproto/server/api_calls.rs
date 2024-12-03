@@ -176,7 +176,7 @@ pub async fn create_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
     request: CreateSessionRequest
-) -> Result<CreateSessionResponse, ApiError> {
+) -> Result<CreateSessionResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
         "https://{}/xrpc/com.atproto.server.createSession",
         host_name
@@ -197,7 +197,7 @@ pub async fn create_session(
             let response_body: CreateSessionResponse = response.json().await?;
             Ok(response_body)
         }
-        _ => Err(ApiError::new(response).await.unwrap())
+        _ => Err(Box::new(ApiError::new(response).await?))
     }
 }
 
@@ -420,7 +420,7 @@ pub async fn list_app_passwords(
 pub async fn refresh_session(
     host_name: &str,
     api_auth_config: &ApiAuthConfig
-) -> Result<CreateSessionResponse, ApiError> {
+) -> Result<CreateSessionResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
         "https://{}/xrpc/com.atproto.server.refreshSession",
         host_name
@@ -440,7 +440,7 @@ pub async fn refresh_session(
             let response_body: CreateSessionResponse = response.json().await?;
             Ok(response_body)
         }
-        _ => Err(ApiError::new(response).await.unwrap())
+        _ => Err(Box::new(ApiError::new(response).await?))
     }
 }
 
