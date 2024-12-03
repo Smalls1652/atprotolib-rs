@@ -313,7 +313,7 @@ pub async fn get_service_auth(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
     did: String,
-    expiry: i32,
+    expiry: i64,
     lexicon: Option<String>
 ) -> Result<GetServiceAuthResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
