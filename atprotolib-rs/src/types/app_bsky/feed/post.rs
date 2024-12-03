@@ -3,10 +3,10 @@ use serde::{Deserialize, Serialize};
 
 use crate::types::{
     app_bsky::{
-        embed::{ExternalEmbed, ImageEmbed},
+        embed::{AspectRatio, ExternalEmbed, ImageEmbed},
         richtext::RichTextFacet
     },
-    com_atproto::{label::SelfLabels, repo::StrongRef}
+    com_atproto::{label::SelfLabels, repo::{BlobItem, StrongRef}}
 };
 
 /*
@@ -78,7 +78,9 @@ pub enum PostEmbeds {
     #[serde(rename = "app.bsky.embed.images")]
     Images(PostEmbedImage),
     #[serde(rename = "app.bsky.embed.external")]
-    External(PostEmbedExternal)
+    External(PostEmbedExternal),
+    #[serde(rename = "app.bsky.embed.video")]
+    Video(PostEmbedVideo)
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -91,6 +93,15 @@ pub struct PostEmbedImage {
 pub struct PostEmbedExternal {
     #[serde(rename = "external")]
     pub external: ExternalEmbed
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct PostEmbedVideo {
+    #[serde(rename = "aspectRatio", skip_serializing_if = "Option::is_none")]
+    pub aspect_ratio: Option<AspectRatio>,
+
+    #[serde(rename = "video")]
+    pub video: BlobItem
 }
 
 #[derive(Serialize, Deserialize, Debug)]
