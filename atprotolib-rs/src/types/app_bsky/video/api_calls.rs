@@ -82,7 +82,9 @@ pub async fn get_upload_limits(
 pub async fn upload_video(
     host_name: &str,
     api_auth_config: &ApiAuthConfig,
-    video: Vec<u8>
+    video: Vec<u8>,
+    did: &str,
+    name: &str
 ) -> Result<app_bsky::video::UploadVideoResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.video.uploadVideo", host_name);
 
@@ -91,6 +93,7 @@ pub async fn upload_video(
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
+        .query(&[("did", did), ("name", name)])
         .body(video)
         .send()
         .await?;
