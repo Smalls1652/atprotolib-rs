@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::types::com_atproto::repo::BlobItem;
+
 /// Represents the status of a video upload job.
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "app.bsky.video.defs#jobStatus")]
@@ -22,7 +24,7 @@ pub struct JobStatus {
 
     /// The blob of the job.
     #[serde(rename = "blob", skip_serializing_if = "Option::is_none")]
-    pub blob: Option<Vec<u8>>,
+    pub blob: Option<BlobItem>,
 
     /// The error of the job.
     #[serde(rename = "error", skip_serializing_if = "Option::is_none")]

@@ -18,7 +18,7 @@ pub struct UploadBlobResponse {
     pub blob: BlobItem
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct BlobItem {
     #[serde(rename = "$type")]
     pub item_type: String,
@@ -33,7 +33,7 @@ pub struct BlobItem {
     pub size: u64
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct BlobItemRef {
     #[serde(rename = "$link")]
     pub link: String
