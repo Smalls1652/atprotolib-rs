@@ -85,7 +85,7 @@ pub async fn upload_video(
     video: Vec<u8>,
     did: &str,
     name: &str
-) -> Result<app_bsky::video::UploadVideoResponse, Box<dyn std::error::Error>> {
+) -> Result<app_bsky::video::JobStatus, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.video.uploadVideo", host_name);
 
     let client = reqwest::Client::new();
@@ -100,7 +100,7 @@ pub async fn upload_video(
 
     match response.status() {
         reqwest::StatusCode::OK => {
-            let response_body: app_bsky::video::UploadVideoResponse = response.json().await?;
+            let response_body: app_bsky::video::JobStatus = response.json().await?;
             Ok(response_body)
         }
         _ => Err(Box::new(ApiError::new(response).await?))
