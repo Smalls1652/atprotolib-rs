@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 */
 
 /// Represents a facet of rich text.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "app.bsky.richtext.facet")]
 pub struct RichTextFacet {
     /// The index of the facet in the rich text.
@@ -18,7 +18,7 @@ pub struct RichTextFacet {
 }
 
 /// A type union for the features of a rich text facet.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type")]
 pub enum RichTextFacetFeature {
     /// A mention.
@@ -35,7 +35,7 @@ pub enum RichTextFacetFeature {
 }
 
 /// Represents a mention in a rich text facet.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct RichTextFacetMention {
     /// The DID of the mention.
     #[serde(rename = "did")]
@@ -43,7 +43,7 @@ pub struct RichTextFacetMention {
 }
 
 /// Represents a link in a rich text facet.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct RichTextFacetLink {
     /// The URI of the link.
     #[serde(rename = "uri")]
@@ -51,7 +51,7 @@ pub struct RichTextFacetLink {
 }
 
 /// Represents a tag in a rich text facet.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct RichTextFacetTag {
     /// The tag.
     #[serde(rename = "tag")]
@@ -59,7 +59,7 @@ pub struct RichTextFacetTag {
 }
 
 /// Represents a byte slice.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ByteSlice {
     /// The start byte.
     #[serde(rename = "byteStart")]

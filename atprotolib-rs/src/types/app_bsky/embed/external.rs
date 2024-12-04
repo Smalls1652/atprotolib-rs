@@ -7,7 +7,7 @@ use crate::types::com_atproto::repo::BlobItem;
 */
 
 /// A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ExternalEmbed {
     /// The URI of the external content.
     #[serde(rename = "uri")]

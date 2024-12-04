@@ -27,7 +27,7 @@ use crate::types::{
     - tags: string[] (JsonProperty: tags) [Optional]
     - created_at: datetime (JsonProperty: createdAt) [Required]
 */
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Post {
     #[serde(rename = "text")]
     pub text: String,
@@ -72,7 +72,7 @@ impl Post {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type")]
 pub enum PostEmbeds {
     #[serde(rename = "app.bsky.embed.images")]
@@ -83,19 +83,19 @@ pub enum PostEmbeds {
     Video(PostEmbedVideo)
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PostEmbedImage {
     #[serde(rename = "images")]
     pub images: Vec<ImageEmbed>
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PostEmbedExternal {
     #[serde(rename = "external")]
     pub external: ExternalEmbed
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PostEmbedVideo {
     #[serde(rename = "aspectRatio", skip_serializing_if = "Option::is_none")]
     pub aspect_ratio: Option<AspectRatio>,
@@ -104,7 +104,7 @@ pub struct PostEmbedVideo {
     pub video: BlobItem
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type")]
 pub enum PostLabels {
     #[serde(rename = "com.atproto.label.defs#selfLabels")]
@@ -119,7 +119,7 @@ pub enum PostLabels {
     - root: com.atproto.repo.strongRef (JsonProperty: root) [Required]
     - parent: com.atproto.repo.strongRef (JsonProperty: parent) [Required]
 */
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PostReplyRef {
     #[serde(rename = "root")]
     pub root: StrongRef,

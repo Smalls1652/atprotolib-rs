@@ -9,7 +9,7 @@ use super::AspectRatio;
 */
 
 /// A representation of an image embedded in a Bluesky record (eg, a post).
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ImageEmbed {
     /// The image data.
     #[serde(rename = "image")]

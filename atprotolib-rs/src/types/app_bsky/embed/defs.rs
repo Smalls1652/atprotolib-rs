@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 /// Represents the aspect ratio of an embed.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "app.bsky.embed.defs#aspectRatio")]
 pub struct AspectRatio {
     /// The width of the embed.

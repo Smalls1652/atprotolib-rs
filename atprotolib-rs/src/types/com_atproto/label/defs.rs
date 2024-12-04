@@ -42,7 +42,7 @@ pub struct Label {
 }
 
 /// Metadata tags on an atproto record, published by the author within the record.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "com.atproto.label.defs#selfLabels")]
 pub struct SelfLabels {
     /// A list of self labels.
@@ -51,7 +51,7 @@ pub struct SelfLabels {
 }
 
 /// Metadata tag on an atproto record, published by the author within the record.
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "$type", rename = "com.atproto.label.defs#selfLabel")]
 pub struct SelfLabel {
     /// The short string name of the value or type of this label.
