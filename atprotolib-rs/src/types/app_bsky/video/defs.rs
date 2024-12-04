@@ -4,7 +4,6 @@ use crate::types::com_atproto::repo::BlobItem;
 
 /// Represents the status of a video upload job.
 #[derive(Serialize, Deserialize, Debug, Clone)]
-#[serde(tag = "$type", rename = "app.bsky.video.defs#jobStatus")]
 pub struct JobStatus {
     /// The ID of the job.
     #[serde(rename = "jobId")]
