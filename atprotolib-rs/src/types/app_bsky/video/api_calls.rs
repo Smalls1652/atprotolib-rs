@@ -94,6 +94,7 @@ pub async fn upload_video(
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
         .query(&[("did", did), ("name", name)])
+        .header("Content-Type", "video/mp4")
         .body(video)
         .send()
         .await?;
