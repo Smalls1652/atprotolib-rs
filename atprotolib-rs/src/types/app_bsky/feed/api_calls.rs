@@ -16,6 +16,7 @@ use crate::{
 /// * `cursor` - A cursor for pagination.
 pub async fn get_actor_feeds(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -33,8 +34,7 @@ pub async fn get_actor_feeds(
         query_params.push(("cursor", cursor));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -64,6 +64,7 @@ pub async fn get_actor_feeds(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_actor_likes(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -81,8 +82,7 @@ pub async fn get_actor_likes(
         query_params.push(("cursor", cursor));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -114,6 +114,7 @@ pub async fn get_actor_likes(
 /// * `include_pins` - Whether to include pinned posts in the feed.
 pub async fn get_author_feed(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -140,8 +141,7 @@ pub async fn get_author_feed(
     let include_pins_string = include_pins.to_string();
     query_params.push(("includePins", include_pins_string.as_str()));
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)

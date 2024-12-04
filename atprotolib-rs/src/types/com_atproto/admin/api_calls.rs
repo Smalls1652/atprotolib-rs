@@ -30,13 +30,13 @@ use crate::{
 /// * `request` - The request to delete an account.
 pub async fn delete_account(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: DeleteAccountRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.admin.deleteAccount", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -60,6 +60,7 @@ pub async fn delete_account(
 /// * `request` - The request to disable account invites.
 pub async fn disable_account_invites(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: DisableAccountInvitesRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -68,8 +69,7 @@ pub async fn disable_account_invites(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -94,6 +94,7 @@ pub async fn disable_account_invites(
 /// * `request` - The request to disable invite codes.
 pub async fn disable_invite_codes(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: DisableInviteCodesRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -102,8 +103,7 @@ pub async fn disable_invite_codes(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -127,6 +127,7 @@ pub async fn disable_invite_codes(
 /// * `request` - The request to enable account invites.
 pub async fn enable_account_invites(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: EnableAccountInvitesRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -135,8 +136,7 @@ pub async fn enable_account_invites(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -160,6 +160,7 @@ pub async fn enable_account_invites(
 /// * `did` - The DID of the account.
 pub async fn get_account_info(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: String
 ) -> Result<GetAccountInfoResponse, Box<dyn std::error::Error>> {
@@ -168,8 +169,7 @@ pub async fn get_account_info(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&[("did", did)])
@@ -195,6 +195,7 @@ pub async fn get_account_info(
 /// * `request` - The request to get account infos.
 pub async fn get_account_infos(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: GetAccountInfosRequest
 ) -> Result<GetAccountInfosResponse, Box<dyn std::error::Error>> {
@@ -203,8 +204,7 @@ pub async fn get_account_infos(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -233,6 +233,7 @@ pub async fn get_account_infos(
 /// * `sort` - The sort order to use.
 pub async fn get_invite_codes(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<String>,
@@ -254,8 +255,7 @@ pub async fn get_invite_codes(
         query_params.push(("sort", sort));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .query(&query_params)
@@ -306,6 +306,7 @@ pub enum GetSubjectStatusResponse {
 /// * `subject` - The subject to get the status of.
 pub async fn get_subject_status(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     subject: GetSubjectStatusSubject
 ) -> Result<GetSubjectStatusResponse, Box<dyn std::error::Error>> {
@@ -320,8 +321,7 @@ pub async fn get_subject_status(
         GetSubjectStatusSubject::Blob(blob) => vec![("blob", blob)]
     };
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -360,6 +360,7 @@ pub async fn get_subject_status(
 /// * `cursor` - The cursor to use for pagination.
 pub async fn search_accounts(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     query: String,
     limit: Option<i32>,
@@ -378,8 +379,7 @@ pub async fn search_accounts(
         query_params.push(("cursor", cursor));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -405,13 +405,13 @@ pub async fn search_accounts(
 /// * `request` - The request to send an email.
 pub async fn send_email(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: SendEmailRequest
 ) -> Result<SendEmailResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.admin.sendEmail", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -438,6 +438,7 @@ pub async fn send_email(
 /// * `request` - The request to update an account's email.
 pub async fn update_account_email(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: UpdateAccountEmailRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -446,8 +447,7 @@ pub async fn update_account_email(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -471,6 +471,7 @@ pub async fn update_account_email(
 /// * `request` - The request to update an account's handle.
 pub async fn update_account_handle(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: UpdateAccountHandleRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -479,8 +480,7 @@ pub async fn update_account_handle(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -504,6 +504,7 @@ pub async fn update_account_handle(
 /// * `request` - The request to update an account's password.
 pub async fn update_account_password(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: UpdateAccountPasswordRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -512,8 +513,7 @@ pub async fn update_account_password(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())

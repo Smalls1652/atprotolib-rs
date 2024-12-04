@@ -14,13 +14,13 @@ use super::UploadBlobResponse;
 /// * `request` - The writes to apply.
 pub async fn apply_writes(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: ApplyWritesRequest
 ) -> Result<ApplyWritesResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.repo.applyWrites", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -40,14 +40,14 @@ pub async fn apply_writes(
 
 pub async fn upload_blob(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     blob: Vec<u8>,
     content_type: Option<&str>
 ) -> Result<UploadBlobResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.repo.uploadBlob", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())

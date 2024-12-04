@@ -14,6 +14,7 @@ use crate::{
 /// * `actor` - Handle or DID of the account to fetch the profile of.
 pub async fn get_profile(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str
 ) -> Result<app_bsky::actor::ProfileViewDetailed, Box<dyn std::error::Error>> {
@@ -21,8 +22,7 @@ pub async fn get_profile(
 
     let query_params = vec![("actor", actor)];
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -51,6 +51,7 @@ pub async fn get_profile(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_suggestions(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -66,8 +67,7 @@ pub async fn get_suggestions(
         query_params.push(("cursor", cursor));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -96,6 +96,7 @@ pub async fn get_suggestions(
 /// * `limit` - The maximum number of actors to return. Defaults to 10.
 pub async fn search_actors_typeahead(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     query: &str,
     limit: Option<i32>
@@ -111,8 +112,7 @@ pub async fn search_actors_typeahead(
     let limit_string = limit.unwrap_or_else(|| 10).to_string();
     query_params.push(("limit", limit_string.as_str()));
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -143,6 +143,7 @@ pub async fn search_actors_typeahead(
 /// * `cursor` - A cursor for pagination.
 pub async fn search_actors(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     query: &str,
     limit: Option<i32>,
@@ -160,8 +161,7 @@ pub async fn search_actors(
         query_params.push(("cursor", cursor));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)

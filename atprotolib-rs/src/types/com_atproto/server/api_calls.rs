@@ -35,13 +35,13 @@ use crate::{
 /// * `request` - The request to confirm the email.
 pub async fn confirm_email(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: ConfirmEmailRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.server.confirmEmail", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let request_builder = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -65,6 +65,7 @@ pub async fn confirm_email(
 /// * `request` - The request to create the account.
 pub async fn create_account(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: CreateAccountRequest
 ) -> Result<CreateAccountResponse, Box<dyn std::error::Error>> {
@@ -73,8 +74,7 @@ pub async fn create_account(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -101,6 +101,7 @@ pub async fn create_account(
 /// * `request` - The request to create the App Password.
 pub async fn create_app_password(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: CreateAppPasswordRequest
 ) -> Result<CreateAppPasswordResponse, Box<dyn std::error::Error>> {
@@ -109,8 +110,7 @@ pub async fn create_app_password(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -137,6 +137,7 @@ pub async fn create_app_password(
 /// * `request` - The request to create the invite code.
 pub async fn create_invite_code(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: InviteCodeRequest
 ) -> Result<InviteCodeResponse, Box<dyn std::error::Error>> {
@@ -145,8 +146,7 @@ pub async fn create_invite_code(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -173,6 +173,7 @@ pub async fn create_invite_code(
 /// * `request` - The request to create the session.
 pub async fn create_session(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: CreateSessionRequest
 ) -> Result<CreateSessionResponse, Box<dyn std::error::Error>> {
@@ -181,8 +182,7 @@ pub async fn create_session(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -209,6 +209,7 @@ pub async fn create_session(
 /// * `request` - The request to deactivate the account.
 pub async fn deactivate_account(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: DeactivateAccountRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -217,8 +218,7 @@ pub async fn deactivate_account(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -242,6 +242,7 @@ pub async fn deactivate_account(
 /// * `request` - The request to delete the account.
 pub async fn delete_account(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: DeleteAccountRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -250,8 +251,7 @@ pub async fn delete_account(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -274,6 +274,7 @@ pub async fn delete_account(
 /// * `api_auth_config` - The API authentication configuration.
 pub async fn describe_server(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<DescribeServerResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
@@ -281,8 +282,7 @@ pub async fn describe_server(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -310,6 +310,7 @@ pub async fn describe_server(
 /// * `lexicon` - Lexicon (XRPC) method to bind the requested token to
 pub async fn get_service_auth(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str,
     expiry: i64,
@@ -330,8 +331,7 @@ pub async fn get_service_auth(
         query_params.push(("lxm", lexicon));
     }
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .query(&query_params)
@@ -357,12 +357,12 @@ pub async fn get_service_auth(
 /// * `api_auth_config` - The API authentication configuration.
 pub async fn get_session(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<GetSessionResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.server.getSession", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -387,6 +387,7 @@ pub async fn get_session(
 /// * `api_auth_config` - The API authentication configuration.
 pub async fn list_app_passwords(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<ListAppPasswordsResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
@@ -394,8 +395,7 @@ pub async fn list_app_passwords(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .get(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -420,6 +420,7 @@ pub async fn list_app_passwords(
 /// * `api_auth_config` - The API authentication configuration.
 pub async fn refresh_session(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<CreateSessionResponse, Box<dyn std::error::Error>> {
     let api_url = format!(
@@ -427,8 +428,7 @@ pub async fn refresh_session(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -454,6 +454,7 @@ pub async fn refresh_session(
 /// * `email` - The new email address.
 pub async fn request_email_update(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     email: String
 ) -> Result<RequestEmailUpdateResponse, Box<dyn std::error::Error>> {
@@ -462,8 +463,7 @@ pub async fn request_email_update(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -491,6 +491,7 @@ pub async fn request_email_update(
 /// * `request` - The request to reset the password.
 pub async fn request_password_reset(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: RequestPasswordResetRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -499,8 +500,7 @@ pub async fn request_password_reset(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -524,6 +524,7 @@ pub async fn request_password_reset(
 /// * `request` - The request to reserve the signing key.
 pub async fn reserve_signing_key(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: ReserveSigningKeyRequest
 ) -> Result<ReserveSigningKeyResponse, Box<dyn std::error::Error>> {
@@ -532,8 +533,7 @@ pub async fn reserve_signing_key(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -560,6 +560,7 @@ pub async fn reserve_signing_key(
 /// * `request` - The request to reset the password.
 pub async fn reset_password(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: ResetPasswordRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -568,8 +569,7 @@ pub async fn reset_password(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -593,6 +593,7 @@ pub async fn reset_password(
 /// * `request` - The request to revoke the App Password.
 pub async fn revoke_app_password(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: RevokeAppPasswordRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -601,8 +602,7 @@ pub async fn revoke_app_password(
         host_name
     );
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
@@ -626,13 +626,13 @@ pub async fn revoke_app_password(
 /// * `request` - The request to update the email.
 pub async fn update_email(
     host_name: &str,
+    client: &reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: UpdateEmailRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.server.updateEmail", host_name);
 
-    let client = reqwest::Client::new();
-
+    
     let response = client
         .post(&api_url)
         .add_api_auth(api_auth_config.clone())
