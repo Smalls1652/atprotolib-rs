@@ -20,7 +20,7 @@ use crate::{
 /// * `cid` - The CID of the blob to get.
 pub async fn get_blob(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str,
     cid: &str
@@ -55,7 +55,7 @@ pub async fn get_blob(
 /// * `did` - The DID of the repo.
 pub async fn get_latest_commit(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str
 ) -> Result<GetLatestCommitResponse, Box<dyn std::error::Error>> {
@@ -94,7 +94,7 @@ pub async fn get_latest_commit(
 /// * `rkey` - The rkey of the record.
 pub async fn get_record(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str,
     collection: &str,
@@ -130,7 +130,7 @@ pub async fn get_record(
 /// * `did` - The DID of the repo.
 pub async fn get_repo_status(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str
 ) -> Result<GetRepoStatusResponse, Box<dyn std::error::Error>> {
@@ -165,7 +165,7 @@ pub async fn get_repo_status(
 /// * `since` - The CID of the previous revision to diff against.
 pub async fn get_repo(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: &str,
     since: Option<&str>
@@ -208,7 +208,7 @@ pub async fn get_repo(
 /// * `cursor` - The cursor to use for pagination.
 pub async fn list_blobs(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     did: String,
     since: Option<String>,
@@ -256,7 +256,7 @@ pub async fn list_blobs(
 /// * `cursor` - The cursor to use for pagination.
 pub async fn list_repos(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<String>
@@ -296,7 +296,7 @@ pub async fn list_repos(
 /// * `request` - The request to send.
 pub async fn notify_of_update(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: NotifyOfUpdateRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -325,7 +325,7 @@ pub async fn notify_of_update(
 /// * `request` - The request to send.
 pub async fn request_crawl(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: RequestCrawlRequest
 ) -> Result<(), Box<dyn std::error::Error>> {

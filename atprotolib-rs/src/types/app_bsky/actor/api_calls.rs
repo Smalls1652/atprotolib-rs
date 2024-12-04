@@ -14,7 +14,7 @@ use crate::{
 /// * `actor` - Handle or DID of the account to fetch the profile of.
 pub async fn get_profile(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str
 ) -> Result<app_bsky::actor::ProfileViewDetailed, Box<dyn std::error::Error>> {
@@ -51,7 +51,7 @@ pub async fn get_profile(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_suggestions(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -96,7 +96,7 @@ pub async fn get_suggestions(
 /// * `limit` - The maximum number of actors to return. Defaults to 10.
 pub async fn search_actors_typeahead(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     query: &str,
     limit: Option<i32>
@@ -143,7 +143,7 @@ pub async fn search_actors_typeahead(
 /// * `cursor` - A cursor for pagination.
 pub async fn search_actors(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     query: &str,
     limit: Option<i32>,

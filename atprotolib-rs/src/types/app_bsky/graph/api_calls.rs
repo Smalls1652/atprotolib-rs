@@ -16,7 +16,7 @@ use crate::{
 /// * `cursor` - A cursor for pagination.
 pub async fn get_actor_starter_packs(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -67,7 +67,7 @@ pub async fn get_actor_starter_packs(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_blocks(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -113,7 +113,7 @@ pub async fn get_blocks(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_followers(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -161,7 +161,7 @@ pub async fn get_followers(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_follows(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -209,7 +209,7 @@ pub async fn get_follows(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_known_followers(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -259,7 +259,7 @@ pub async fn get_known_followers(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_list_blocks(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -304,7 +304,7 @@ pub async fn get_list_blocks(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_list_mutes(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -350,7 +350,7 @@ pub async fn get_list_mutes(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_list(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     list: &str,
     limit: Option<i32>,
@@ -398,7 +398,7 @@ pub async fn get_list(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_lists(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -445,7 +445,7 @@ pub async fn get_lists(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_mutes(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     limit: Option<i32>,
     cursor: Option<&str>
@@ -489,7 +489,7 @@ pub async fn get_mutes(
 /// * `starter_pack` - The URI of the starter pack to fetch.
 pub async fn get_starter_pack(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     starter_pack: &str
 ) -> Result<app_bsky::graph::GetStarterPackResponse, Box<dyn std::error::Error>> {
@@ -525,7 +525,7 @@ pub async fn get_starter_pack(
 /// * `actor` - Handle or DID of the account to fetch the suggested follows for.
 pub async fn get_suggested_follows_by_actor(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str
 ) -> Result<app_bsky::graph::GetSuggestedFollowsByActorResponse, Box<dyn std::error::Error>> {
@@ -565,7 +565,7 @@ pub async fn get_suggested_follows_by_actor(
 /// * `request` - The request to mute a list of actors.
 pub async fn mute_actor_list(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::MuteActorListRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -596,7 +596,7 @@ pub async fn mute_actor_list(
 /// * `request` - The request to mute an actor.
 pub async fn mute_actor(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::MuteActorRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -627,7 +627,7 @@ pub async fn mute_actor(
 /// * `request` - The request to mute a thread.
 pub async fn mute_thread(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::MuteThreadRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -658,7 +658,7 @@ pub async fn mute_thread(
 /// * `request` - The request to unmute a list of actors.
 pub async fn unmute_actor_list(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::UnmuteActorListRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -689,7 +689,7 @@ pub async fn unmute_actor_list(
 /// * `request` - The request to unmute an actor.
 pub async fn unmute_actor(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::UnmuteActorRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -720,7 +720,7 @@ pub async fn unmute_actor(
 /// * `request` - The request to unmute a thread.
 pub async fn unmute_thread(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: app_bsky::graph::UnmuteThreadRequest
 ) -> Result<(), Box<dyn std::error::Error>> {

@@ -16,7 +16,7 @@ use crate::{
 /// * `cursor` - A cursor for pagination.
 pub async fn get_actor_feeds(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -64,7 +64,7 @@ pub async fn get_actor_feeds(
 /// * `cursor` - A cursor for pagination.
 pub async fn get_actor_likes(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,
@@ -114,7 +114,7 @@ pub async fn get_actor_likes(
 /// * `include_pins` - Whether to include pinned posts in the feed.
 pub async fn get_author_feed(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     actor: &str,
     limit: Option<i32>,

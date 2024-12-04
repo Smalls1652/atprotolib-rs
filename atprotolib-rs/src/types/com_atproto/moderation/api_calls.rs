@@ -12,7 +12,7 @@ use crate::{
 /// * `report` - The report to create.
 pub async fn create_report(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     report: com_atproto::moderation::CreateReportRequest
 ) -> Result<com_atproto::moderation::CreateReportResponse, Box<dyn std::error::Error>> {

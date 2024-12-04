@@ -11,7 +11,7 @@ use crate::{
 /// * `api_auth_config` - The API authentication configuration.
 pub async fn get_recommended_did_credentials(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<com_atproto::identity::GetRecommendedDidCredentialsResponse, Box<dyn std::error::Error>>
 {
@@ -46,7 +46,7 @@ pub async fn get_recommended_did_credentials(
 /// * `handle` - The handle to resolve.
 pub async fn resolve_handle(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     handle: &str
 ) -> Result<com_atproto::identity::ResolveHandleResponse, Box<dyn std::error::Error>> {
@@ -84,7 +84,7 @@ pub async fn resolve_handle(
 /// * `request` - The request to sign the PLC operation.
 pub async fn sign_plc_operation(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::SignPlcOperationRequest
 ) -> Result<com_atproto::identity::SignPlcOperationResponse, Box<dyn std::error::Error>> {
@@ -120,7 +120,7 @@ pub async fn sign_plc_operation(
 /// * `request` - The request to submit the PLC operation.
 pub async fn submit_plc_operation(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::SubmitPlcOperationRequest
 ) -> Result<(), Box<dyn std::error::Error>> {
@@ -152,7 +152,7 @@ pub async fn submit_plc_operation(
 /// * `request` - The request to update the handle.
 pub async fn update_handle(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: com_atproto::identity::UpdateHandleRequest
 ) -> Result<(), Box<dyn std::error::Error>> {

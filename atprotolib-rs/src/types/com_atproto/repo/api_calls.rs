@@ -14,7 +14,7 @@ use super::UploadBlobResponse;
 /// * `request` - The writes to apply.
 pub async fn apply_writes(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     request: ApplyWritesRequest
 ) -> Result<ApplyWritesResponse, Box<dyn std::error::Error>> {
@@ -40,7 +40,7 @@ pub async fn apply_writes(
 
 pub async fn upload_blob(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     blob: Vec<u8>,
     content_type: Option<&str>

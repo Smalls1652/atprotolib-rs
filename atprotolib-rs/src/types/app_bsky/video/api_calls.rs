@@ -14,7 +14,7 @@ use crate::{
 /// * `job_id` - The ID of the job to get the status of.
 pub async fn get_job_status(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     job_id: &str
 ) -> Result<app_bsky::video::GetJobStatusResponse, Box<dyn std::error::Error>> {
@@ -49,7 +49,7 @@ pub async fn get_job_status(
 /// * `api_auth_config` - The authentication configuration to use.
 pub async fn get_upload_limits(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig
 ) -> Result<app_bsky::video::GetUploadLimitsResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.video.getUploadLimits", host_name);
@@ -81,7 +81,7 @@ pub async fn get_upload_limits(
 /// * `video` - The video to upload.
 pub async fn upload_video(
     host_name: &str,
-    client: &reqwest::Client,
+    client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
     video: Vec<u8>,
     did: &str,
