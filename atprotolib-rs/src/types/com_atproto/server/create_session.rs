@@ -26,7 +26,7 @@ pub struct CreateSessionRequest {
 /// Represents a session creation response.
 ///
 /// [`com.atproto.server.createSession#responses`](https://docs.bsky.app/docs/api/com-atproto-server-create-session#responses)
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct CreateSessionResponse {
     /// The access JWT.
     #[serde(rename = "accessJwt")]

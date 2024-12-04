@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 /// Represents a session refresh response.
 ///
 /// [`com.atproto.server.refreshSession#responses`](https://docs.bsky.app/docs/api/com-atproto-server-refresh-session#responses)
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct RefreshSessionResponse {
     /// The access JWT.
     #[serde(rename = "accessJwt")]

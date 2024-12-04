@@ -2,14 +2,14 @@ use reqwest::{RequestBuilder, Response, StatusCode};
 use serde::{Deserialize, Serialize};
 
 /// Represents API authentication configuration.
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct ApiAuthConfig {
     /// The data for the API authentication configuration.
     pub data: ApiAuthConfigData
 }
 
 /// Represents the data for API authentication configuration.
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub enum ApiAuthConfigData {
     /// No authentication.
     None,
@@ -22,7 +22,7 @@ pub enum ApiAuthConfigData {
 }
 
 /// Represents an admin user for API authentication.
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct ApiAuthAdminUser {
     /// The username of the admin user.
     pub username: String,
@@ -32,7 +32,7 @@ pub struct ApiAuthAdminUser {
 }
 
 /// Represents a bearer token for API authentication.
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct ApiAuthBearerToken {
     /// The bearer token.
     pub token: String

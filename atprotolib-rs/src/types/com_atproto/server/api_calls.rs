@@ -16,7 +16,6 @@ use crate::{
         InviteCodeRequest,
         InviteCodeResponse,
         ListAppPasswordsResponse,
-        RefreshSessionResponse,
         RequestEmailUpdateResponse,
         RequestPasswordResetRequest,
         ReserveSigningKeyRequest,
