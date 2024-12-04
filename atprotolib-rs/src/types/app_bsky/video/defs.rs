@@ -27,8 +27,5 @@ pub struct JobStatus {
 
     /// The error of the job.
     #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
-    pub error: Option<String>,
-
-    // The message of the job.
-    //pub message: Option<String>
+    pub error: Option<String>
 }
