@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use super::DidDoc;
+
 /*
     com.atproto.server.refreshSession
 */
@@ -24,6 +26,10 @@ pub struct RefreshSessionResponse {
     /// The DID of the account.
     #[serde(rename = "did")]
     pub did: String,
+
+    /// DID document of the account.
+    #[serde(rename = "didDoc")]
+    pub did_doc: DidDoc,
 
     /// Whether the session is active.
     #[serde(rename = "active", default)]

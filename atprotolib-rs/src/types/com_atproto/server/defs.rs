@@ -46,3 +46,56 @@ pub struct InviteCodeUse {
     #[serde(rename = "usedAt")]
     pub used_at: DateTime<Utc>
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct DidDoc {
+    #[serde(rename = "@context")]
+    pub context: Vec<String>,
+
+    #[serde(rename = "id")]
+    pub id: String,
+
+    #[serde(rename = "alsoKnownAs")]
+    pub also_known_as: Vec<String>,
+
+    #[serde(rename = "verificationMethod")]
+    pub verification_method: Vec<DidDocVerificationMethods>,
+
+    #[serde(rename = "service")]
+    pub service: Vec<DidDocServices>
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(tag = "type")]
+pub enum DidDocVerificationMethods {
+    #[serde(rename = "Multikey")]
+    Multikey(DidDocVerificationMethodMultiKey)
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct DidDocVerificationMethodMultiKey {
+    #[serde(rename = "id")]
+    pub id: String,
+
+    #[serde(rename = "controller")]
+    pub controller: String,
+
+    #[serde(rename = "publicKeyMultibase")]
+    pub public_key_multibase: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(tag = "type")]
+pub enum DidDocServices {
+    #[serde(rename = "AtprotoPersonalDataServer")]
+    AtprotoPersonalDataServer(DidDocServiceAtprotoPersonalDataServer)
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct DidDocServiceAtprotoPersonalDataServer {
+    #[serde(rename = "id")]
+    pub id: String,
+
+    #[serde(rename = "serviceEndpoint")]
+    pub service_endpoint: String
+}

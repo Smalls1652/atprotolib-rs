@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use super::DidDoc;
+
 /*
     com.atproto.server.createSession
 */
@@ -43,6 +45,10 @@ pub struct CreateSessionResponse {
     /// The DID of the account.
     #[serde(rename = "did")]
     pub did: String,
+
+    /// DID document of the account.
+    #[serde(rename = "didDoc")]
+    pub did_doc: DidDoc,
 
     /// The email of the account.
     #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
