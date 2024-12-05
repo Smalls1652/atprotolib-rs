@@ -84,8 +84,8 @@ pub struct ApiError {
     pub error: String,
 
     /// The returned error message.
-    #[serde(rename = "message")]
-    pub message: String,
+    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+    pub message: Option<String>,
 
     /// The kind of API error. Typically corresponds to the HTTP status code.
     #[serde(skip, default)]
@@ -131,7 +131,7 @@ impl std::fmt::Display for ApiError {
         &self,
         f: &mut std::fmt::Formatter
     ) -> std::fmt::Result {
-        write!(f, "API Error: {} - {}", self.error, self.message)
+        write!(f, "API Error: {} - {}", self.error, self.message.clone().unwrap_or_else(|| "N/A".to_string()))
     }
 }
 
