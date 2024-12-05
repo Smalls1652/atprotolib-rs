@@ -86,7 +86,7 @@ pub async fn upload_video(
     video: Vec<u8>,
     did: &str,
     name: &str
-) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
+) -> Result<crate::types::app_bsky::video::JobStatus, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/app.bsky.video.uploadVideo", host_name);
 
     
@@ -101,7 +101,7 @@ pub async fn upload_video(
 
     match response.status() {
         reqwest::StatusCode::OK | reqwest::StatusCode::CONFLICT => {
-            let response_body: serde_json::Value = serde_json::from_str(&response.text().await?)?;
+            let response_body: crate::types::app_bsky::video::JobStatus = response.json().await?;
 
             Ok(response_body)
         }
