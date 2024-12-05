@@ -47,8 +47,8 @@ pub struct CreateSessionResponse {
     pub did: String,
 
     /// DID document of the account.
-    #[serde(rename = "didDoc")]
-    pub did_doc: DidDoc,
+    #[serde(rename = "didDoc", skip_serializing_if = "Option::is_none")]
+    pub did_doc: Option<DidDoc>,
 
     /// The email of the account.
     #[serde(rename = "email", skip_serializing_if = "Option::is_none")]

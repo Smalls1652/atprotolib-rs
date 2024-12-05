@@ -28,8 +28,8 @@ pub struct RefreshSessionResponse {
     pub did: String,
 
     /// DID document of the account.
-    #[serde(rename = "didDoc")]
-    pub did_doc: DidDoc,
+    #[serde(rename = "didDoc", skip_serializing_if = "Option::is_none")]
+    pub did_doc: Option<DidDoc>,
 
     /// Whether the session is active.
     #[serde(rename = "active", default)]
