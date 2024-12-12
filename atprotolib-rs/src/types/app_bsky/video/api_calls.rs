@@ -79,11 +79,12 @@ pub async fn get_upload_limits(
 /// * `host_name` - The hostname of the server to connect to.
 /// * `api_auth_config` - The authentication configuration to use.
 /// * `video` - The video to upload.
-pub async fn upload_video(
+pub async fn upload_video<T: Into<reqwest::Body>>
+(
     host_name: &str,
     client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
-    video: Vec<u8>,
+    video: T,
     did: &str,
     name: &str
 ) -> Result<crate::types::app_bsky::video::JobStatus, Box<dyn std::error::Error>> {
