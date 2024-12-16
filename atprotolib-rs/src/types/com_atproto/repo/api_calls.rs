@@ -38,11 +38,11 @@ pub async fn apply_writes(
     }
 }
 
-pub async fn upload_blob(
+pub async fn upload_blob<T: Into<reqwest::Body>>(
     host_name: &str,
     client: reqwest::Client,
     api_auth_config: &ApiAuthConfig,
-    blob: Vec<u8>,
+    blob: T,
     content_type: Option<&str>
 ) -> Result<UploadBlobResponse, Box<dyn std::error::Error>> {
     let api_url = format!("https://{}/xrpc/com.atproto.repo.uploadBlob", host_name);
