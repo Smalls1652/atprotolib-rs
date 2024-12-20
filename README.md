@@ -1,6 +1,9 @@
 # `atprotolib-rs` [![GitHub build status](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Smalls1652/atprotolib-rs/actions/workflows/build.yml) [![Forgejo build status](https://git.smalls.online/smalls/atprotolib-rs/badges/workflows/build.yml/badge.svg?branch=main)](https://git.smalls.online/smalls/atprotolib-rs/actions?workflow=build.yml) [![MIT license](https://badgen.net/static/License/MIT/blue)](./LICENSE)
 
 > [!WARNING]
+> This is not being actively maintained in **this repo** for the time being. A more up-to-date version can be found in my [Smalls1652/fediproto-sync](https://github.com/Smalls1652/fediproto-sync) project. When things get stable on that end, I'll be moving this library back to this repo.
+
+> [!WARNING]
 > This is a work in progress and is not yet ready for use.
 
 A Rust library for various [ATProtocol](https://atproto.com/) (Used by [BlueSky](https://bsky.social/about)) API/Lexicon types.
